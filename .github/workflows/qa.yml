@@ -8,8 +8,6 @@ on:
 jobs:
   qa-smoke:
     runs-on: ubuntu-latest
-    container:
-      image: mcr.microsoft.com/playwright:v1.58.2-noble
 
     services:
       postgres:
@@ -28,7 +26,6 @@ jobs:
 
     env:
       BASE_URL: http://127.0.0.1:8000
-      PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: "1"
 
     steps:
       - name: Checkout repository
@@ -38,6 +35,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
 
       - name: Create .env file
         run: |
@@ -71,7 +73,9 @@ jobs:
 
       - name: Install Playwright package dependencies
         working-directory: postman
-        run: npm ci
+        run: |
+          npm ci
+          sudo npx playwright install --with-deps chromium
 
       - name: Run Playwright smoke tests
         working-directory: postman
