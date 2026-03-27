@@ -72,14 +72,14 @@ jobs:
           exit 1
 
       - name: Install Playwright browser
-        working-directory: qa/playwright
+        working-directory: postman
         run: |
           npm install
-          npx playwright install --with-deps
+          node ./node_modules/playwright/cli.js install chromium
 
       - name: Run Playwright smoke tests
         working-directory: postman
-        run: npx playwright test
+        run: node ./node_modules/@playwright/test/cli.js test
 
       - name: Upload Playwright report
         if: always()
