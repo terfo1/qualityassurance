@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "test": "playwright test"
+    "test": "node ./node_modules/@playwright/test/cli.js test"
   },
   "devDependencies": {
     "@playwright/test": "^1.53.2",
