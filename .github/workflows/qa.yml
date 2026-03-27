@@ -72,10 +72,10 @@ jobs:
           exit 1
 
       - name: Install Playwright browser
-        working-directory: postman
+        working-directory: qa/playwright
         run: |
           npm install
-          npx playwright install chromium
+          npx playwright install --with-deps
 
       - name: Run Playwright smoke tests
         working-directory: postman
