@@ -9,6 +9,7 @@ FRONTEND_INDEX = Path("frontend/index.html").resolve()
 
 
 @router.get("/")
+@router.get("/auth")
 @router.get("/catalog")
 @router.get("/product")
 @router.get("/cart")
