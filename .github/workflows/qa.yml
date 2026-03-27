@@ -75,7 +75,7 @@ jobs:
         working-directory: postman
         run: |
           npm ci
-          sudo npx playwright install --with-deps chromium
+          npx playwright install --with-deps chromium
 
       - name: Run Playwright smoke tests
         working-directory: postman
