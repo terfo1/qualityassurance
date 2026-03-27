@@ -16,7 +16,7 @@ test.describe("Authentication smoke", () => {
     await inputs.nth(0).fill("demo@novacart.local");
     await inputs.nth(1).fill("wrongpass");
 
-    await page.getByRole("button", { name: /^login$/i }).click();
+    await page.locator(".form-grid").getByRole("button", { name: /^login$/i }).click();
 
     await expect(page.getByText(/error|invalid|incorrect/i)).toBeVisible();
   });
