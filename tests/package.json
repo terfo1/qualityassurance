@@ -1,0 +1,19 @@
+{
+  "name": "novacart-api-tests",
+  "version": "1.0.0",
+  "description": "Automated API test suite for NovaCart — Playwright",
+  "private": true,
+  "scripts": {
+    "test":        "npx playwright test --config=playwright.config.ts",
+    "test:auth":   "npx playwright test --config=playwright.config.ts auth/",
+    "test:cart":   "npx playwright test --config=playwright.config.ts cart/",
+    "test:orders": "npx playwright test --config=playwright.config.ts orders/",
+    "test:products":"npx playwright test --config=playwright.config.ts products/",
+    "test:system": "npx playwright test --config=playwright.config.ts system/ admin/",
+    "report":      "npx playwright show-report test-results/html"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.45.0",
+    "typescript":       "^5.4.0"
+  }
+}
