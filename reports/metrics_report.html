@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaCart Metrics Report</title>
+  <style>
+    :root {
+      --bg: #f6f2e9;
+      --panel: #fffdf8;
+      --ink: #1f2933;
+      --muted: #5b6570;
+      --grid: #d6d1c4;
+      --accent: #0f766e;
+      --accent-2: #c2410c;
+      --ok: #166534;
+      --fail: #b91c1c;
+      --shadow: 0 18px 40px rgba(31, 41, 51, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top right, rgba(194, 65, 12, 0.10), transparent 30%),
+        radial-gradient(circle at left 20%, rgba(15, 118, 110, 0.10), transparent 28%),
+        var(--bg);
+      color: var(--ink);
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 40px 24px 56px;
+    }
+
+    .hero {
+      margin-bottom: 28px;
+      padding: 28px;
+      background: linear-gradient(135deg, rgba(255, 253, 248, 0.98), rgba(250, 245, 235, 0.98));
+      border: 1px solid rgba(31, 41, 51, 0.08);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      margin: 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 22px 0 4px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.82);
+      border: 1px solid rgba(31, 41, 51, 0.08);
+      border-radius: 16px;
+      padding: 16px;
+    }
+
+    .stat .label {
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .stat .value {
+      margin-top: 8px;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 22px;
+      margin-top: 24px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid rgba(31, 41, 51, 0.08);
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      padding: 22px;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.3rem;
+    }
+
+    .card p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      line-height: 1.45;
+    }
+
+    .full {
+      margin-top: 22px;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .axis-label {
+      fill: var(--muted);
+      font-size: 12px;
+    }
+
+    .chart-title {
+      fill: var(--ink);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+      background: rgba(255, 255, 255, 0.7);
+      overflow: hidden;
+      border-radius: 16px;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      border-bottom: 1px solid rgba(31, 41, 51, 0.08);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: rgba(15, 118, 110, 0.08);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .status-pass {
+      color: var(--ok);
+      font-weight: 700;
+    }
+
+    .status-fail {
+      color: var(--fail);
+      font-weight: 700;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    code {
+      font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+      font-size: 0.92em;
+      background: rgba(31, 41, 51, 0.06);
+      padding: 0.1em 0.35em;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>NovaCart Metrics Report</h1>
+      <p>
+        Consolidated QA metrics derived from the existing evidence artifacts only. This report uses the saved automation coverage,
+        execution-time, and defect comparison tables generated from the April 3, 2026 full-suite evidence set.
+      </p>
+      <div class="stats">
+        <div class="stat">
+          <div class="label">Overall Coverage</div>
+          <div class="value">92%</div>
+        </div>
+        <div class="stat">
+          <div class="label">Full Suite Time</div>
+          <div class="value">1.955s</div>
+        </div>
+        <div class="stat">
+          <div class="label">Modules Exceeding Expectation</div>
+          <div class="value">2</div>
+        </div>
+        <div class="stat">
+          <div class="label">Slowest Module</div>
+          <div class="value">System/Admin</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Automation Coverage per Module</h2>
+        <p>Coverage values are taken from the high-risk automation coverage table and plotted as a bar chart.</p>
+        <svg viewBox="0 0 560 360" role="img" aria-label="Bar chart of automation coverage per module">
+          <text x="18" y="24" class="chart-title">Coverage %</text>
+          <line x1="60" y1="300" x2="530" y2="300" stroke="var(--grid)" stroke-width="1.5" />
+          <line x1="60" y1="40" x2="60" y2="300" stroke="var(--grid)" stroke-width="1.5" />
+          <line x1="60" y1="92" x2="530" y2="92" stroke="var(--grid)" stroke-dasharray="4 6" />
+          <line x1="60" y1="144" x2="530" y2="144" stroke="var(--grid)" stroke-dasharray="4 6" />
+          <line x1="60" y1="196" x2="530" y2="196" stroke="var(--grid)" stroke-dasharray="4 6" />
+          <line x1="60" y1="248" x2="530" y2="248" stroke="var(--grid)" stroke-dasharray="4 6" />
+          <text x="24" y="304" class="axis-label">0</text>
+          <text x="14" y="252" class="axis-label">20</text>
+          <text x="14" y="200" class="axis-label">40</text>
+          <text x="14" y="148" class="axis-label">60</text>
+          <text x="14" y="96" class="axis-label">80</text>
+          <text x="6" y="44" class="axis-label">100</text>
+
+          <rect x="84" y="40" width="50" height="260" fill="var(--accent)" rx="8" />
+          <rect x="164" y="76.4" width="50" height="223.6" fill="var(--accent-2)" rx="8" />
+          <rect x="244" y="40" width="50" height="260" fill="var(--accent)" rx="8" />
+          <rect x="324" y="40" width="50" height="260" fill="var(--accent)" rx="8" />
+          <rect x="404" y="40" width="50" height="260" fill="var(--accent)" rx="8" />
+          <rect x="484" y="92" width="50" height="208" fill="var(--accent-2)" rx="8" />
+
+          <text x="109" y="32" text-anchor="middle" class="axis-label">100%</text>
+          <text x="189" y="68" text-anchor="middle" class="axis-label">86%</text>
+          <text x="269" y="32" text-anchor="middle" class="axis-label">100%</text>
+          <text x="349" y="32" text-anchor="middle" class="axis-label">100%</text>
+          <text x="429" y="32" text-anchor="middle" class="axis-label">100%</text>
+          <text x="509" y="84" text-anchor="middle" class="axis-label">80%</text>
+
+          <text x="109" y="320" text-anchor="middle" class="axis-label">Auth</text>
+          <text x="189" y="320" text-anchor="middle" class="axis-label">Cart</text>
+          <text x="269" y="320" text-anchor="middle" class="axis-label">Checkout</text>
+          <text x="349" y="320" text-anchor="middle" class="axis-label">Admin</text>
+          <text x="429" y="320" text-anchor="middle" class="axis-label">Status</text>
+          <text x="509" y="320" text-anchor="middle" class="axis-label">DB</text>
+        </svg>
+        <div class="note">
+          Modules shown: Authentication <code>100%</code>, Shopping Cart <code>86%</code>, Checkout and Order Creation <code>100%</code>,
+          Admin Product Management <code>100%</code>, Order Status Updates <code>100%</code>, Database Migration and Persistence <code>80%</code>.
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Execution Time per Module</h2>
+        <p>Total execution times are plotted from the saved execution time table for the module runs.</p>
+        <svg viewBox="0 0 560 360" role="img" aria-label="Line chart of execution times per module">
+          <text x="18" y="24" class="chart-title">Total Execution Time (sec)</text>
+          <line x1="60" y1="300" x2="530" y2="300" stroke="var(--grid)" stroke-width="1.5" />
+          <line x1="60" y1="40" x2="60" y2="300" stroke="var(--grid)" stroke-width="1.5" />
+          <line x1="60" y1="246" x2="530" y2="246" stroke="var(--grid)" stroke-dasharray="4 6" />
+          <line x1="60" y1="192" x2="530" y2="192" stroke="var(--grid)" stroke-dasharray="4 6" />
+          <line x1="60" y1="138" x2="530" y2="138" stroke="var(--grid)" stroke-dasharray="4 6" />
+          <line x1="60" y1="84" x2="530" y2="84" stroke="var(--grid)" stroke-dasharray="4 6" />
+          <text x="12" y="304" class="axis-label">0.0</text>
+          <text x="12" y="250" class="axis-label">0.3</text>
+          <text x="12" y="196" class="axis-label">0.6</text>
+          <text x="12" y="142" class="axis-label">0.9</text>
+          <text x="12" y="88" class="axis-label">1.2</text>
+
+          <polyline
+            fill="none"
+            stroke="var(--accent-2)"
+            stroke-width="4"
+            points="90,76 190,209 290,176 390,200 490,41"
+          />
+          <circle cx="90" cy="76" r="6" fill="var(--accent)" />
+          <circle cx="190" cy="209" r="6" fill="var(--accent)" />
+          <circle cx="290" cy="176" r="6" fill="var(--accent)" />
+          <circle cx="390" cy="200" r="6" fill="var(--accent)" />
+          <circle cx="490" cy="41" r="6" fill="var(--accent)" />
+
+          <text x="90" y="62" text-anchor="middle" class="axis-label">1.036</text>
+          <text x="190" y="195" text-anchor="middle" class="axis-label">0.421</text>
+          <text x="290" y="162" text-anchor="middle" class="axis-label">0.571</text>
+          <text x="390" y="186" text-anchor="middle" class="axis-label">0.463</text>
+          <text x="490" y="27" text-anchor="middle" class="axis-label">1.195</text>
+
+          <text x="90" y="320" text-anchor="middle" class="axis-label">Auth</text>
+          <text x="190" y="320" text-anchor="middle" class="axis-label">Cart</text>
+          <text x="290" y="320" text-anchor="middle" class="axis-label">Orders</text>
+          <text x="390" y="320" text-anchor="middle" class="axis-label">Products</text>
+          <text x="490" y="320" text-anchor="middle" class="axis-label">System/Admin</text>
+        </svg>
+        <div class="note">
+          The slowest saved module run is <code>System/Admin</code> at <code>1.195 sec</code>. The full-suite saved runtime is <code>1.955 sec</code>.
+        </div>
+      </article>
+    </section>
+
+    <section class="card full">
+      <h2>Defects Found vs Expected</h2>
+      <p>The table below summarizes the risk-based defect comparison using the saved defects table.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Module/Feature</th>
+            <th>Risk Level</th>
+            <th>Expected Defects</th>
+            <th>Defects Found</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Authentication</td>
+            <td>High</td>
+            <td>2-5</td>
+            <td>6</td>
+            <td class="status-fail">Exceeded</td>
+          </tr>
+          <tr>
+            <td>Shopping Cart</td>
+            <td>High</td>
+            <td>2-5</td>
+            <td>3</td>
+            <td class="status-pass">Within Range</td>
+          </tr>
+          <tr>
+            <td>Checkout and Order Creation</td>
+            <td>High</td>
+            <td>2-5</td>
+            <td>2</td>
+            <td class="status-pass">Within Range</td>
+          </tr>
+          <tr>
+            <td>Admin Product Management</td>
+            <td>High</td>
+            <td>1-3</td>
+            <td>1</td>
+            <td class="status-pass">Within Range</td>
+          </tr>
+          <tr>
+            <td>Order Status Updates</td>
+            <td>High</td>
+            <td>1-3</td>
+            <td>0</td>
+            <td class="status-pass">Within Range</td>
+          </tr>
+          <tr>
+            <td>Admin Dashboard</td>
+            <td>Medium</td>
+            <td>0-1</td>
+            <td>2</td>
+            <td class="status-fail">Exceeded</td>
+          </tr>
+          <tr>
+            <td>Product Reviews</td>
+            <td>Medium</td>
+            <td>0-1</td>
+            <td>1</td>
+            <td class="status-pass">Within Range</td>
+          </tr>
+          <tr>
+            <td>Database Migration and Persistence</td>
+            <td>High</td>
+            <td>1-3</td>
+            <td>1</td>
+            <td class="status-pass">Within Range</td>
+          </tr>
+          <tr>
+            <td>Frontend Delivery and UI Integration</td>
+            <td>Medium</td>
+            <td>0-1</td>
+            <td>0</td>
+            <td class="status-pass">Within Range</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="note">
+        Modules exceeding expectation in the saved evidence set: <code>Authentication</code> and <code>Admin Dashboard</code>.
+        The underlying defect table also notes that some failures are automation defects, especially Playwright fixture misuse, not only product defects.
+      </div>
+    </section>
+  </div>
+</body>
+</html>

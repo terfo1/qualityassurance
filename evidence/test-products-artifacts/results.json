@@ -1,0 +1,861 @@
+{
+  "config": {
+    "configFile": "/Users/marioscordia/Desktop/qualityassurance/tests/playwright.config.ts",
+    "rootDir": "/Users/marioscordia/Desktop/qualityassurance/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/marioscordia/Desktop/qualityassurance/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "test-results/html"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "products/TC-CAT-catalog-filtering.spec.ts",
+      "file": "products/TC-CAT-catalog-filtering.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Catalog Filtering — GET /api/products",
+          "file": "products/TC-CAT-catalog-filtering.spec.ts",
+          "line": 17,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-CAT-001 | filter by category=Footwear → only Footwear products returned",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 32,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:51.769Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "99378ea40ff63f9041b3-d830261bbc70b8b98a26",
+              "file": "products/TC-CAT-catalog-filtering.spec.ts",
+              "line": 19,
+              "column": 7
+            },
+            {
+              "title": "TC-CAT-002 | price range filter is inclusive on both bounds",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 14,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:51.810Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "99378ea40ff63f9041b3-0f7776223e817fd804f2",
+              "file": "products/TC-CAT-catalog-filtering.spec.ts",
+              "line": 34,
+              "column": 7
+            },
+            {
+              "title": "TC-CAT-003 | search by product name → matching product returned",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 13,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:51.830Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "99378ea40ff63f9041b3-ab235536bb22fb30f61e",
+              "file": "products/TC-CAT-catalog-filtering.spec.ts",
+              "line": 52,
+              "column": 7
+            },
+            {
+              "title": "TC-CAT-004 | sort=price_asc → products ordered lowest to highest price",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:51.850Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "99378ea40ff63f9041b3-b767a3c25871ef110143",
+              "file": "products/TC-CAT-catalog-filtering.spec.ts",
+              "line": 62,
+              "column": 7
+            },
+            {
+              "title": "TC-CAT-005 | unknown category → 200 with empty list (no server error)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:51.866Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "99378ea40ff63f9041b3-ae4941564c661817e9db",
+              "file": "products/TC-CAT-catalog-filtering.spec.ts",
+              "line": 74,
+              "column": 7
+            },
+            {
+              "title": "TC-CAT-006 | min_price > max_price → empty list or 422 (no crash)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 8,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:51.878Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "99378ea40ff63f9041b3-585b624ac75c85c5a8e4",
+              "file": "products/TC-CAT-catalog-filtering.spec.ts",
+              "line": 83,
+              "column": 7
+            },
+            {
+              "title": "TC-CAT-007 | featured=true → only featured products returned",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:51.890Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "99378ea40ff63f9041b3-fbf9b72c318157f39f9b",
+              "file": "products/TC-CAT-catalog-filtering.spec.ts",
+              "line": 95,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "products/TC-PROD-admin-crud.spec.ts",
+      "file": "products/TC-PROD-admin-crud.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-PROD-001 | create product with valid payload → 201, all fields persisted correctly",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 1,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.",
+                    "stack": "Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.\n    at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/products/TC-PROD-admin-crud.spec.ts:40:29",
+                    "location": {
+                      "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                      "column": 21,
+                      "line": 34
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers/api-client.ts:34\n\n  32 |\n  33 |   post(endpoint: string, body: object = {}, token?: string) {\n> 34 |     return this.req.post(`${BASE}${endpoint}`, {\n     |                     ^\n  35 |       headers: this.headers(token),\n  36 |       data: body,\n  37 |     });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                        "column": 21,
+                        "line": 34
+                      },
+                      "message": "Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.\n\n   at helpers/api-client.ts:34\n\n  32 |\n  33 |   post(endpoint: string, body: object = {}, token?: string) {\n> 34 |     return this.req.post(`${BASE}${endpoint}`, {\n     |                     ^\n  35 |       headers: this.headers(token),\n  36 |       data: body,\n  37 |     });\n    at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/products/TC-PROD-admin-crud.spec.ts:40:29"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:51.772Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/products-TC-PROD-admin-cru-be7ee--fields-persisted-correctly/error-context.md"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/products-TC-PROD-admin-cru-be7ee--fields-persisted-correctly/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                    "column": 21,
+                    "line": 34
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "917ffe12b1bfa609d3f2-d3125d2308d1e9a1d93c",
+          "file": "products/TC-PROD-admin-crud.spec.ts",
+          "line": 37,
+          "column": 5
+        },
+        {
+          "title": "TC-PROD-002 | created product appears in GET /api/products catalog",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:51.847Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "917ffe12b1bfa609d3f2-d174dde15a659b182b50",
+          "file": "products/TC-PROD-admin-crud.spec.ts",
+          "line": 53,
+          "column": 5
+        },
+        {
+          "title": "TC-PROD-005 | partial update (price only) → 200, other fields unchanged",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:51.848Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "917ffe12b1bfa609d3f2-2558ae327bc6cb2ad2a4",
+          "file": "products/TC-PROD-admin-crud.spec.ts",
+          "line": 69,
+          "column": 5
+        },
+        {
+          "title": "TC-PROD-007 | delete product → removed from catalog",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:51.848Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "917ffe12b1bfa609d3f2-a26e07724c04fa8cae7c",
+          "file": "products/TC-PROD-admin-crud.spec.ts",
+          "line": 91,
+          "column": 5
+        },
+        {
+          "title": "TC-PROD-003 | price = 0 → 422 (DTO: gt=0)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:51.848Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "917ffe12b1bfa609d3f2-7079fd1baa711072380d",
+          "file": "products/TC-PROD-admin-crud.spec.ts",
+          "line": 109,
+          "column": 5
+        },
+        {
+          "title": "TC-PROD-004 | negative stock → 422 (DTO: ge=0)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:51.848Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "917ffe12b1bfa609d3f2-fdbc79465bf128cc8863",
+          "file": "products/TC-PROD-admin-crud.spec.ts",
+          "line": 114,
+          "column": 5
+        },
+        {
+          "title": "TC-PROD-006 | update non-existent product → 404",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:51.849Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "917ffe12b1bfa609d3f2-8390f8d49745fad1ea79",
+          "file": "products/TC-PROD-admin-crud.spec.ts",
+          "line": 119,
+          "column": 5
+        },
+        {
+          "title": "TC-PROD-008 | delete non-existent product → 404",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:51.849Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "917ffe12b1bfa609d3f2-e6c556ce66b84780ac9f",
+          "file": "products/TC-PROD-admin-crud.spec.ts",
+          "line": 124,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "products/TC-REV-reviews.spec.ts",
+      "file": "products/TC-REV-reviews.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-REV-001 | new review updates product average rating correctly",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 1,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.",
+                    "stack": "Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.\n    at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)\n    at ApiClient.createProduct (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:119:28)\n    at freshProduct (/Users/marioscordia/Desktop/qualityassurance/tests/products/TC-REV-reviews.spec.ts:38:29)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/products/TC-REV-reviews.spec.ts:46:22",
+                    "location": {
+                      "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                      "column": 21,
+                      "line": 34
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers/api-client.ts:34\n\n  32 |\n  33 |   post(endpoint: string, body: object = {}, token?: string) {\n> 34 |     return this.req.post(`${BASE}${endpoint}`, {\n     |                     ^\n  35 |       headers: this.headers(token),\n  36 |       data: body,\n  37 |     });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                        "column": 21,
+                        "line": 34
+                      },
+                      "message": "Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.\n\n   at helpers/api-client.ts:34\n\n  32 |\n  33 |   post(endpoint: string, body: object = {}, token?: string) {\n> 34 |     return this.req.post(`${BASE}${endpoint}`, {\n     |                     ^\n  35 |       headers: this.headers(token),\n  36 |       data: body,\n  37 |     });\n    at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)\n    at ApiClient.createProduct (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:119:28)\n    at freshProduct (/Users/marioscordia/Desktop/qualityassurance/tests/products/TC-REV-reviews.spec.ts:38:29)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/products/TC-REV-reviews.spec.ts:46:22"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:51.771Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/products-TC-REV-reviews-TC-43597-ct-average-rating-correctly/error-context.md"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/products-TC-REV-reviews-TC-43597-ct-average-rating-correctly/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                    "column": 21,
+                    "line": 34
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "03a5200bf73e4b8cc645-389dbb8b9bbf9fdfbf5b",
+          "file": "products/TC-REV-reviews.spec.ts",
+          "line": 45,
+          "column": 5
+        },
+        {
+          "title": "TC-REV-002 | first review on product sets rating exactly to that rating",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:51.850Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "03a5200bf73e4b8cc645-c98c0158e2638bbcb5ca",
+          "file": "products/TC-REV-reviews.spec.ts",
+          "line": 70,
+          "column": 5
+        },
+        {
+          "title": "TC-REV-003 | rating = 6 (above max) → 422 (DTO: le=5)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:51.850Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "03a5200bf73e4b8cc645-a373cf8295f7eeafa02b",
+          "file": "products/TC-REV-reviews.spec.ts",
+          "line": 87,
+          "column": 5
+        },
+        {
+          "title": "TC-REV-004 | comment shorter than 8 chars → 422 (DTO: min_length=8)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:51.850Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "03a5200bf73e4b8cc645-2d682aa6702ffe9b753a",
+          "file": "products/TC-REV-reviews.spec.ts",
+          "line": 98,
+          "column": 5
+        },
+        {
+          "title": "TC-REV-005 | review on non-existent product → 404",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:51.850Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "03a5200bf73e4b8cc645-b637e13714bef4990c63",
+          "file": "products/TC-REV-reviews.spec.ts",
+          "line": 109,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-04-03T15:36:51.446Z",
+    "duration": 463.047,
+    "expected": 7,
+    "skipped": 11,
+    "unexpected": 2,
+    "flaky": 0
+  }
+}

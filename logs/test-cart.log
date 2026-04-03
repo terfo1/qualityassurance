@@ -1,0 +1,161 @@
+
+> novacart-api-tests@1.0.0 test:cart
+> npx playwright test --config=playwright.config.ts cart/
+
+
+Running 24 tests using 5 workers
+
+[31mConfiguration Error: HTML reporter output folder clashes with the tests output folder:[39m
+
+    html reporter folder: [1m/Users/marioscordia/Desktop/qualityassurance/tests/test-results/html[22m
+    test results folder: [1m/Users/marioscordia/Desktop/qualityassurance/tests/test-results[22m
+
+HTML reporter will clear its output directory prior to being generated, which will lead to the artifact loss.
+
+(node:54700) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54699) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54701) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54697) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54698) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54697) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54700) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54698) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54699) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54701) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   5 cart/TC-CART-add-item.spec.ts:35:5 › TC-CART-001 | add valid in-stock product → 200, item appears in cart with correct line_total (0ms)
+  -   6 cart/TC-CART-add-item.spec.ts:51:5 › TC-CART-002 | adding same product twice increments quantity (upsert — no duplicates)
+  -   7 cart/TC-CART-add-item.spec.ts:67:5 › TC-CART-003 | quantity exceeds stock → 400 (InventoryError)
+  -   8 cart/TC-CART-add-item.spec.ts:74:5 › TC-CART-004 | non-existent product_id → 404 (NotFoundError)
+  -   9 cart/TC-CART-add-item.spec.ts:79:5 › TC-CART-005 | quantity = 0 → 422 (DTO validation, ge=1)
+  -  10 cart/TC-CART-add-item.spec.ts:84:5 › TC-CART-006 | quantity = 21 → 422 (DTO validation, le=20)
+  ✘   1 cart/TC-SHIP-shipping.spec.ts:31:5 › TC-SHIP-001 | shipping_method=express → shipping cost = $18.00 (0ms)
+  -  11 cart/TC-SHIP-shipping.spec.ts:40:5 › TC-SHIP-002 | shipping_method=pickup → shipping cost = $0.00 (free)
+  -  12 cart/TC-SHIP-shipping.spec.ts:55:5 › TC-SHIP-003 | invalid shipping method → 400 or 422
+  -  13 cart/TC-SHIP-shipping.spec.ts:61:5 › TC-SHIP-004 | empty shipping method string → 400 or 422
+  ✘   4 cart/TC-CART-update-item.spec.ts:32:5 › TC-CART-007 | update quantity of existing item → 200, totals recalculated (0ms)
+  -  14 cart/TC-CART-update-item.spec.ts:45:5 › TC-CART-008 | update to quantity = 1 (boundary minimum) → 200, accepted
+  -  15 cart/TC-CART-update-item.spec.ts:58:5 › TC-CART-009 | new quantity exceeds available stock → 400 (InventoryError)
+  -  16 cart/TC-CART-update-item.spec.ts:64:5 › TC-CART-010 | product not in cart → 404 (NotFoundError)
+  ✘   3 cart/TC-CART-remove-clear.spec.ts:31:5 › TC-CART-011 | remove existing item → 200, item absent from cart, totals updated (0ms)
+  -  17 cart/TC-CART-remove-clear.spec.ts:52:5 › TC-CART-012 | clear cart → 200, empty items list, all totals zero (except possible shipping base)
+  -  18 cart/TC-CART-remove-clear.spec.ts:68:5 › TC-CART-013 | remove product not in cart → 404 (NotFoundError)
+  -  19 cart/TC-CART-remove-clear.spec.ts:74:5 › TC-CART-014 | clear already-empty cart → 200 (idempotent, no error)
+  ✘   2 cart/TC-COUPON-coupon.spec.ts:36:5 › TC-COUPON-001 | percent coupon (WELCOME10, 10% off) → discount = 10% of subtotal (1ms)
+  -  20 cart/TC-COUPON-coupon.spec.ts:53:5 › TC-COUPON-002 | fixed coupon (SHIPFREE, $8 off) → discount = $8.00
+  -  21 cart/TC-COUPON-coupon.spec.ts:70:5 › TC-COUPON-003 | fixed coupon capped at subtotal (cannot produce negative total)
+  -  22 cart/TC-COUPON-coupon.spec.ts:89:5 › TC-COUPON-004 | invalid coupon code → 4xx (not found)
+  -  23 cart/TC-COUPON-coupon.spec.ts:97:5 › TC-COUPON-005 | inactive coupon (VIP25 with subtotal below min) → 400
+  -  24 cart/TC-COUPON-coupon.spec.ts:106:5 › TC-COUPON-006 | minimum subtotal not met (WELCOME10 requires $50, subtotal $19) → 400
+
+
+  1) cart/TC-CART-add-item.spec.ts:35:5 › TC-CART-001 | add valid in-stock product → 200, item appears in cart with correct line_total 
+
+    Error: Registration failed: HTTP 500 — Internal Server Error
+
+       at helpers/api-client.ts:90
+
+      88 |     });
+      89 |     if (!reg.ok()) {
+    > 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);
+         |             ^
+      91 |     }
+      92 |     return this.login(email, password);
+      93 |   }
+        at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-add-item.spec.ts:24:11
+
+    Error Context: test-results/cart-TC-CART-add-item-TC-C-03fbc-art-with-correct-line-total/error-context.md
+
+  2) cart/TC-CART-remove-clear.spec.ts:31:5 › TC-CART-011 | remove existing item → 200, item absent from cart, totals updated 
+
+    Error: Registration failed: HTTP 500 — Internal Server Error
+
+       at helpers/api-client.ts:90
+
+      88 |     });
+      89 |     if (!reg.ok()) {
+    > 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);
+         |             ^
+      91 |     }
+      92 |     return this.login(email, password);
+      93 |   }
+        at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-remove-clear.spec.ts:22:11
+
+    Error Context: test-results/cart-TC-CART-remove-clear--55591-nt-from-cart-totals-updated/error-context.md
+
+  3) cart/TC-CART-update-item.spec.ts:32:5 › TC-CART-007 | update quantity of existing item → 200, totals recalculated 
+
+    Error: Registration failed: HTTP 500 — Internal Server Error
+
+       at helpers/api-client.ts:90
+
+      88 |     });
+      89 |     if (!reg.ok()) {
+    > 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);
+         |             ^
+      91 |     }
+      92 |     return this.login(email, password);
+      93 |   }
+        at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-update-item.spec.ts:21:11
+
+    Error Context: test-results/cart-TC-CART-update-item-T-82808-m-→-200-totals-recalculated/error-context.md
+
+  4) cart/TC-COUPON-coupon.spec.ts:36:5 › TC-COUPON-001 | percent coupon (WELCOME10, 10% off) → discount = 10% of subtotal 
+
+    Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.
+      - Recommended fix: use a separate { request } in the test.
+      - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.
+    See https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.
+
+       at helpers/api-client.ts:34
+
+      32 |
+      33 |   post(endpoint: string, body: object = {}, token?: string) {
+    > 34 |     return this.req.post(`${BASE}${endpoint}`, {
+         |                     ^
+      35 |       headers: this.headers(token),
+      36 |       data: body,
+      37 |     });
+        at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)
+        at ApiClient.clearCart (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:99:16)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-COUPON-coupon.spec.ts:31:16
+
+    Error Context: test-results/cart-TC-COUPON-coupon-TC-C-721dc-f-→-discount-10-of-subtotal/error-context.md
+
+  5) cart/TC-SHIP-shipping.spec.ts:31:5 › TC-SHIP-001 | shipping_method=express → shipping cost = $18.00 
+
+    Error: Registration failed: HTTP 500 — Internal Server Error
+
+       at helpers/api-client.ts:90
+
+      88 |     });
+      89 |     if (!reg.ok()) {
+    > 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);
+         |             ^
+      91 |     }
+      92 |     return this.login(email, password);
+      93 |   }
+        at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-SHIP-shipping.spec.ts:23:11
+
+    Error Context: test-results/cart-TC-SHIP-shipping-TC-S-ef79e-press-→-shipping-cost-18-00/error-context.md
+
+  5 failed
+    cart/TC-CART-add-item.spec.ts:35:5 › TC-CART-001 | add valid in-stock product → 200, item appears in cart with correct line_total 
+    cart/TC-CART-remove-clear.spec.ts:31:5 › TC-CART-011 | remove existing item → 200, item absent from cart, totals updated 
+    cart/TC-CART-update-item.spec.ts:32:5 › TC-CART-007 | update quantity of existing item → 200, totals recalculated 
+    cart/TC-COUPON-coupon.spec.ts:36:5 › TC-COUPON-001 | percent coupon (WELCOME10, 10% off) → discount = 10% of subtotal 
+    cart/TC-SHIP-shipping.spec.ts:31:5 › TC-SHIP-001 | shipping_method=express → shipping cost = $18.00 
+  19 did not run

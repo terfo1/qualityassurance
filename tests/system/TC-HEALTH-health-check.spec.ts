@@ -15,7 +15,7 @@ test.describe("Health Check — GET /api/metrics/health", () => {
   test("TC-HEALTH-001 | health endpoint returns {status: ok, service: novacart} without auth", async ({ request }) => {
     const client = new ApiClient(request);
 
-    const res  = await client.get("/api/metrics/health"); // no token
+    const res  = await client.get("/api/health"); // no token; route: GET /api/health (no /metrics prefix)
     expect(res.status()).toBe(200);
     const body = await res.json();
 
@@ -27,18 +27,18 @@ test.describe("Health Check — GET /api/metrics/health", () => {
     const client = new ApiClient(request);
 
     // Explicitly confirm no 401 is returned for public health route
-    const res = await client.get("/api/metrics/health");
+    const res = await client.get("/api/health");
     expect(res.status()).not.toBe(401);
     expect(res.status()).toBe(200);
   });
 });
 
-test.describe("System Metrics — GET /api/metrics/metrics", () => {
+test.describe("System Metrics — GET /api/metrics", () => {
 
   test("TC-METRICS-001 | metrics endpoint returns product, category, and order counts", async ({ request }) => {
     const client = new ApiClient(request);
 
-    const res  = await client.get("/api/metrics/metrics");
+    const res  = await client.get("/api/metrics"); // route: GET /api/metrics (no /metrics/metrics)
     expect(res.status()).toBe(200);
     const body = await res.json();
 

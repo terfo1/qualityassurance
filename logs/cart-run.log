@@ -1,0 +1,133 @@
+
+Running 24 tests using 5 workers
+
+[31mConfiguration Error: HTML reporter output folder clashes with the tests output folder:[39m
+
+    html reporter folder: [1m/Users/marioscordia/Desktop/qualityassurance/tests/test-results/html[22m
+    test results folder: [1m/Users/marioscordia/Desktop/qualityassurance/tests/test-results[22m
+
+HTML reporter will clear its output directory prior to being generated, which will lead to the artifact loss.
+
+  ✘   5 cart/TC-CART-remove-clear.spec.ts:31:5 › TC-CART-011 | remove existing item → 200, item absent from cart, totals updated (0ms)
+  -   6 cart/TC-CART-remove-clear.spec.ts:52:5 › TC-CART-012 | clear cart → 200, empty items list, all totals zero (except possible shipping base)
+  -   7 cart/TC-CART-remove-clear.spec.ts:68:5 › TC-CART-013 | remove product not in cart → 404 (NotFoundError)
+  -   8 cart/TC-CART-remove-clear.spec.ts:74:5 › TC-CART-014 | clear already-empty cart → 200 (idempotent, no error)
+  ✘   1 cart/TC-COUPON-coupon.spec.ts:36:5 › TC-COUPON-001 | percent coupon (WELCOME10, 10% off) → discount = 10% of subtotal (0ms)
+  -   9 cart/TC-COUPON-coupon.spec.ts:53:5 › TC-COUPON-002 | fixed coupon (SHIPFREE, $8 off) → discount = $8.00
+  -  10 cart/TC-COUPON-coupon.spec.ts:70:5 › TC-COUPON-003 | fixed coupon capped at subtotal (cannot produce negative total)
+  -  11 cart/TC-COUPON-coupon.spec.ts:89:5 › TC-COUPON-004 | invalid coupon code → 4xx (not found)
+  -  12 cart/TC-COUPON-coupon.spec.ts:97:5 › TC-COUPON-005 | inactive coupon (VIP25 with subtotal below min) → 400
+  -  13 cart/TC-COUPON-coupon.spec.ts:106:5 › TC-COUPON-006 | minimum subtotal not met (WELCOME10 requires $50, subtotal $19) → 400
+  ✘   3 cart/TC-CART-add-item.spec.ts:35:5 › TC-CART-001 | add valid in-stock product → 200, item appears in cart with correct line_total (0ms)
+  -  14 cart/TC-CART-add-item.spec.ts:51:5 › TC-CART-002 | adding same product twice increments quantity (upsert — no duplicates)
+  -  15 cart/TC-CART-add-item.spec.ts:67:5 › TC-CART-003 | quantity exceeds stock → 400 (InventoryError)
+  -  16 cart/TC-CART-add-item.spec.ts:74:5 › TC-CART-004 | non-existent product_id → 404 (NotFoundError)
+  -  17 cart/TC-CART-add-item.spec.ts:79:5 › TC-CART-005 | quantity = 0 → 422 (DTO validation, ge=1)
+  -  18 cart/TC-CART-add-item.spec.ts:84:5 › TC-CART-006 | quantity = 21 → 422 (DTO validation, le=20)
+  ✘   2 cart/TC-CART-update-item.spec.ts:32:5 › TC-CART-007 | update quantity of existing item → 200, totals recalculated (0ms)
+  -  19 cart/TC-CART-update-item.spec.ts:45:5 › TC-CART-008 | update to quantity = 1 (boundary minimum) → 200, accepted
+  -  20 cart/TC-CART-update-item.spec.ts:58:5 › TC-CART-009 | new quantity exceeds available stock → 400 (InventoryError)
+  -  21 cart/TC-CART-update-item.spec.ts:64:5 › TC-CART-010 | product not in cart → 404 (NotFoundError)
+  ✘   4 cart/TC-SHIP-shipping.spec.ts:31:5 › TC-SHIP-001 | shipping_method=express → shipping cost = $18.00 (0ms)
+  -  22 cart/TC-SHIP-shipping.spec.ts:40:5 › TC-SHIP-002 | shipping_method=pickup → shipping cost = $0.00 (free)
+  -  23 cart/TC-SHIP-shipping.spec.ts:55:5 › TC-SHIP-003 | invalid shipping method → 400 or 422
+  -  24 cart/TC-SHIP-shipping.spec.ts:61:5 › TC-SHIP-004 | empty shipping method string → 400 or 422
+
+
+  1) cart/TC-CART-add-item.spec.ts:35:5 › TC-CART-001 | add valid in-stock product → 200, item appears in cart with correct line_total 
+
+    Error: Registration failed: HTTP 500 — Internal Server Error
+
+       at helpers/api-client.ts:90
+
+      88 |     });
+      89 |     if (!reg.ok()) {
+    > 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);
+         |             ^
+      91 |     }
+      92 |     return this.login(email, password);
+      93 |   }
+        at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-add-item.spec.ts:24:11
+
+    Error Context: test-results/cart-TC-CART-add-item-TC-C-03fbc-art-with-correct-line-total/error-context.md
+
+  2) cart/TC-CART-remove-clear.spec.ts:31:5 › TC-CART-011 | remove existing item → 200, item absent from cart, totals updated 
+
+    Error: Registration failed: HTTP 500 — Internal Server Error
+
+       at helpers/api-client.ts:90
+
+      88 |     });
+      89 |     if (!reg.ok()) {
+    > 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);
+         |             ^
+      91 |     }
+      92 |     return this.login(email, password);
+      93 |   }
+        at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-remove-clear.spec.ts:22:11
+
+    Error Context: test-results/cart-TC-CART-remove-clear--55591-nt-from-cart-totals-updated/error-context.md
+
+  3) cart/TC-CART-update-item.spec.ts:32:5 › TC-CART-007 | update quantity of existing item → 200, totals recalculated 
+
+    Error: Registration failed: HTTP 500 — Internal Server Error
+
+       at helpers/api-client.ts:90
+
+      88 |     });
+      89 |     if (!reg.ok()) {
+    > 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);
+         |             ^
+      91 |     }
+      92 |     return this.login(email, password);
+      93 |   }
+        at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-update-item.spec.ts:21:11
+
+    Error Context: test-results/cart-TC-CART-update-item-T-82808-m-→-200-totals-recalculated/error-context.md
+
+  4) cart/TC-COUPON-coupon.spec.ts:36:5 › TC-COUPON-001 | percent coupon (WELCOME10, 10% off) → discount = 10% of subtotal 
+
+    Error: Registration failed: HTTP 500 — Internal Server Error
+
+       at helpers/api-client.ts:90
+
+      88 |     });
+      89 |     if (!reg.ok()) {
+    > 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);
+         |             ^
+      91 |     }
+      92 |     return this.login(email, password);
+      93 |   }
+        at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-COUPON-coupon.spec.ts:27:11
+
+    Error Context: test-results/cart-TC-COUPON-coupon-TC-C-721dc-f-→-discount-10-of-subtotal/error-context.md
+
+  5) cart/TC-SHIP-shipping.spec.ts:31:5 › TC-SHIP-001 | shipping_method=express → shipping cost = $18.00 
+
+    Error: addToCart failed: Internal Server Error
+
+       at helpers/api-client.ts:108
+
+      106 |   async addToCart(productId: number, quantity: number, token: string) {
+      107 |     const res = await this.post("/api/cart/items", { product_id: productId, quantity }, token);
+    > 108 |     if (!res.ok()) throw new Error(`addToCart failed: ${await res.text()}`);
+          |                          ^
+      109 |     return res.json();
+      110 |   }
+      111 |
+        at ApiClient.addToCart (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:108:26)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-SHIP-shipping.spec.ts:26:3
+
+    Error Context: test-results/cart-TC-SHIP-shipping-TC-S-ef79e-press-→-shipping-cost-18-00/error-context.md
+
+  5 failed
+    cart/TC-CART-add-item.spec.ts:35:5 › TC-CART-001 | add valid in-stock product → 200, item appears in cart with correct line_total 
+    cart/TC-CART-remove-clear.spec.ts:31:5 › TC-CART-011 | remove existing item → 200, item absent from cart, totals updated 
+    cart/TC-CART-update-item.spec.ts:32:5 › TC-CART-007 | update quantity of existing item → 200, totals recalculated 
+    cart/TC-COUPON-coupon.spec.ts:36:5 › TC-COUPON-001 | percent coupon (WELCOME10, 10% off) → discount = 10% of subtotal 
+    cart/TC-SHIP-shipping.spec.ts:31:5 › TC-SHIP-001 | shipping_method=express → shipping cost = $18.00 
+  19 did not run

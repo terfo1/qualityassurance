@@ -1,0 +1,804 @@
+{
+  "config": {
+    "configFile": "/Users/marioscordia/Desktop/qualityassurance/tests/playwright.config.ts",
+    "rootDir": "/Users/marioscordia/Desktop/qualityassurance/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 3
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 3
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/marioscordia/Desktop/qualityassurance/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "test-results/html"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "orders/TC-INV-inventory.spec.ts",
+      "file": "orders/TC-INV-inventory.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-INV-001 | stock decremented by ordered quantity after successful checkout",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: Registration failed: HTTP 500 — Internal Server Error",
+                    "stack": "Error: Registration failed: HTTP 500 — Internal Server Error\n    at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/orders/TC-INV-inventory.spec.ts:26:14",
+                    "location": {
+                      "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                      "column": 13,
+                      "line": 90
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers/api-client.ts:90\n\n  88 |     });\n  89 |     if (!reg.ok()) {\n> 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);\n     |             ^\n  91 |     }\n  92 |     return this.login(email, password);\n  93 |   }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                        "column": 13,
+                        "line": 90
+                      },
+                      "message": "Error: Registration failed: HTTP 500 — Internal Server Error\n\n   at helpers/api-client.ts:90\n\n  88 |     });\n  89 |     if (!reg.ok()) {\n> 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);\n     |             ^\n  91 |     }\n  92 |     return this.login(email, password);\n  93 |   }\n    at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/orders/TC-INV-inventory.spec.ts:26:14"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.099Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/orders-TC-INV-inventory-TC-4edba-y-after-successful-checkout/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                    "column": 13,
+                    "line": 90
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0747a5d73a3ff589112c-5c22d8ccd5eff1bd49fd",
+          "file": "orders/TC-INV-inventory.spec.ts",
+          "line": 51,
+          "column": 5
+        },
+        {
+          "title": "TC-INV-002 | multiple products: all stocks decremented atomically",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.182Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0747a5d73a3ff589112c-043dcec753d68e569c53",
+          "file": "orders/TC-INV-inventory.spec.ts",
+          "line": 66,
+          "column": 5
+        },
+        {
+          "title": "TC-INV-003 | out-of-stock product (stock=0) blocks checkout → 400",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.182Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0747a5d73a3ff589112c-c5898fca8da1afeb5b89",
+          "file": "orders/TC-INV-inventory.spec.ts",
+          "line": 88,
+          "column": 5
+        },
+        {
+          "title": "TC-INV-004 | ordered quantity > stock → checkout rejected, stock does not go negative",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.182Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "0747a5d73a3ff589112c-607647a2fb716a2b0912",
+          "file": "orders/TC-INV-inventory.spec.ts",
+          "line": 109,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "orders/TC-ORD-management.spec.ts",
+      "file": "orders/TC-ORD-management.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-ORD-001 | GET /api/orders — user sees only their own orders",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 1,
+                  "error": {
+                    "message": "Error: apiRequestContext.get: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.",
+                    "stack": "Error: apiRequestContext.get: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.\n    at ApiClient.get (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:30:21)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/orders/TC-ORD-management.spec.ts:53:30",
+                    "location": {
+                      "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                      "column": 21,
+                      "line": 30
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers/api-client.ts:30\n\n  28 |\n  29 |   get(endpoint: string, token?: string) {\n> 30 |     return this.req.get(`${BASE}${endpoint}`, { headers: this.headers(token) });\n     |                     ^\n  31 |   }\n  32 |\n  33 |   post(endpoint: string, body: object = {}, token?: string) {"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                        "column": 21,
+                        "line": 30
+                      },
+                      "message": "Error: apiRequestContext.get: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.\n\n   at helpers/api-client.ts:30\n\n  28 |\n  29 |   get(endpoint: string, token?: string) {\n> 30 |     return this.req.get(`${BASE}${endpoint}`, { headers: this.headers(token) });\n     |                     ^\n  31 |   }\n  32 |\n  33 |   post(endpoint: string, body: object = {}, token?: string) {\n    at ApiClient.get (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:30:21)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/orders/TC-ORD-management.spec.ts:53:30"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.100Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/orders-TC-ORD-management-T-d619e--sees-only-their-own-orders/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                    "column": 21,
+                    "line": 30
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "49f19c9f3577118ddb13-bc570528a8a5e4811e91",
+          "file": "orders/TC-ORD-management.spec.ts",
+          "line": 52,
+          "column": 5
+        },
+        {
+          "title": "TC-ORD-002 | admin updates order status to fulfilled → 200, status persisted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.343Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "49f19c9f3577118ddb13-adba24ea6f4b38d10479",
+          "file": "orders/TC-ORD-management.spec.ts",
+          "line": 64,
+          "column": 5
+        },
+        {
+          "title": "TC-ORD-003 | customer cannot update order status → 403",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.343Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "49f19c9f3577118ddb13-cfc42640fdae2a7515e7",
+          "file": "orders/TC-ORD-management.spec.ts",
+          "line": 75,
+          "column": 5
+        },
+        {
+          "title": "TC-ORD-004 | invalid status value → 400 or 422",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.343Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "49f19c9f3577118ddb13-410b7b6af5e6a81fb4be",
+          "file": "orders/TC-ORD-management.spec.ts",
+          "line": 84,
+          "column": 5
+        },
+        {
+          "title": "TC-ORD-005 | User B cannot access User A's order → 403 or 404",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.343Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "49f19c9f3577118ddb13-ebda750714cc6fd849ba",
+          "file": "orders/TC-ORD-management.spec.ts",
+          "line": 94,
+          "column": 5
+        },
+        {
+          "title": "TC-ORD-006 | GET non-existent order → 404",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.343Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "49f19c9f3577118ddb13-bf00b05f29da87d690a6",
+          "file": "orders/TC-ORD-management.spec.ts",
+          "line": 100,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "orders/TC-ORDER-checkout.spec.ts",
+      "file": "orders/TC-ORDER-checkout.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-ORDER-001 | full checkout — order created with correct totals, stock decremented, cart cleared",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 1,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.",
+                    "stack": "Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.\n    at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)\n    at ApiClient.clearCart (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:99:16)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/orders/TC-ORDER-checkout.spec.ts:28:16",
+                    "location": {
+                      "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                      "column": 21,
+                      "line": 34
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers/api-client.ts:34\n\n  32 |\n  33 |   post(endpoint: string, body: object = {}, token?: string) {\n> 34 |     return this.req.post(`${BASE}${endpoint}`, {\n     |                     ^\n  35 |       headers: this.headers(token),\n  36 |       data: body,\n  37 |     });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                        "column": 21,
+                        "line": 34
+                      },
+                      "message": "Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.\n\n   at helpers/api-client.ts:34\n\n  32 |\n  33 |   post(endpoint: string, body: object = {}, token?: string) {\n> 34 |     return this.req.post(`${BASE}${endpoint}`, {\n     |                     ^\n  35 |       headers: this.headers(token),\n  36 |       data: body,\n  37 |     });\n    at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)\n    at ApiClient.clearCart (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:99:16)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/orders/TC-ORDER-checkout.spec.ts:28:16"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.099Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/orders-TC-ORDER-checkout-T-dce4b-ck-decremented-cart-cleared/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                    "column": 21,
+                    "line": 34
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "11c54574d5d7039d1e50-9111c8d2eb85de8c0858",
+          "file": "orders/TC-ORDER-checkout.spec.ts",
+          "line": 33,
+          "column": 5
+        },
+        {
+          "title": "TC-ORDER-002 | order total snapshot is immutable (not affected by post-order cart changes)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.183Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "11c54574d5d7039d1e50-69f5b4ac77eb4974af9b",
+          "file": "orders/TC-ORDER-checkout.spec.ts",
+          "line": 68,
+          "column": 5
+        },
+        {
+          "title": "TC-ORDER-003 | cart is empty after successful checkout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.183Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "11c54574d5d7039d1e50-aceb85d2071529b5629d",
+          "file": "orders/TC-ORDER-checkout.spec.ts",
+          "line": 86,
+          "column": 5
+        },
+        {
+          "title": "TC-ORDER-004 | checkout with empty cart → 400",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.183Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "11c54574d5d7039d1e50-d65c5432b2b599e24288",
+          "file": "orders/TC-ORDER-checkout.spec.ts",
+          "line": 98,
+          "column": 5
+        },
+        {
+          "title": "TC-ORDER-005 | checkout when stock drops below cart quantity → 400, stock NOT decremented",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.183Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "11c54574d5d7039d1e50-eb27ee6df6c6dd780c1a",
+          "file": "orders/TC-ORDER-checkout.spec.ts",
+          "line": 104,
+          "column": 5
+        },
+        {
+          "title": "TC-ORDER-006 | address shorter than 10 chars → 422 (DTO validation)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.183Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "11c54574d5d7039d1e50-e906fe901f57592b88c5",
+          "file": "orders/TC-ORDER-checkout.spec.ts",
+          "line": 132,
+          "column": 5
+        },
+        {
+          "title": "TC-ORDER-007 | missing required field (customer_name) → 422",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.183Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "11c54574d5d7039d1e50-c86e4ddd5261aa404776",
+          "file": "orders/TC-ORDER-checkout.spec.ts",
+          "line": 139,
+          "column": 5
+        },
+        {
+          "title": "TC-ORDER-008 | unauthenticated checkout → 401",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:50.183Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "11c54574d5d7039d1e50-0f55808f5e9763225ac0",
+          "file": "orders/TC-ORDER-checkout.spec.ts",
+          "line": 147,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-04-03T15:36:49.781Z",
+    "duration": 571.23,
+    "expected": 0,
+    "skipped": 15,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}
