@@ -55,6 +55,9 @@ jobs:
       - name: Install backend dependencies
         run: pip install -r requirements.txt
 
+      - name: Run backend unit tests
+        run: python -m unittest discover -s backend_tests -p 'test_*.py' -v
+
       - name: Run database migrations
         run: alembic upgrade head
 

@@ -10,18 +10,14 @@
     "grep": {},
     "grepInvert": null,
     "maxFailures": 0,
-    "metadata": {
-      "actualWorkers": 4
-    },
+    "metadata": {},
     "preserveOutput": "always",
     "projects": [
       {
         "outputDir": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results",
         "repeatEach": 1,
         "retries": 0,
-        "metadata": {
-          "actualWorkers": 4
-        },
+        "metadata": {},
         "id": "",
         "name": "",
         "testDir": "/Users/marioscordia/Desktop/qualityassurance/tests",
@@ -66,290 +62,13 @@
   },
   "suites": [
     {
-      "title": "admin/TC-DASH-dashboard.spec.ts",
-      "file": "admin/TC-DASH-dashboard.spec.ts",
-      "column": 0,
-      "line": 0,
-      "specs": [],
-      "suites": [
-        {
-          "title": "Admin Dashboard — GET /api/admin/dashboard",
-          "file": "admin/TC-DASH-dashboard.spec.ts",
-          "line": 16,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC-DASH-001 | dashboard returns required metric fields with correct types",
-              "ok": false,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 61,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"number\"\u001b[39m\nReceived: \u001b[31m\"object\"\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"number\"\u001b[39m\nReceived: \u001b[31m\"object\"\u001b[39m\n    at /Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts:30:35",
-                        "location": {
-                          "file": "/Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts",
-                          "column": 35,
-                          "line": 30
-                        },
-                        "snippet": "  28 |     expect(typeof body.orders).toBe(\"number\");\n  29 |     expect(typeof body.revenue).toBe(\"number\");\n> 30 |     expect(typeof body.low_stock).toBe(\"number\");\n     |                                   ^\n  31 |     // Non-negative sanity checks\n  32 |     expect(body.products).toBeGreaterThanOrEqual(0);\n  33 |     expect(body.orders).toBeGreaterThanOrEqual(0);"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts",
-                            "column": 35,
-                            "line": 30
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"number\"\u001b[39m\nReceived: \u001b[31m\"object\"\u001b[39m\n\n  28 |     expect(typeof body.orders).toBe(\"number\");\n  29 |     expect(typeof body.revenue).toBe(\"number\");\n> 30 |     expect(typeof body.low_stock).toBe(\"number\");\n     |                                   ^\n  31 |     // Non-negative sanity checks\n  32 |     expect(body.products).toBeGreaterThanOrEqual(0);\n  33 |     expect(body.orders).toBeGreaterThanOrEqual(0);\n    at /Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts:30:35"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-03T15:36:53.389Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/admin-TC-DASH-dashboard-Ad-d5984-c-fields-with-correct-types/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts",
-                        "column": 35,
-                        "line": 30
-                      }
-                    }
-                  ],
-                  "status": "unexpected"
-                }
-              ],
-              "id": "5b9e4d7e22996213147e-dadac67318cad97a58a2",
-              "file": "admin/TC-DASH-dashboard.spec.ts",
-              "line": 18,
-              "column": 7
-            },
-            {
-              "title": "TC-DASH-002 | low_stock count = products where stock ≤ 5",
-              "ok": false,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 4,
-                      "parallelIndex": 0,
-                      "status": "failed",
-                      "duration": 63,
-                      "error": {
-                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m4\u001b[39m\nReceived: \u001b[31m[{\"category\": \"QA\", \"description\": \"Good stock product for TX test.\", \"featured\": false, \"id\": 9, \"image\": \"/img/good.jpg\", \"name\": \"TXGOOD_1775230572004\", \"price\": 10, \"rating\": 4.5, \"stock\": 5, \"tags\": []}, {\"category\": \"QA\", \"description\": \"Zero stock product for TX test.\", \"featured\": false, \"id\": 10, \"image\": \"/img/bad.jpg\", \"name\": \"TXBAD_1775230572013\", \"price\": 10, \"rating\": 4.5, \"stock\": 0, \"tags\": []}, {\"category\": \"QA\", \"description\": \"Good stock product for TX test.\", \"featured\": false, \"id\": 11, \"image\": \"/img/good.jpg\", \"name\": \"TXGOOD_1775230613480\", \"price\": 10, \"rating\": 4.5, \"stock\": 5, \"tags\": []}, {\"category\": \"QA\", \"description\": \"Zero stock product for TX test.\", \"featured\": false, \"id\": 12, \"image\": \"/img/bad.jpg\", \"name\": \"TXBAD_1775230613489\", \"price\": 10, \"rating\": 4.5, \"stock\": 0, \"tags\": []}]\u001b[39m",
-                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m4\u001b[39m\nReceived: \u001b[31m[{\"category\": \"QA\", \"description\": \"Good stock product for TX test.\", \"featured\": false, \"id\": 9, \"image\": \"/img/good.jpg\", \"name\": \"TXGOOD_1775230572004\", \"price\": 10, \"rating\": 4.5, \"stock\": 5, \"tags\": []}, {\"category\": \"QA\", \"description\": \"Zero stock product for TX test.\", \"featured\": false, \"id\": 10, \"image\": \"/img/bad.jpg\", \"name\": \"TXBAD_1775230572013\", \"price\": 10, \"rating\": 4.5, \"stock\": 0, \"tags\": []}, {\"category\": \"QA\", \"description\": \"Good stock product for TX test.\", \"featured\": false, \"id\": 11, \"image\": \"/img/good.jpg\", \"name\": \"TXGOOD_1775230613480\", \"price\": 10, \"rating\": 4.5, \"stock\": 5, \"tags\": []}, {\"category\": \"QA\", \"description\": \"Zero stock product for TX test.\", \"featured\": false, \"id\": 12, \"image\": \"/img/bad.jpg\", \"name\": \"TXBAD_1775230613489\", \"price\": 10, \"rating\": 4.5, \"stock\": 0, \"tags\": []}]\u001b[39m\n    at /Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts:51:28",
-                        "location": {
-                          "file": "/Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts",
-                          "column": 28,
-                          "line": 51
-                        },
-                        "snippet": "  49 |\n  50 |     // Dashboard low_stock must match our computed count\n> 51 |     expect(dash.low_stock).toBe(expectedLowStock);\n     |                            ^\n  52 |   });\n  53 |\n  54 |   test(\"TC-DASH-003 | revenue ≥ 0 and is a finite number (not NaN)\", async ({ request }) => {"
-                      },
-                      "errors": [
-                        {
-                          "location": {
-                            "file": "/Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts",
-                            "column": 28,
-                            "line": 51
-                          },
-                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m4\u001b[39m\nReceived: \u001b[31m[{\"category\": \"QA\", \"description\": \"Good stock product for TX test.\", \"featured\": false, \"id\": 9, \"image\": \"/img/good.jpg\", \"name\": \"TXGOOD_1775230572004\", \"price\": 10, \"rating\": 4.5, \"stock\": 5, \"tags\": []}, {\"category\": \"QA\", \"description\": \"Zero stock product for TX test.\", \"featured\": false, \"id\": 10, \"image\": \"/img/bad.jpg\", \"name\": \"TXBAD_1775230572013\", \"price\": 10, \"rating\": 4.5, \"stock\": 0, \"tags\": []}, {\"category\": \"QA\", \"description\": \"Good stock product for TX test.\", \"featured\": false, \"id\": 11, \"image\": \"/img/good.jpg\", \"name\": \"TXGOOD_1775230613480\", \"price\": 10, \"rating\": 4.5, \"stock\": 5, \"tags\": []}, {\"category\": \"QA\", \"description\": \"Zero stock product for TX test.\", \"featured\": false, \"id\": 12, \"image\": \"/img/bad.jpg\", \"name\": \"TXBAD_1775230613489\", \"price\": 10, \"rating\": 4.5, \"stock\": 0, \"tags\": []}]\u001b[39m\n\n  49 |\n  50 |     // Dashboard low_stock must match our computed count\n> 51 |     expect(dash.low_stock).toBe(expectedLowStock);\n     |                            ^\n  52 |   });\n  53 |\n  54 |   test(\"TC-DASH-003 | revenue ≥ 0 and is a finite number (not NaN)\", async ({ request }) => {\n    at /Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts:51:28"
-                        }
-                      ],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-03T15:36:53.764Z",
-                      "annotations": [],
-                      "attachments": [
-                        {
-                          "name": "error-context",
-                          "contentType": "text/markdown",
-                          "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/admin-TC-DASH-dashboard-Ad-a23d5-nt-products-where-stock-≤-5/error-context.md"
-                        }
-                      ],
-                      "errorLocation": {
-                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts",
-                        "column": 28,
-                        "line": 51
-                      }
-                    }
-                  ],
-                  "status": "unexpected"
-                }
-              ],
-              "id": "5b9e4d7e22996213147e-b316d3cc0cd3662af267",
-              "file": "admin/TC-DASH-dashboard.spec.ts",
-              "line": 38,
-              "column": 7
-            },
-            {
-              "title": "TC-DASH-003 | revenue ≥ 0 and is a finite number (not NaN)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 5,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 59,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-03T15:36:54.124Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5b9e4d7e22996213147e-6c1240610fce8a5fa3b8",
-              "file": "admin/TC-DASH-dashboard.spec.ts",
-              "line": 54,
-              "column": 7
-            },
-            {
-              "title": "TC-DASH-004 | customer token → 403 (admin-only endpoint)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 5,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 29,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-03T15:36:54.194Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "5b9e4d7e22996213147e-a6d4025eb2d4107f3399",
-              "file": "admin/TC-DASH-dashboard.spec.ts",
-              "line": 65,
-              "column": 7
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "title": "system/TC-DB-transactions.spec.ts",
-      "file": "system/TC-DB-transactions.spec.ts",
+      "title": "admin/TC-AUTHZ-admin-api.spec.ts",
+      "file": "admin/TC-AUTHZ-admin-api.spec.ts",
       "column": 0,
       "line": 0,
       "specs": [
         {
-          "title": "TC-DB-001 | failed checkout rolls back — no stock decremented, no order created",
-          "ok": false,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": 1,
-                  "parallelIndex": 1,
-                  "status": "failed",
-                  "duration": 159,
-                  "error": {
-                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31mundefined\u001b[39m",
-                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31mundefined\u001b[39m\n    at /Users/marioscordia/Desktop/qualityassurance/tests/system/TC-DB-transactions.spec.ts:60:44",
-                    "location": {
-                      "file": "/Users/marioscordia/Desktop/qualityassurance/tests/system/TC-DB-transactions.spec.ts",
-                      "column": 44,
-                      "line": 60
-                    },
-                    "snippet": "  58 |     expect(addBad.status()).toBe(400);\n  59 |     const goodCheck = await client.get(`/api/products/${goodProd.id}`);\n> 60 |     expect((await goodCheck.json()).stock).toBe(5);\n     |                                            ^\n  61 |   }\n  62 |\n  63 |   await client.deleteProduct(goodProd.id, adminTok);"
-                  },
-                  "errors": [
-                    {
-                      "location": {
-                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/system/TC-DB-transactions.spec.ts",
-                        "column": 44,
-                        "line": 60
-                      },
-                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m5\u001b[39m\nReceived: \u001b[31mundefined\u001b[39m\n\n  58 |     expect(addBad.status()).toBe(400);\n  59 |     const goodCheck = await client.get(`/api/products/${goodProd.id}`);\n> 60 |     expect((await goodCheck.json()).stock).toBe(5);\n     |                                            ^\n  61 |   }\n  62 |\n  63 |   await client.deleteProduct(goodProd.id, adminTok);\n    at /Users/marioscordia/Desktop/qualityassurance/tests/system/TC-DB-transactions.spec.ts:60:44"
-                    }
-                  ],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-04-03T15:36:53.390Z",
-                  "annotations": [],
-                  "attachments": [
-                    {
-                      "name": "error-context",
-                      "contentType": "text/markdown",
-                      "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/system-TC-DB-transactions--d2f61-ecremented-no-order-created/error-context.md"
-                    }
-                  ],
-                  "errorLocation": {
-                    "file": "/Users/marioscordia/Desktop/qualityassurance/tests/system/TC-DB-transactions.spec.ts",
-                    "column": 44,
-                    "line": 60
-                  }
-                }
-              ],
-              "status": "unexpected"
-            }
-          ],
-          "id": "5ce5ba3e1411be87afc9-d852ba1fc6411686e18b",
-          "file": "system/TC-DB-transactions.spec.ts",
-          "line": 23,
-          "column": 5
-        },
-        {
-          "title": "TC-DB-002 | successful checkout commits atomically — stock, order, and cart all updated",
+          "title": "TC-AUTHZ-007 | customer token cannot access admin dashboard API",
           "ok": true,
           "tags": [],
           "tests": [
@@ -359,421 +78,109 @@
               "expectedStatus": "passed",
               "projectId": "",
               "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "parallelIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-04-03T15:36:53.562Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
+              "results": [],
               "status": "skipped"
             }
           ],
-          "id": "5ce5ba3e1411be87afc9-0c3530432640af7a4e1f",
-          "file": "system/TC-DB-transactions.spec.ts",
-          "line": 69,
-          "column": 5
-        },
-        {
-          "title": "TC-DB-003 | session closed after each request — no connection pool exhaustion",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "parallelIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-04-03T15:36:53.562Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "5ce5ba3e1411be87afc9-6a4f3f4037f8597a55fb",
-          "file": "system/TC-DB-transactions.spec.ts",
-          "line": 103,
-          "column": 5
-        },
-        {
-          "title": "TC-DB-004 | duplicate email registration → 4xx (DB unique constraint, not 500)",
-          "ok": true,
-          "tags": [],
-          "tests": [
-            {
-              "timeout": 30000,
-              "annotations": [],
-              "expectedStatus": "passed",
-              "projectId": "",
-              "projectName": "",
-              "results": [
-                {
-                  "workerIndex": -1,
-                  "parallelIndex": -1,
-                  "status": "skipped",
-                  "duration": 0,
-                  "errors": [],
-                  "stdout": [],
-                  "stderr": [],
-                  "retry": 0,
-                  "startTime": "2026-04-03T15:36:53.562Z",
-                  "annotations": [],
-                  "attachments": []
-                }
-              ],
-              "status": "skipped"
-            }
-          ],
-          "id": "5ce5ba3e1411be87afc9-33b2a1b4bdd99000035c",
-          "file": "system/TC-DB-transactions.spec.ts",
-          "line": 117,
+          "id": "77bf6da0805ad259acef-2d88f832cdf6a1d1799f",
+          "file": "admin/TC-AUTHZ-admin-api.spec.ts",
+          "line": 4,
           "column": 5
         }
       ]
     },
     {
-      "title": "system/TC-HEALTH-health-check.spec.ts",
-      "file": "system/TC-HEALTH-health-check.spec.ts",
+      "title": "cart/TC-CART-concurrency.spec.ts",
+      "file": "cart/TC-CART-concurrency.spec.ts",
       "column": 0,
       "line": 0,
-      "specs": [],
-      "suites": [
+      "specs": [
         {
-          "title": "Health Check — GET /api/metrics/health",
-          "file": "system/TC-HEALTH-health-check.spec.ts",
-          "line": 13,
-          "column": 6,
-          "specs": [
+          "title": "TC-CART-RACE-001 | repeated add requests keep one line item and merged quantity for the same product",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "TC-HEALTH-001 | health endpoint returns {status: ok, service: novacart} without auth",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 32,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-03T15:36:53.385Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "0e6facc78e22dc67d892-c816fd3eb10c37503ab8",
-              "file": "system/TC-HEALTH-health-check.spec.ts",
-              "line": 15,
-              "column": 7
-            },
-            {
-              "title": "TC-HEALTH-002 | health endpoint accessible without Authorization header (public route)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 10,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-03T15:36:53.428Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "0e6facc78e22dc67d892-b9ae20d38a43357ea0fc",
-              "file": "system/TC-HEALTH-health-check.spec.ts",
-              "line": 26,
-              "column": 7
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
             }
-          ]
-        },
-        {
-          "title": "System Metrics — GET /api/metrics",
-          "file": "system/TC-HEALTH-health-check.spec.ts",
-          "line": 36,
-          "column": 6,
-          "specs": [
-            {
-              "title": "TC-METRICS-001 | metrics endpoint returns product, category, and order counts",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 2,
-                      "parallelIndex": 2,
-                      "status": "passed",
-                      "duration": 11,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-03T15:36:53.443Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "0e6facc78e22dc67d892-e9eb4a154aa86709f0fb",
-              "file": "system/TC-HEALTH-health-check.spec.ts",
-              "line": 38,
-              "column": 7
-            }
-          ]
+          ],
+          "id": "832018725437ac52f5cd-1d9ef3588b0352a61cb2",
+          "file": "cart/TC-CART-concurrency.spec.ts",
+          "line": 5,
+          "column": 5
         }
       ]
     },
     {
-      "title": "system/TC-VAL-input-validation.spec.ts",
-      "file": "system/TC-VAL-input-validation.spec.ts",
+      "title": "cart/TC-COUPON-removal.spec.ts",
+      "file": "cart/TC-COUPON-removal.spec.ts",
       "column": 0,
       "line": 0,
-      "specs": [],
-      "suites": [
+      "specs": [
         {
-          "title": "Input Validation — cross-cutting security checks",
-          "file": "system/TC-VAL-input-validation.spec.ts",
-          "line": 16,
-          "column": 6,
-          "specs": [
+          "title": "TC-COUPON-007 | remove applied coupon -> coupon cleared and pricing returns to uncapped subtotal totals",
+          "ok": true,
+          "tags": [],
+          "tests": [
             {
-              "title": "TC-VAL-001 | SQL injection in search query → safe response (no DB error, no data leak)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
-                      "status": "passed",
-                      "duration": 38,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-03T15:36:53.386Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "95467278472423629b8e-d8b50a86f7ea5b25327a",
-              "file": "system/TC-VAL-input-validation.spec.ts",
-              "line": 18,
-              "column": 7
-            },
-            {
-              "title": "TC-VAL-002 | XSS payload in product name → stored as literal string, not executed",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
-                      "status": "passed",
-                      "duration": 41,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-03T15:36:53.435Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "95467278472423629b8e-e14a236f355e72ebbd59",
-              "file": "system/TC-VAL-input-validation.spec.ts",
-              "line": 31,
-              "column": 7
-            },
-            {
-              "title": "TC-VAL-003 | name field exceeding max_length=80 → 422 (DTO enforcement)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
-                      "status": "passed",
-                      "duration": 11,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-03T15:36:53.482Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "95467278472423629b8e-32fd6f887f862b60bcaa",
-              "file": "system/TC-VAL-input-validation.spec.ts",
-              "line": 58,
-              "column": 7
-            },
-            {
-              "title": "TC-VAL-004 | non-integer product_id in path → 422 (FastAPI type coercion)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
-                      "status": "passed",
-                      "duration": 5,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-03T15:36:53.499Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "95467278472423629b8e-85bddb278a7f549d26a5",
-              "file": "system/TC-VAL-input-validation.spec.ts",
-              "line": 75,
-              "column": 7
-            },
-            {
-              "title": "TC-VAL-005 | negative product_id in path → 404 (no product with negative ID)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 3,
-                      "parallelIndex": 3,
-                      "status": "passed",
-                      "duration": 9,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-04-03T15:36:53.509Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "95467278472423629b8e-de47ea3a57fb74489cea",
-              "file": "system/TC-VAL-input-validation.spec.ts",
-              "line": 83,
-              "column": 7
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
             }
-          ]
+          ],
+          "id": "01bbbac9eb8de9763284-c7c9081931a4e077562f",
+          "file": "cart/TC-COUPON-removal.spec.ts",
+          "line": 5,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "system/TC-DB-seeded-baseline.spec.ts",
+      "file": "system/TC-DB-seeded-baseline.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-DB-005 | migrated startup preserves seeded auth users and baseline metrics availability",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [],
+              "status": "skipped"
+            }
+          ],
+          "id": "77ca1d3b191767537ae6-18ee73934252841798ba",
+          "file": "system/TC-DB-seeded-baseline.spec.ts",
+          "line": 4,
+          "column": 5
         }
       ]
     }
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-04-03T15:36:53.040Z",
-    "duration": 1195.281,
-    "expected": 10,
-    "skipped": 3,
-    "unexpected": 3,
+    "startTime": "2026-04-10T09:56:41.651Z",
+    "duration": 54.46800000000002,
+    "expected": 0,
+    "skipped": 4,
+    "unexpected": 0,
     "flaky": 0
   }
 }
