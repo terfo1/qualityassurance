@@ -1,0 +1,49 @@
+    1: from app.domain.entities import Coupon, Product, ShippingMethod
+    1: from app.domain.exceptions import ValidationError
+       
+       
+    2: class PricingService:
+    1:     TAX_RATE = 0.08
+       
+    1:     SHIPPING_PRICES = {
+    1:         ShippingMethod.standard.value: 8.0,
+    1:         ShippingMethod.express.value: 18.0,
+    1:         ShippingMethod.pickup.value: 0.0,
+           }
+       
+    5:     def calculate(
+               self,
+    1:         items: list[dict],
+    1:         shipping_method: str,
+    2:         coupon: Coupon | None = None,
+    1:     ) -> dict:
+   31:         subtotal = round(sum(item["line_total"] for item in items), 2)
+   11:         discount = self._discount(subtotal, coupon)
+   11:         taxable_amount = max(subtotal - discount, 0)
+   11:         shipping = self.SHIPPING_PRICES.get(shipping_method, 8.0)
+   11:         tax = round(taxable_amount * self.TAX_RATE, 2)
+   11:         total = round(taxable_amount + shipping + tax, 2)
+   11:         return {
+   11:             "subtotal": subtotal,
+   11:             "discount": discount,
+   11:             "shipping": shipping,
+   11:             "tax": tax,
+   11:             "total": total,
+               }
+       
+    1:     def _discount(self, subtotal: float, coupon: Coupon | None) -> float:
+   11:         if coupon is None or not coupon.active:
+   11:             return 0.0
+               if subtotal < coupon.minimum_subtotal:
+                   return 0.0
+               if coupon.discount_type == "percent":
+                   return round(subtotal * (coupon.value / 100), 2)
+               return round(min(coupon.value, subtotal), 2)
+       
+       
+    2: class RecommendationService:
+    1:     def related_products(self, product: Product, products: list[Product]) -> list[Product]:
+               same_category = [candidate for candidate in products if candidate.category == product.category and candidate.id != product.id]
+               fallback = [candidate for candidate in products if candidate.id != product.id]
+               ranked = sorted(same_category or fallback, key=lambda item: (-item.featured, -item.rating, item.price))
+               return ranked[:3]

@@ -1,0 +1,139 @@
+    1: from collections import defaultdict
+       
+    1: from app.domain.entities import CartItem, Coupon, Order, Product, Review
+       
+       
+    2: class InMemoryProductRepository:
+    1:     def __init__(self) -> None:
+    7:         self._products = {
+    7:             1: Product(1, "AeroFit Running Shoes", "Footwear", 89.0, 18, 4.7, True, "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80", "Lightweight trainers built for daily runs and all-day comfort.", ["sport", "best-seller"]),
+    7:             2: Product(2, "Summit Travel Backpack", "Accessories", 64.0, 24, 4.6, True, "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80", "Weather-resistant backpack with padded laptop storage and quick-access pockets.", ["travel", "gear"]),
+    7:             3: Product(3, "Luma Desk Lamp", "Home", 42.5, 31, 4.4, False, "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=900&q=80", "Adjustable LED lamp with warm and cool light settings for focused work.", ["lighting", "office"]),
+    7:             4: Product(4, "Mono Wireless Headphones", "Electronics", 129.0, 12, 4.8, True, "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80", "Noise-isolating over-ear headphones with 28-hour battery life.", ["audio", "premium"]),
+    7:             5: Product(5, "Terra Ceramic Mug", "Home", 19.0, 40, 4.3, False, "https://images.unsplash.com/photo-1514228742587-6b1558fcf93a?auto=format&fit=crop&w=900&q=80", "Minimal stoneware mug with a matte glaze and comfortable handle.", ["kitchen", "gift"]),
+    7:             6: Product(6, "Core Performance Tee", "Apparel", 29.0, 26, 4.5, False, "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80", "Moisture-wicking training shirt designed for movement and breathability.", ["fitness", "apparel"]),
+    7:             7: Product(7, "Oak Stand Monitor Riser", "Office", 74.0, 14, 4.6, True, "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80", "Solid wood monitor riser with accessory drawer and cable gap.", ["desk", "workspace"]),
+    7:             8: Product(8, "Pulse Smart Bottle", "Wellness", 36.0, 22, 4.2, False, "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=80", "Insulated water bottle with hydration reminders and leakproof cap.", ["hydration", "wellness"]),
+               }
+    7:         self._next_id = 9
+       
+    1:     def list(self) -> list[Product]:
+               return list(self._products.values())
+       
+    1:     def get(self, product_id: int) -> Product | None:
+   20:         return self._products.get(product_id)
+       
+    1:     def create(self, product: Product) -> Product:
+               self._products[product.id] = product
+               return product
+       
+    1:     def update(self, product: Product) -> Product:
+    1:         self._products[product.id] = product
+    1:         return product
+       
+    1:     def delete(self, product_id: int) -> None:
+               self._products.pop(product_id, None)
+       
+    1:     def next_id(self) -> int:
+               value = self._next_id
+               self._next_id += 1
+               return value
+       
+       
+    2: class InMemoryCartRepository:
+    1:     def __init__(self) -> None:
+    7:         self._items: dict[int, CartItem] = {}
+    7:         self._coupon_code: str | None = None
+    7:         self._shipping_method = "standard"
+       
+    1:     def list_items(self) -> list[CartItem]:
+   11:         return list(self._items.values())
+       
+    1:     def get_item(self, product_id: int) -> CartItem | None:
+    7:         return self._items.get(product_id)
+       
+    1:     def set_item(self, item: CartItem) -> CartItem:
+    6:         self._items[item.product_id] = item
+    6:         return item
+       
+    1:     def delete_item(self, product_id: int) -> None:
+               self._items.pop(product_id, None)
+       
+    1:     def clear(self) -> None:
+    1:         self._items.clear()
+    1:         self._coupon_code = None
+    1:         self._shipping_method = "standard"
+       
+    1:     def set_coupon(self, code: str | None) -> None:
+               self._coupon_code = code
+       
+    1:     def get_coupon(self) -> str | None:
+   11:         return self._coupon_code
+       
+    1:     def set_shipping_method(self, shipping_method: str) -> None:
+    3:         self._shipping_method = shipping_method
+       
+    1:     def get_shipping_method(self) -> str:
+   11:         return self._shipping_method
+       
+       
+    2: class InMemoryOrderRepository:
+    1:     def __init__(self) -> None:
+    2:         self._orders: dict[int, Order] = {}
+    2:         self._next_id = 1
+       
+    1:     def list(self) -> list[Order]:
+    1:         return list(self._orders.values())
+       
+    1:     def get(self, order_id: int) -> Order | None:
+               return self._orders.get(order_id)
+       
+    1:     def create(self, order: Order) -> Order:
+    1:         self._orders[order.id] = order
+    1:         return order
+       
+    1:     def update(self, order: Order) -> Order:
+               self._orders[order.id] = order
+               return order
+       
+    1:     def next_id(self) -> int:
+    1:         value = self._next_id
+    1:         self._next_id += 1
+    1:         return value
+       
+       
+    2: class InMemoryCouponRepository:
+    1:     def __init__(self) -> None:
+    7:         coupons = [
+    7:             Coupon("WELCOME10", "percent", 10, 50),
+    7:             Coupon("SHIPFREE", "fixed", 8, 40),
+    7:             Coupon("VIP25", "percent", 25, 150),
+               ]
+   28:         self._coupons = {coupon.code: coupon for coupon in coupons}
+       
+    1:     def list(self) -> list[Coupon]:
+               return list(self._coupons.values())
+       
+    1:     def get(self, code: str) -> Coupon | None:
+    1:         return self._coupons.get(code.upper())
+       
+       
+    2: class InMemoryReviewRepository:
+    1:     def __init__(self) -> None:
+               self._reviews = defaultdict(list)
+               self._next_id = 1
+               self.create(Review(self.next_id(), 1, "Mina", 5, "Comfortable enough for long runs and daily wear."))
+               self.create(Review(self.next_id(), 1, "Dorian", 4, "Good support, but size up if you are between sizes."))
+               self.create(Review(self.next_id(), 4, "Ava", 5, "Battery life is excellent and isolation feels premium."))
+       
+    1:     def list_for_product(self, product_id: int) -> list[Review]:
+               return list(self._reviews[product_id])
+       
+    1:     def create(self, review: Review) -> Review:
+               self._reviews[review.product_id].append(review)
+               return review
+       
+    1:     def next_id(self) -> int:
+               value = self._next_id
+               self._next_id += 1
+               return value

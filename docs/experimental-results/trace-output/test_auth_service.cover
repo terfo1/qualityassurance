@@ -1,0 +1,67 @@
+    1: import unittest
+       
+    1: from app.application.dto import LoginCommand, RegisterUserCommand
+    1: from app.application.services import AuthService
+    1: from app.domain.exceptions import ValidationError
+    1: from app.security import hash_password
+    1: from tests.test_helpers import InMemoryUserRepository
+       
+       
+    2: class AuthServiceTests(unittest.TestCase):
+    1:     def setUp(self) -> None:
+    4:         self.users = InMemoryUserRepository()
+    4:         self.service = AuthService(self.users)
+       
+    1:     def test_register_creates_lowercased_user_and_token(self) -> None:
+    2:         payload = RegisterUserCommand(
+    1:             email="Buyer@Example.com",
+    1:             full_name="Buyer One",
+    1:             password="Buyer123!",
+               )
+       
+    1:         result = self.service.register(payload)
+       
+    1:         self.assertIn("token", result)
+    1:         self.assertEqual(result["user"]["email"], "buyer@example.com")
+    1:         self.assertIsNotNone(self.users.get_by_email("buyer@example.com"))
+       
+    1:     def test_register_rejects_duplicate_email(self) -> None:
+    2:         self.users.seed_user(
+    1:             email="buyer@example.com",
+    1:             full_name="Buyer One",
+    1:             password_hash=hash_password("Buyer123!"),
+               )
+       
+    2:         with self.assertRaises(ValidationError):
+    2:             self.service.register(
+    2:                 RegisterUserCommand(
+    1:                     email="buyer@example.com",
+    1:                     full_name="Buyer Two",
+    1:                     password="Buyer456!",
+                       )
+                   )
+       
+    1:     def test_login_rejects_wrong_password(self) -> None:
+    2:         self.users.seed_user(
+    1:             email="buyer@example.com",
+    1:             full_name="Buyer One",
+    1:             password_hash=hash_password("Buyer123!"),
+               )
+       
+    2:         with self.assertRaises(ValidationError):
+    1:             self.service.login(LoginCommand(email="buyer@example.com", password="WrongPass1!"))
+       
+    1:     def test_login_rejects_inactive_user(self) -> None:
+    2:         self.users.seed_user(
+    1:             email="buyer@example.com",
+    1:             full_name="Buyer One",
+    1:             password_hash=hash_password("Buyer123!"),
+    1:             is_active=False,
+               )
+       
+    2:         with self.assertRaises(ValidationError):
+    1:             self.service.login(LoginCommand(email="buyer@example.com", password="Buyer123!"))
+       
+       
+    1: if __name__ == "__main__":
+           unittest.main()

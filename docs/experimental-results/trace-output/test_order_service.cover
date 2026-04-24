@@ -1,0 +1,73 @@
+    1: import unittest
+       
+    1: from app.application.dto import AddCartItemCommand, CheckoutCommand
+    1: from app.application.services import CartService, OrderService
+    1: from app.domain.entities import User, UserRole
+    1: from app.domain.exceptions import ValidationError
+    1: from app.domain.services import PricingService
+    1: from app.infrastructure.repositories.in_memory import (
+           InMemoryCartRepository,
+           InMemoryCouponRepository,
+           InMemoryOrderRepository,
+           InMemoryProductRepository,
+       )
+       
+       
+    2: class OrderServiceTests(unittest.TestCase):
+    1:     def setUp(self) -> None:
+    2:         self.products = InMemoryProductRepository()
+    2:         self.cart_repo = InMemoryCartRepository()
+    4:         self.cart_service = CartService(
+    2:             self.products,
+    2:             self.cart_repo,
+    2:             InMemoryCouponRepository(),
+    2:             PricingService(),
+               )
+    2:         self.orders = InMemoryOrderRepository()
+    4:         self.current_user = User(
+    2:             id=99,
+    2:             email="buyer@example.com",
+    2:             full_name="Buyer One",
+    2:             password_hash="unused",
+    2:             role=UserRole.customer,
+               )
+    4:         self.service = OrderService(
+    2:             self.products,
+    2:             self.orders,
+    2:             self.cart_service,
+    2:             self.cart_repo,
+    2:             self.current_user,
+               )
+       
+    1:     def test_checkout_creates_order_clears_cart_and_decrements_stock(self) -> None:
+    1:         initial_stock = self.products.get(1).stock
+    1:         self.cart_service.add_item(AddCartItemCommand(product_id=1, quantity=2))
+       
+    2:         order = self.service.checkout(
+    2:             CheckoutCommand(
+    1:                 customer_name="Buyer One",
+    1:                 email="buyer@example.com",
+    1:                 address="101 Market Street, Test City",
+    1:                 shipping_method="standard",
+                   )
+               )
+       
+    1:         self.assertEqual(order["status"], "confirmed")
+    1:         self.assertEqual(len(self.orders.list()), 1)
+    1:         self.assertEqual(self.cart_service.get_cart()["count"], 0)
+    1:         self.assertEqual(self.products.get(1).stock, initial_stock - 2)
+       
+    1:     def test_checkout_rejects_empty_cart(self) -> None:
+    2:         with self.assertRaises(ValidationError):
+    2:             self.service.checkout(
+    2:                 CheckoutCommand(
+    1:                     customer_name="Buyer One",
+    1:                     email="buyer@example.com",
+    1:                     address="101 Market Street, Test City",
+    1:                     shipping_method="standard",
+                       )
+                   )
+       
+       
+    1: if __name__ == "__main__":
+           unittest.main()

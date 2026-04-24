@@ -1,0 +1,44 @@
+    2: from app.domain.entities import User, UserRole
+       
+       
+    4: class InMemoryUserRepository:
+    2:     def __init__(self) -> None:
+    4:         self._users: dict[int, User] = {}
+    4:         self._next_id = 1
+       
+    2:     def get(self, user_id: int) -> User | None:
+               return self._users.get(user_id)
+       
+    2:     def get_by_email(self, email: str) -> User | None:
+    5:         email = email.lower()
+    5:         for user in self._users.values():
+    4:             if user.email.lower() == email:
+    4:                 return user
+    1:         return None
+       
+    2:     def create(self, user: User) -> User:
+    4:         self._users[user.id] = user
+    4:         return user
+       
+    2:     def next_id(self) -> int:
+    4:         value = self._next_id
+    4:         self._next_id += 1
+    4:         return value
+       
+   14:     def seed_user(
+               self,
+    2:         email: str,
+    2:         full_name: str,
+    2:         password_hash: str,
+    4:         role: UserRole = UserRole.customer,
+    4:         is_active: bool = True,
+    2:     ) -> User:
+    6:         user = User(
+    3:             id=self.next_id(),
+    3:             email=email.lower(),
+    3:             full_name=full_name,
+    3:             password_hash=password_hash,
+    3:             role=role,
+    3:             is_active=is_active,
+               )
+    3:         return self.create(user)

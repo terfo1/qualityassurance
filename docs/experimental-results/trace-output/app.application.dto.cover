@@ -1,0 +1,67 @@
+    1: from pydantic import BaseModel, Field
+       
+       
+    2: class ProductFilters(BaseModel):
+    1:     category: str | None = None
+    1:     min_price: float | None = Field(default=None, ge=0)
+    1:     max_price: float | None = Field(default=None, ge=0)
+    1:     featured: bool | None = None
+    1:     sort: str = "featured"
+    1:     query: str | None = None
+       
+       
+    2: class AddCartItemCommand(BaseModel):
+    1:     product_id: int
+    1:     quantity: int = Field(ge=1, le=20)
+       
+       
+    2: class UpdateCartItemCommand(BaseModel):
+    1:     quantity: int = Field(ge=1, le=20)
+       
+       
+    2: class CheckoutCommand(BaseModel):
+    1:     customer_name: str = Field(min_length=2, max_length=80)
+    1:     email: str = Field(min_length=5, max_length=120)
+    1:     address: str = Field(min_length=10, max_length=200)
+    1:     shipping_method: str = "standard"
+       
+       
+    2: class ProductCreateCommand(BaseModel):
+    1:     name: str = Field(min_length=2, max_length=80)
+    1:     category: str = Field(min_length=2, max_length=40)
+    1:     price: float = Field(gt=0)
+    1:     stock: int = Field(ge=0)
+    1:     rating: float = Field(default=4.5, ge=0, le=5)
+    1:     featured: bool = False
+    1:     image: str = Field(min_length=4, max_length=200)
+    1:     description: str = Field(min_length=10, max_length=400)
+    1:     tags: list[str] = Field(default_factory=list)
+       
+       
+    2: class ProductUpdateCommand(BaseModel):
+    1:     name: str | None = Field(default=None, min_length=2, max_length=80)
+    1:     category: str | None = Field(default=None, min_length=2, max_length=40)
+    1:     price: float | None = Field(default=None, gt=0)
+    1:     stock: int | None = Field(default=None, ge=0)
+    1:     rating: float | None = Field(default=None, ge=0, le=5)
+    1:     featured: bool | None = None
+    1:     image: str | None = Field(default=None, min_length=4, max_length=200)
+    1:     description: str | None = Field(default=None, min_length=10, max_length=400)
+    1:     tags: list[str] | None = None
+       
+       
+    2: class ReviewCreateCommand(BaseModel):
+    1:     author: str = Field(min_length=2, max_length=40)
+    1:     rating: int = Field(ge=1, le=5)
+    1:     comment: str = Field(min_length=8, max_length=240)
+       
+       
+    2: class RegisterUserCommand(BaseModel):
+    1:     email: str = Field(min_length=5, max_length=120)
+    1:     full_name: str = Field(min_length=2, max_length=80)
+    1:     password: str = Field(min_length=8, max_length=128)
+       
+       
+    2: class LoginCommand(BaseModel):
+    1:     email: str = Field(min_length=5, max_length=120)
+    1:     password: str = Field(min_length=8, max_length=128)

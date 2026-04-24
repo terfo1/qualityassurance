@@ -1,0 +1,10 @@
+{
+  "files": {
+    "app/application/services.py": {
+      "covered_lines": 161,
+      "coverage_percent": 100.0
+    }
+  },
+  "overall_coverage_percent": 100.0,
+  "trace_stdout": "lines   cov%   module   (path)\n   49   100%   app.application.dto   (D:\\QAAssik1\\app\\application\\dto.py)\n  161   100%   app.application.services   (D:\\QAAssik1\\app\\application\\services.py)\n   78   100%   app.domain.entities   (D:\\QAAssik1\\app\\domain\\entities.py)\n   37   100%   app.domain.repositories   (D:\\QAAssik1\\app\\domain\\repositories.py)\n   30   100%   app.domain.services   (D:\\QAAssik1\\app\\domain\\services.py)\n   77   100%   app.infrastructure.repositories.in_memory   (D:\\QAAssik1\\app\\infrastructure\\repositories\\in_memory.py)\n   23   100%   app.security   (D:\\QAAssik1\\app\\security.py)\n   46   100%   test_auth_service   (D:\\QAAssik1\\tests\\test_auth_service.py)\n   38   100%   test_cart_service   (D:\\QAAssik1\\tests\\test_cart_service.py)\n   34   100%   test_helpers   (D:\\QAAssik1\\tests\\test_helpers.py)\n   51   100%   test_order_service   (D:\\QAAssik1\\tests\\test_order_service.py)\n"
+}

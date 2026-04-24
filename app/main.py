@@ -2,6 +2,8 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 
+from app.config import settings
+from app.presentation.api.chaos import QAFaultInjectionMiddleware
 from app.presentation.api.api import api_router
 from app.presentation.web.router import router as web_router
 
@@ -19,6 +21,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+if settings.qa_fault_injection_enabled:
+    app.add_middleware(QAFaultInjectionMiddleware)
 
 app.mount("/static", StaticFiles(directory="frontend/static"), name="static")
 app.include_router(api_router, prefix="/api")

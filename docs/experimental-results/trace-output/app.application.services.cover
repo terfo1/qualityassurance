@@ -1,0 +1,353 @@
+    1: from collections import Counter
+       
+    1: from app.application.dto import (
+           AddCartItemCommand,
+           CheckoutCommand,
+           LoginCommand,
+           ProductCreateCommand,
+           ProductFilters,
+           ProductUpdateCommand,
+           RegisterUserCommand,
+           ReviewCreateCommand,
+           UpdateCartItemCommand,
+       )
+    1: from app.domain.entities import CartItem, Order, OrderStatus, Product, Review, ShippingMethod, User, UserRole
+    1: from app.domain.exceptions import InventoryError, NotFoundError, ValidationError
+    1: from app.domain.repositories import CartRepository, CouponRepository, OrderRepository, ProductRepository, ReviewRepository, UserRepository
+    1: from app.domain.services import PricingService, RecommendationService
+    1: from app.security import create_token, hash_password, verify_password
+       
+       
+    2: class CatalogService:
+    5:     def __init__(
+               self,
+    1:         products: ProductRepository,
+    1:         reviews: ReviewRepository,
+    1:         recommendations: RecommendationService,
+    1:     ) -> None:
+               self.products = products
+               self.reviews = reviews
+               self.recommendations = recommendations
+       
+    1:     def list_products(self, filters: ProductFilters) -> list[dict]:
+               products = self.products.list()
+               if filters.category:
+                   products = [product for product in products if product.category.lower() == filters.category.lower()]
+               if filters.featured is not None:
+                   products = [product for product in products if product.featured is filters.featured]
+               if filters.min_price is not None:
+                   products = [product for product in products if product.price >= filters.min_price]
+               if filters.max_price is not None:
+                   products = [product for product in products if product.price <= filters.max_price]
+               if filters.query:
+                   needle = filters.query.lower()
+                   products = [
+                       product
+                       for product in products
+                       if needle in product.name.lower()
+                       or needle in product.description.lower()
+                       or any(needle in tag.lower() for tag in product.tags)
+                   ]
+               products = self._sort(products, filters.sort)
+               return [product.to_dict() for product in products]
+       
+    1:     def get_product_detail(self, product_id: int) -> dict:
+               product = self.products.get(product_id)
+               if not product:
+                   raise NotFoundError("Product not found")
+               reviews = self.reviews.list_for_product(product_id)
+               related = self.recommendations.related_products(product, self.products.list())
+               return {
+                   "product": product.to_dict(),
+                   "reviews": [review.to_dict() for review in reviews],
+                   "related": [item.to_dict() for item in related],
+               }
+       
+    1:     def list_categories(self) -> list[str]:
+               return sorted({product.category for product in self.products.list()})
+       
+    1:     def featured_products(self) -> list[dict]:
+               return [product.to_dict() for product in self._sort([item for item in self.products.list() if item.featured], "featured")[:4]]
+       
+    1:     def create_review(self, product_id: int, command: ReviewCreateCommand) -> dict:
+               product = self.products.get(product_id)
+               if not product:
+                   raise NotFoundError("Product not found")
+               review = Review(
+                   id=self.reviews.next_id(),
+                   product_id=product_id,
+                   author=command.author,
+                   rating=command.rating,
+                   comment=command.comment,
+               )
+               self.reviews.create(review)
+               product_reviews = self.reviews.list_for_product(product_id)
+               product.rating = round(sum(item.rating for item in product_reviews) / len(product_reviews), 1)
+               self.products.update(product)
+               return review.to_dict()
+       
+    1:     def _sort(self, products: list[Product], sort: str) -> list[Product]:
+               if sort == "price_asc":
+                   return sorted(products, key=lambda item: item.price)
+               if sort == "price_desc":
+                   return sorted(products, key=lambda item: item.price, reverse=True)
+               if sort == "rating":
+                   return sorted(products, key=lambda item: item.rating, reverse=True)
+               return sorted(products, key=lambda item: (not item.featured, -item.rating, item.price))
+       
+       
+    2: class CartService:
+    6:     def __init__(
+               self,
+    1:         products: ProductRepository,
+    1:         cart: CartRepository,
+    1:         coupons: CouponRepository,
+    1:         pricing: PricingService,
+    1:     ) -> None:
+    7:         self.products = products
+    7:         self.cart = cart
+    7:         self.coupons = coupons
+    7:         self.pricing = pricing
+       
+    1:     def get_cart(self) -> dict:
+   11:         shipping_method = self.cart.get_shipping_method()
+   11:         coupon_code = self.cart.get_coupon()
+   11:         coupon = self.coupons.get(coupon_code) if coupon_code else None
+   11:         items = []
+   20:         for item in self.cart.list_items():
+    9:             product = self.products.get(item.product_id)
+    9:             if not product:
+                       continue
+    9:             line_total = round(product.price * item.quantity, 2)
+   18:             items.append(
+    9:                 {
+    9:                     "product": product.to_dict(),
+    9:                     "quantity": item.quantity,
+    9:                     "line_total": line_total,
+    9:                     "low_stock": product.stock <= 5,
+                       }
+                   )
+   11:         pricing = self.pricing.calculate(items, shipping_method, coupon)
+   11:         return {
+   11:             "items": items,
+   11:             "coupon_code": coupon_code,
+   11:             "shipping_method": shipping_method,
+   11:             "pricing": pricing,
+   31:             "count": sum(item["quantity"] for item in items),
+               }
+       
+    1:     def add_item(self, command: AddCartItemCommand) -> dict:
+    6:         product = self._product_or_error(command.product_id)
+    6:         current = self.cart.get_item(command.product_id)
+    6:         new_quantity = command.quantity + (current.quantity if current else 0)
+    6:         self._validate_stock(product, new_quantity)
+    5:         self.cart.set_item(CartItem(product_id=product.id, quantity=new_quantity))
+    5:         return self.get_cart()
+       
+    1:     def update_item(self, product_id: int, command: UpdateCartItemCommand) -> dict:
+    1:         product = self._product_or_error(product_id)
+    1:         if not self.cart.get_item(product_id):
+                   raise NotFoundError("Cart item not found")
+    1:         self._validate_stock(product, command.quantity)
+    1:         self.cart.set_item(CartItem(product_id=product_id, quantity=command.quantity))
+    1:         return self.get_cart()
+       
+    1:     def remove_item(self, product_id: int) -> dict:
+               if not self.cart.get_item(product_id):
+                   raise NotFoundError("Cart item not found")
+               self.cart.delete_item(product_id)
+               return self.get_cart()
+       
+    1:     def clear(self) -> dict:
+               self.cart.clear()
+               return {"message": "Cart cleared"}
+       
+    1:     def apply_coupon(self, code: str) -> dict:
+    1:         coupon = self.coupons.get(code)
+    1:         if not coupon or not coupon.active:
+    1:             raise ValidationError("Coupon is invalid or inactive")
+               self.cart.set_coupon(coupon.code)
+               return self.get_cart()
+       
+    1:     def remove_coupon(self) -> dict:
+               self.cart.set_coupon(None)
+               return self.get_cart()
+       
+    1:     def set_shipping_method(self, shipping_method: str) -> dict:
+    4:         if shipping_method not in {item.value for item in ShippingMethod}:
+                   raise ValidationError("Unsupported shipping method")
+    1:         self.cart.set_shipping_method(shipping_method)
+    1:         return self.get_cart()
+       
+    1:     def _product_or_error(self, product_id: int) -> Product:
+    7:         product = self.products.get(product_id)
+    7:         if not product:
+                   raise NotFoundError("Product not found")
+    7:         return product
+       
+    1:     def _validate_stock(self, product: Product, quantity: int) -> None:
+    7:         if quantity > product.stock:
+    1:             raise InventoryError("Requested quantity exceeds available stock")
+       
+       
+    2: class OrderService:
+    7:     def __init__(
+               self,
+    1:         products: ProductRepository,
+    1:         orders: OrderRepository,
+    1:         cart_service: CartService,
+    1:         cart: CartRepository,
+    1:         current_user: User,
+    1:     ) -> None:
+    2:         self.products = products
+    2:         self.orders = orders
+    2:         self.cart_service = cart_service
+    2:         self.cart = cart
+    2:         self.current_user = current_user
+       
+    1:     def checkout(self, command: CheckoutCommand) -> dict:
+    8:         if command.shipping_method not in {item.value for item in ShippingMethod}:
+                   raise ValidationError("Unsupported shipping method")
+    2:         self.cart.set_shipping_method(command.shipping_method)
+    2:         snapshot = self.cart_service.get_cart()
+    2:         if not snapshot["items"]:
+    1:             raise ValidationError("Cart is empty")
+    2:         for item in snapshot["items"]:
+    1:             product = self.products.get(item["product"]["id"])
+    1:             if not product:
+                       raise NotFoundError("Product not found during checkout")
+    1:             if item["quantity"] > product.stock:
+                       raise InventoryError(f"Insufficient stock for {product.name}")
+    2:         for item in snapshot["items"]:
+    1:             product = self.products.get(item["product"]["id"])
+    1:             product.stock -= item["quantity"]
+    1:             self.products.update(product)
+    2:         order = Order(
+    1:             id=self.orders.next_id(),
+    1:             user_id=self.current_user.id,
+    1:             customer_name=command.customer_name,
+    1:             email=command.email,
+    1:             address=command.address,
+    1:             shipping_method=ShippingMethod(command.shipping_method),
+    1:             status=OrderStatus.confirmed,
+    1:             items=snapshot["items"],
+    1:             pricing=snapshot["pricing"],
+    1:             coupon_code=snapshot["coupon_code"],
+               )
+    1:         self.orders.create(order)
+    1:         self.cart.clear()
+    1:         return order.to_dict()
+       
+    1:     def list_orders(self) -> list[dict]:
+               return [order.to_dict() for order in self.orders.list()]
+       
+    1:     def get_order(self, order_id: int) -> dict:
+               order = self.orders.get(order_id)
+               if not order:
+                   raise NotFoundError("Order not found")
+               return order.to_dict()
+       
+    1:     def update_status(self, order_id: int, status: str) -> dict:
+               order = self.orders.get(order_id)
+               if not order:
+                   raise NotFoundError("Order not found")
+               try:
+                   order.status = OrderStatus(status)
+               except ValueError as error:
+                   raise ValidationError("Unsupported order status") from error
+               self.orders.update(order)
+               return order.to_dict()
+       
+       
+    2: class AdminService:
+    5:     def __init__(
+               self,
+    1:         products: ProductRepository,
+    1:         orders: OrderRepository,
+    1:         coupons: CouponRepository,
+    1:     ) -> None:
+               self.products = products
+               self.orders = orders
+               self.coupons = coupons
+       
+    1:     def dashboard(self) -> dict:
+               products = self.products.list()
+               orders = self.orders.list()
+               revenue = round(sum(order.pricing["total"] for order in orders), 2)
+               categories = Counter(product.category for product in products)
+               low_stock = [product.to_dict() for product in products if product.stock <= 5]
+               return {
+                   "products": len(products),
+                   "orders": len(orders),
+                   "revenue": revenue,
+                   "inventory_units": sum(product.stock for product in products),
+                   "low_stock": low_stock,
+                   "category_mix": dict(categories),
+                   "coupons": [coupon.to_dict() for coupon in self.coupons.list()],
+               }
+       
+    1:     def create_product(self, command: ProductCreateCommand) -> dict:
+               product = Product(id=self.products.next_id(), **command.model_dump())
+               self.products.create(product)
+               return product.to_dict()
+       
+    1:     def update_product(self, product_id: int, command: ProductUpdateCommand) -> dict:
+               product = self.products.get(product_id)
+               if not product:
+                   raise NotFoundError("Product not found")
+               for key, value in command.model_dump().items():
+                   if value is not None:
+                       setattr(product, key, value)
+               self.products.update(product)
+               return product.to_dict()
+       
+    1:     def delete_product(self, product_id: int) -> dict:
+               if not self.products.get(product_id):
+                   raise NotFoundError("Product not found")
+               self.products.delete(product_id)
+               return {"message": "Product deleted", "product_id": product_id}
+       
+       
+    2: class MetricsService:
+    1:     def __init__(self, products: ProductRepository, orders: OrderRepository, cart_service: CartService) -> None:
+               self.products = products
+               self.orders = orders
+               self.cart_service = cart_service
+       
+    1:     def metrics(self) -> dict:
+               cart = self.cart_service.get_cart()
+               products = self.products.list()
+               return {
+                   "products": len(products),
+                   "categories": len({product.category for product in products}),
+                   "cart_items": cart["count"],
+                   "orders": len(self.orders.list()),
+                   "featured_products": len([product for product in products if product.featured]),
+               }
+       
+       
+    2: class AuthService:
+    1:     def __init__(self, users: UserRepository) -> None:
+    4:         self.users = users
+       
+    1:     def register(self, command: RegisterUserCommand) -> dict:
+    2:         if self.users.get_by_email(command.email):
+    1:             raise ValidationError("Email is already registered")
+    2:         user = User(
+    1:             id=self.users.next_id(),
+    1:             email=command.email.lower(),
+    1:             full_name=command.full_name,
+    1:             password_hash=hash_password(command.password),
+    1:             role=UserRole.customer,
+    1:             is_active=True,
+               )
+    1:         created = self.users.create(user)
+    1:         return {"token": create_token(created.id), "user": created.to_dict()}
+       
+    1:     def login(self, command: LoginCommand) -> dict:
+    2:         user = self.users.get_by_email(command.email)
+    2:         if not user or not verify_password(command.password, user.password_hash):
+    1:             raise ValidationError("Invalid email or password")
+    1:         if user.is_active:
+                   raise ValidationError("User is inactive")
+    1:         return {"token": create_token(user.id), "user": user.to_dict()}

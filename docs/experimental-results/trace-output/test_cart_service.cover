@@ -1,0 +1,60 @@
+    1: import unittest
+       
+    1: from app.application.dto import AddCartItemCommand, UpdateCartItemCommand
+    1: from app.application.services import CartService
+    1: from app.domain.exceptions import InventoryError, ValidationError
+    1: from app.domain.services import PricingService
+    1: from app.infrastructure.repositories.in_memory import (
+           InMemoryCartRepository,
+           InMemoryCouponRepository,
+           InMemoryProductRepository,
+       )
+       
+       
+    2: class CartServiceTests(unittest.TestCase):
+    1:     def setUp(self) -> None:
+    5:         self.products = InMemoryProductRepository()
+    5:         self.cart_repo = InMemoryCartRepository()
+   10:         self.service = CartService(
+    5:             self.products,
+    5:             self.cart_repo,
+    5:             InMemoryCouponRepository(),
+    5:             PricingService(),
+               )
+       
+    1:     def test_add_item_accumulates_quantity_and_updates_count(self) -> None:
+    1:         self.service.add_item(AddCartItemCommand(product_id=1, quantity=1))
+       
+    1:         cart = self.service.add_item(AddCartItemCommand(product_id=1, quantity=2))
+       
+    1:         self.assertEqual(cart["count"], 3)
+    1:         self.assertEqual(cart["items"][0]["quantity"], 3)
+       
+    1:     def test_update_item_changes_quantity(self) -> None:
+    1:         self.service.add_item(AddCartItemCommand(product_id=2, quantity=1))
+       
+    1:         cart = self.service.update_item(2, UpdateCartItemCommand(quantity=4))
+       
+    1:         self.assertEqual(cart["items"][0]["quantity"], 4)
+    1:         self.assertEqual(cart["count"], 4)
+       
+    1:     def test_add_item_rejects_quantity_above_stock(self) -> None:
+    2:         with self.assertRaises(InventoryError):
+    1:             self.service.add_item(AddCartItemCommand(product_id=4, quantity=13))
+       
+    1:     def test_invalid_coupon_is_rejected(self) -> None:
+    2:         with self.assertRaises(ValidationError):
+    1:             self.service.apply_coupon("missing")
+       
+    1:     def test_shipping_method_changes_total(self) -> None:
+    1:         self.service.add_item(AddCartItemCommand(product_id=1, quantity=1))
+    1:         standard_total = self.service.get_cart()["pricing"]["total"]
+       
+    1:         express_cart = self.service.set_shipping_method("express")
+       
+    1:         self.assertGreater(express_cart["pricing"]["total"], standard_total)
+    1:         self.assertEqual(express_cart["shipping_method"], "express")
+       
+       
+    1: if __name__ == "__main__":
+           unittest.main()

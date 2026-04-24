@@ -1,0 +1,74 @@
+{
+  "mutants_created": 6,
+  "mutants_killed": 5,
+  "mutants_survived": 1,
+  "mutation_score_percent": 83.33,
+  "report": [
+    {
+      "id": "AUTH-001",
+      "module": "Authentication",
+      "type": "Logical operator change",
+      "target_file": "app/application/services.py",
+      "search": "if not user or not verify_password(command.password, user.password_hash):",
+      "replace": "if not user and not verify_password(command.password, user.password_hash):",
+      "status": "killed",
+      "exit_code": 1,
+      "test_output": ".F.........\n======================================================================\nFAIL: test_login_rejects_wrong_password (test_auth_service.AuthServiceTests.test_login_rejects_wrong_password)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\QAAssik1\\tests\\test_auth_service.py\", line 51, in test_login_rejects_wrong_password\n    with self.assertRaises(ValidationError):\nAssertionError: ValidationError not raised\n\n----------------------------------------------------------------------\nRan 11 tests in 0.961s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "id": "AUTH-002",
+      "module": "Authentication",
+      "type": "Condition inversion",
+      "target_file": "app/application/services.py",
+      "search": "if not user.is_active:",
+      "replace": "if user.is_active:",
+      "status": "killed",
+      "exit_code": 1,
+      "test_output": "F..........\n======================================================================\nFAIL: test_login_rejects_inactive_user (test_auth_service.AuthServiceTests.test_login_rejects_inactive_user)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\QAAssik1\\tests\\test_auth_service.py\", line 62, in test_login_rejects_inactive_user\n    with self.assertRaises(ValidationError):\nAssertionError: ValidationError not raised\n\n----------------------------------------------------------------------\nRan 11 tests in 1.355s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "id": "CART-001",
+      "module": "Shopping Cart",
+      "type": "Boundary mutation",
+      "target_file": "app/application/services.py",
+      "search": "if quantity > product.stock:",
+      "replace": "if quantity >= product.stock:",
+      "status": "survived",
+      "exit_code": 0,
+      "test_output": "...........\n----------------------------------------------------------------------\nRan 11 tests in 1.383s\n\nOK\n"
+    },
+    {
+      "id": "ORDER-001",
+      "module": "Checkout and Order Creation",
+      "type": "Condition inversion",
+      "target_file": "app/application/services.py",
+      "search": "if not snapshot[\"items\"]:",
+      "replace": "if snapshot[\"items\"]:",
+      "status": "killed",
+      "exit_code": 1,
+      "test_output": ".........EF\n======================================================================\nERROR: test_checkout_creates_order_clears_cart_and_decrements_stock (test_order_service.OrderServiceTests.test_checkout_creates_order_clears_cart_and_decrements_stock)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\QAAssik1\\tests\\test_order_service.py\", line 46, in test_checkout_creates_order_clears_cart_and_decrements_stock\n    order = self.service.checkout(\n            ^^^^^^^^^^^^^^^^^^^^^^\n  File \"D:\\QAAssik1\\app\\application\\services.py\", line 214, in checkout\n    raise ValidationError(\"Cart is empty\")\napp.domain.exceptions.ValidationError: Cart is empty\n\n======================================================================\nFAIL: test_checkout_rejects_empty_cart (test_order_service.OrderServiceTests.test_checkout_rejects_empty_cart)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\QAAssik1\\tests\\test_order_service.py\", line 61, in test_checkout_rejects_empty_cart\n    with self.assertRaises(ValidationError):\nAssertionError: ValidationError not raised\n\n----------------------------------------------------------------------\nRan 11 tests in 1.269s\n\nFAILED (failures=1, errors=1)\n"
+    },
+    {
+      "id": "ORDER-002",
+      "module": "Checkout and Order Creation",
+      "type": "Return value modification",
+      "target_file": "app/application/services.py",
+      "search": "status=OrderStatus.confirmed,",
+      "replace": "status=OrderStatus.pending,",
+      "status": "killed",
+      "exit_code": 1,
+      "test_output": ".........F.\n======================================================================\nFAIL: test_checkout_creates_order_clears_cart_and_decrements_stock (test_order_service.OrderServiceTests.test_checkout_creates_order_clears_cart_and_decrements_stock)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\QAAssik1\\tests\\test_order_service.py\", line 55, in test_checkout_creates_order_clears_cart_and_decrements_stock\n    self.assertEqual(order[\"status\"], \"confirmed\")\nAssertionError: 'pending' != 'confirmed'\n- pending\n+ confirmed\n\n\n----------------------------------------------------------------------\nRan 11 tests in 1.361s\n\nFAILED (failures=1)\n"
+    },
+    {
+      "id": "ORDER-003",
+      "module": "Checkout and Order Creation",
+      "type": "Arithmetic mutation",
+      "target_file": "app/application/services.py",
+      "search": "product.stock -= item[\"quantity\"]",
+      "replace": "product.stock += item[\"quantity\"]",
+      "status": "killed",
+      "exit_code": 1,
+      "test_output": ".........F.\n======================================================================\nFAIL: test_checkout_creates_order_clears_cart_and_decrements_stock (test_order_service.OrderServiceTests.test_checkout_creates_order_clears_cart_and_decrements_stock)\n----------------------------------------------------------------------\nTraceback (most recent call last):\n  File \"D:\\QAAssik1\\tests\\test_order_service.py\", line 58, in test_checkout_creates_order_clears_cart_and_decrements_stock\n    self.assertEqual(self.products.get(1).stock, initial_stock - 2)\nAssertionError: 20 != 16\n\n----------------------------------------------------------------------\nRan 11 tests in 1.279s\n\nFAILED (failures=1)\n"
+    }
+  ]
+}
