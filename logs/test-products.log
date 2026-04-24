@@ -1,0 +1,101 @@
+
+> novacart-api-tests@1.0.0 test:products
+> npx playwright test --config=playwright.config.ts products/
+
+
+Running 20 tests using 3 workers
+
+[31mConfiguration Error: HTML reporter output folder clashes with the tests output folder:[39m
+
+    html reporter folder: [1m/Users/marioscordia/Desktop/qualityassurance/tests/test-results/html[22m
+    test results folder: [1m/Users/marioscordia/Desktop/qualityassurance/tests/test-results[22m
+
+HTML reporter will clear its output directory prior to being generated, which will lead to the artifact loss.
+
+(node:54848) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54849) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54847) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54848) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54849) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54847) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 products/TC-CAT-catalog-filtering.spec.ts:19:7 › Catalog Filtering — GET /api/products › TC-CAT-001 | filter by category=Footwear → only Footwear products returned (32ms)
+  ✓   4 products/TC-CAT-catalog-filtering.spec.ts:34:7 › Catalog Filtering — GET /api/products › TC-CAT-002 | price range filter is inclusive on both bounds (14ms)
+  ✘   3 products/TC-PROD-admin-crud.spec.ts:37:5 › TC-PROD-001 | create product with valid payload → 201, all fields persisted correctly (1ms)
+  -   6 products/TC-PROD-admin-crud.spec.ts:53:5 › TC-PROD-002 | created product appears in GET /api/products catalog
+  -   7 products/TC-PROD-admin-crud.spec.ts:69:5 › TC-PROD-005 | partial update (price only) → 200, other fields unchanged
+  -   8 products/TC-PROD-admin-crud.spec.ts:91:5 › TC-PROD-007 | delete product → removed from catalog
+  -   9 products/TC-PROD-admin-crud.spec.ts:109:5 › TC-PROD-003 | price = 0 → 422 (DTO: gt=0)
+  -  10 products/TC-PROD-admin-crud.spec.ts:114:5 › TC-PROD-004 | negative stock → 422 (DTO: ge=0)
+  -  11 products/TC-PROD-admin-crud.spec.ts:119:5 › TC-PROD-006 | update non-existent product → 404
+  -  12 products/TC-PROD-admin-crud.spec.ts:124:5 › TC-PROD-008 | delete non-existent product → 404
+  ✘   2 products/TC-REV-reviews.spec.ts:45:5 › TC-REV-001 | new review updates product average rating correctly (1ms)
+  -  13 products/TC-REV-reviews.spec.ts:70:5 › TC-REV-002 | first review on product sets rating exactly to that rating
+  -  14 products/TC-REV-reviews.spec.ts:87:5 › TC-REV-003 | rating = 6 (above max) → 422 (DTO: le=5)
+  -  15 products/TC-REV-reviews.spec.ts:98:5 › TC-REV-004 | comment shorter than 8 chars → 422 (DTO: min_length=8)
+  -  16 products/TC-REV-reviews.spec.ts:109:5 › TC-REV-005 | review on non-existent product → 404
+  ✓   5 products/TC-CAT-catalog-filtering.spec.ts:52:7 › Catalog Filtering — GET /api/products › TC-CAT-003 | search by product name → matching product returned (13ms)
+  ✓  17 products/TC-CAT-catalog-filtering.spec.ts:62:7 › Catalog Filtering — GET /api/products › TC-CAT-004 | sort=price_asc → products ordered lowest to highest price (11ms)
+  ✓  18 products/TC-CAT-catalog-filtering.spec.ts:74:7 › Catalog Filtering — GET /api/products › TC-CAT-005 | unknown category → 200 with empty list (no server error) (8ms)
+  ✓  19 products/TC-CAT-catalog-filtering.spec.ts:83:7 › Catalog Filtering — GET /api/products › TC-CAT-006 | min_price > max_price → empty list or 422 (no crash) (8ms)
+  ✓  20 products/TC-CAT-catalog-filtering.spec.ts:95:7 › Catalog Filtering — GET /api/products › TC-CAT-007 | featured=true → only featured products returned (7ms)
+
+
+  1) products/TC-PROD-admin-crud.spec.ts:37:5 › TC-PROD-001 | create product with valid payload → 201, all fields persisted correctly 
+
+    Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.
+      - Recommended fix: use a separate { request } in the test.
+      - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.
+    See https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.
+
+       at helpers/api-client.ts:34
+
+      32 |
+      33 |   post(endpoint: string, body: object = {}, token?: string) {
+    > 34 |     return this.req.post(`${BASE}${endpoint}`, {
+         |                     ^
+      35 |       headers: this.headers(token),
+      36 |       data: body,
+      37 |     });
+        at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/products/TC-PROD-admin-crud.spec.ts:40:29
+
+    Error Context: test-results/products-TC-PROD-admin-cru-be7ee--fields-persisted-correctly/error-context.md
+
+    Error Context: test-results/products-TC-PROD-admin-cru-be7ee--fields-persisted-correctly/error-context.md
+
+  2) products/TC-REV-reviews.spec.ts:45:5 › TC-REV-001 | new review updates product average rating correctly 
+
+    Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.
+      - Recommended fix: use a separate { request } in the test.
+      - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.
+    See https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.
+
+       at helpers/api-client.ts:34
+
+      32 |
+      33 |   post(endpoint: string, body: object = {}, token?: string) {
+    > 34 |     return this.req.post(`${BASE}${endpoint}`, {
+         |                     ^
+      35 |       headers: this.headers(token),
+      36 |       data: body,
+      37 |     });
+        at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)
+        at ApiClient.createProduct (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:119:28)
+        at freshProduct (/Users/marioscordia/Desktop/qualityassurance/tests/products/TC-REV-reviews.spec.ts:38:29)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/products/TC-REV-reviews.spec.ts:46:22
+
+    Error Context: test-results/products-TC-REV-reviews-TC-43597-ct-average-rating-correctly/error-context.md
+
+    Error Context: test-results/products-TC-REV-reviews-TC-43597-ct-average-rating-correctly/error-context.md
+
+  2 failed
+    products/TC-PROD-admin-crud.spec.ts:37:5 › TC-PROD-001 | create product with valid payload → 201, all fields persisted correctly 
+    products/TC-REV-reviews.spec.ts:45:5 › TC-REV-001 | new review updates product average rating correctly 
+  11 did not run
+  7 passed (463ms)

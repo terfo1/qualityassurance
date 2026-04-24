@@ -1,0 +1,116 @@
+
+> novacart-api-tests@1.0.0 test:system
+> npx playwright test --config=playwright.config.ts system/ admin/
+
+
+Running 16 tests using 4 workers
+
+[31mConfiguration Error: HTML reporter output folder clashes with the tests output folder:[39m
+
+    html reporter folder: [1m/Users/marioscordia/Desktop/qualityassurance/tests/test-results/html[22m
+    test results folder: [1m/Users/marioscordia/Desktop/qualityassurance/tests/test-results[22m
+
+HTML reporter will clear its output directory prior to being generated, which will lead to the artifact loss.
+
+(node:54912) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54913) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54910) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54911) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54911) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54910) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54913) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54912) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   1 system/TC-HEALTH-health-check.spec.ts:15:7 › Health Check — GET /api/metrics/health › TC-HEALTH-001 | health endpoint returns {status: ok, service: novacart} without auth (32ms)
+  ✓   2 system/TC-VAL-input-validation.spec.ts:18:7 › Input Validation — cross-cutting security checks › TC-VAL-001 | SQL injection in search query → safe response (no DB error, no data leak) (38ms)
+  ✓   5 system/TC-HEALTH-health-check.spec.ts:26:7 › Health Check — GET /api/metrics/health › TC-HEALTH-002 | health endpoint accessible without Authorization header (public route) (10ms)
+  ✓   7 system/TC-HEALTH-health-check.spec.ts:38:7 › System Metrics — GET /api/metrics › TC-METRICS-001 | metrics endpoint returns product, category, and order counts (11ms)
+  ✘   3 admin/TC-DASH-dashboard.spec.ts:18:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-001 | dashboard returns required metric fields with correct types (61ms)
+  ✓   6 system/TC-VAL-input-validation.spec.ts:31:7 › Input Validation — cross-cutting security checks › TC-VAL-002 | XSS payload in product name → stored as literal string, not executed (41ms)
+  ✓   8 system/TC-VAL-input-validation.spec.ts:58:7 › Input Validation — cross-cutting security checks › TC-VAL-003 | name field exceeding max_length=80 → 422 (DTO enforcement) (11ms)
+  ✓   9 system/TC-VAL-input-validation.spec.ts:75:7 › Input Validation — cross-cutting security checks › TC-VAL-004 | non-integer product_id in path → 422 (FastAPI type coercion) (5ms)
+  ✓  10 system/TC-VAL-input-validation.spec.ts:83:7 › Input Validation — cross-cutting security checks › TC-VAL-005 | negative product_id in path → 404 (no product with negative ID) (9ms)
+(node:54921) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   4 system/TC-DB-transactions.spec.ts:23:5 › TC-DB-001 | failed checkout rolls back — no stock decremented, no order created (159ms)
+  -  11 system/TC-DB-transactions.spec.ts:69:5 › TC-DB-002 | successful checkout commits atomically — stock, order, and cart all updated
+  -  12 system/TC-DB-transactions.spec.ts:103:5 › TC-DB-003 | session closed after each request — no connection pool exhaustion
+  -  13 system/TC-DB-transactions.spec.ts:117:5 › TC-DB-004 | duplicate email registration → 4xx (DB unique constraint, not 500)
+(node:54921) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  14 admin/TC-DASH-dashboard.spec.ts:38:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-002 | low_stock count = products where stock ≤ 5 (63ms)
+(node:54923) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54923) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  15 admin/TC-DASH-dashboard.spec.ts:54:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-003 | revenue ≥ 0 and is a finite number (not NaN) (59ms)
+  ✓  16 admin/TC-DASH-dashboard.spec.ts:65:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-004 | customer token → 403 (admin-only endpoint) (29ms)
+
+
+  1) admin/TC-DASH-dashboard.spec.ts:18:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-001 | dashboard returns required metric fields with correct types 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"number"[39m
+    Received: [31m"object"[39m
+
+      28 |     expect(typeof body.orders).toBe("number");
+      29 |     expect(typeof body.revenue).toBe("number");
+    > 30 |     expect(typeof body.low_stock).toBe("number");
+         |                                   ^
+      31 |     // Non-negative sanity checks
+      32 |     expect(body.products).toBeGreaterThanOrEqual(0);
+      33 |     expect(body.orders).toBeGreaterThanOrEqual(0);
+        at /Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts:30:35
+
+    Error Context: test-results/admin-TC-DASH-dashboard-Ad-d5984-c-fields-with-correct-types/error-context.md
+
+  2) admin/TC-DASH-dashboard.spec.ts:38:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-002 | low_stock count = products where stock ≤ 5 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m4[39m
+    Received: [31m[{"category": "QA", "description": "Good stock product for TX test.", "featured": false, "id": 9, "image": "/img/good.jpg", "name": "TXGOOD_1775230572004", "price": 10, "rating": 4.5, "stock": 5, "tags": []}, {"category": "QA", "description": "Zero stock product for TX test.", "featured": false, "id": 10, "image": "/img/bad.jpg", "name": "TXBAD_1775230572013", "price": 10, "rating": 4.5, "stock": 0, "tags": []}, {"category": "QA", "description": "Good stock product for TX test.", "featured": false, "id": 11, "image": "/img/good.jpg", "name": "TXGOOD_1775230613480", "price": 10, "rating": 4.5, "stock": 5, "tags": []}, {"category": "QA", "description": "Zero stock product for TX test.", "featured": false, "id": 12, "image": "/img/bad.jpg", "name": "TXBAD_1775230613489", "price": 10, "rating": 4.5, "stock": 0, "tags": []}][39m
+
+      49 |
+      50 |     // Dashboard low_stock must match our computed count
+    > 51 |     expect(dash.low_stock).toBe(expectedLowStock);
+         |                            ^
+      52 |   });
+      53 |
+      54 |   test("TC-DASH-003 | revenue ≥ 0 and is a finite number (not NaN)", async ({ request }) => {
+        at /Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts:51:28
+
+    Error Context: test-results/admin-TC-DASH-dashboard-Ad-a23d5-nt-products-where-stock-≤-5/error-context.md
+
+  3) system/TC-DB-transactions.spec.ts:23:5 › TC-DB-001 | failed checkout rolls back — no stock decremented, no order created 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m5[39m
+    Received: [31mundefined[39m
+
+      58 |     expect(addBad.status()).toBe(400);
+      59 |     const goodCheck = await client.get(`/api/products/${goodProd.id}`);
+    > 60 |     expect((await goodCheck.json()).stock).toBe(5);
+         |                                            ^
+      61 |   }
+      62 |
+      63 |   await client.deleteProduct(goodProd.id, adminTok);
+        at /Users/marioscordia/Desktop/qualityassurance/tests/system/TC-DB-transactions.spec.ts:60:44
+
+    Error Context: test-results/system-TC-DB-transactions--d2f61-ecremented-no-order-created/error-context.md
+
+  3 failed
+    admin/TC-DASH-dashboard.spec.ts:18:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-001 | dashboard returns required metric fields with correct types 
+    admin/TC-DASH-dashboard.spec.ts:38:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-002 | low_stock count = products where stock ≤ 5 
+    system/TC-DB-transactions.spec.ts:23:5 › TC-DB-001 | failed checkout rolls back — no stock decremented, no order created 
+  3 did not run
+  10 passed (1.2s)

@@ -1,0 +1,1084 @@
+{
+  "config": {
+    "configFile": "/Users/marioscordia/Desktop/qualityassurance/tests/playwright.config.ts",
+    "rootDir": "/Users/marioscordia/Desktop/qualityassurance/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 5
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/marioscordia/Desktop/qualityassurance/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "test-results/html"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "cart/TC-CART-add-item.spec.ts",
+      "file": "cart/TC-CART-add-item.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-CART-001 | add valid in-stock product → 200, item appears in cart with correct line_total",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: Registration failed: HTTP 500 — Internal Server Error",
+                    "stack": "Error: Registration failed: HTTP 500 — Internal Server Error\n    at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-add-item.spec.ts:24:11",
+                    "location": {
+                      "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                      "column": 13,
+                      "line": 90
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers/api-client.ts:90\n\n  88 |     });\n  89 |     if (!reg.ok()) {\n> 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);\n     |             ^\n  91 |     }\n  92 |     return this.login(email, password);\n  93 |   }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                        "column": 13,
+                        "line": 90
+                      },
+                      "message": "Error: Registration failed: HTTP 500 — Internal Server Error\n\n   at helpers/api-client.ts:90\n\n  88 |     });\n  89 |     if (!reg.ok()) {\n> 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);\n     |             ^\n  91 |     }\n  92 |     return this.login(email, password);\n  93 |   }\n    at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-add-item.spec.ts:24:11"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.597Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/cart-TC-CART-add-item-TC-C-03fbc-art-with-correct-line-total/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                    "column": 13,
+                    "line": 90
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "49ddfe2dcd22a387392c-6e6a9acd4b0feef6f817",
+          "file": "cart/TC-CART-add-item.spec.ts",
+          "line": 35,
+          "column": 5
+        },
+        {
+          "title": "TC-CART-002 | adding same product twice increments quantity (upsert — no duplicates)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.660Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "49ddfe2dcd22a387392c-73f59171b4a3c0702850",
+          "file": "cart/TC-CART-add-item.spec.ts",
+          "line": 51,
+          "column": 5
+        },
+        {
+          "title": "TC-CART-003 | quantity exceeds stock → 400 (InventoryError)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.660Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "49ddfe2dcd22a387392c-78f446ae971d47a60c2b",
+          "file": "cart/TC-CART-add-item.spec.ts",
+          "line": 67,
+          "column": 5
+        },
+        {
+          "title": "TC-CART-004 | non-existent product_id → 404 (NotFoundError)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.660Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "49ddfe2dcd22a387392c-1cf87f8393f2472efabc",
+          "file": "cart/TC-CART-add-item.spec.ts",
+          "line": 74,
+          "column": 5
+        },
+        {
+          "title": "TC-CART-005 | quantity = 0 → 422 (DTO validation, ge=1)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.660Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "49ddfe2dcd22a387392c-d0878002daed2f6f6b06",
+          "file": "cart/TC-CART-add-item.spec.ts",
+          "line": 79,
+          "column": 5
+        },
+        {
+          "title": "TC-CART-006 | quantity = 21 → 422 (DTO validation, le=20)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.660Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "49ddfe2dcd22a387392c-23f2a4772c197eacb862",
+          "file": "cart/TC-CART-add-item.spec.ts",
+          "line": 84,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "cart/TC-CART-remove-clear.spec.ts",
+      "file": "cart/TC-CART-remove-clear.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-CART-011 | remove existing item → 200, item absent from cart, totals updated",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: Registration failed: HTTP 500 — Internal Server Error",
+                    "stack": "Error: Registration failed: HTTP 500 — Internal Server Error\n    at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-remove-clear.spec.ts:22:11",
+                    "location": {
+                      "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                      "column": 13,
+                      "line": 90
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers/api-client.ts:90\n\n  88 |     });\n  89 |     if (!reg.ok()) {\n> 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);\n     |             ^\n  91 |     }\n  92 |     return this.login(email, password);\n  93 |   }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                        "column": 13,
+                        "line": 90
+                      },
+                      "message": "Error: Registration failed: HTTP 500 — Internal Server Error\n\n   at helpers/api-client.ts:90\n\n  88 |     });\n  89 |     if (!reg.ok()) {\n> 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);\n     |             ^\n  91 |     }\n  92 |     return this.login(email, password);\n  93 |   }\n    at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-remove-clear.spec.ts:22:11"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.592Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/cart-TC-CART-remove-clear--55591-nt-from-cart-totals-updated/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                    "column": 13,
+                    "line": 90
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "e16581e4ce679b8c38b2-c39fd829c6e8bb318b88",
+          "file": "cart/TC-CART-remove-clear.spec.ts",
+          "line": 31,
+          "column": 5
+        },
+        {
+          "title": "TC-CART-012 | clear cart → 200, empty items list, all totals zero (except possible shipping base)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.669Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "e16581e4ce679b8c38b2-7eb77ff55507e1acfe41",
+          "file": "cart/TC-CART-remove-clear.spec.ts",
+          "line": 52,
+          "column": 5
+        },
+        {
+          "title": "TC-CART-013 | remove product not in cart → 404 (NotFoundError)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.669Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "e16581e4ce679b8c38b2-6f9e9e7f63f97c004b82",
+          "file": "cart/TC-CART-remove-clear.spec.ts",
+          "line": 68,
+          "column": 5
+        },
+        {
+          "title": "TC-CART-014 | clear already-empty cart → 200 (idempotent, no error)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.669Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "e16581e4ce679b8c38b2-c0df7862df81ddc863e6",
+          "file": "cart/TC-CART-remove-clear.spec.ts",
+          "line": 74,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "cart/TC-CART-update-item.spec.ts",
+      "file": "cart/TC-CART-update-item.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-CART-007 | update quantity of existing item → 200, totals recalculated",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 2,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: Registration failed: HTTP 500 — Internal Server Error",
+                    "stack": "Error: Registration failed: HTTP 500 — Internal Server Error\n    at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-update-item.spec.ts:21:11",
+                    "location": {
+                      "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                      "column": 13,
+                      "line": 90
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers/api-client.ts:90\n\n  88 |     });\n  89 |     if (!reg.ok()) {\n> 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);\n     |             ^\n  91 |     }\n  92 |     return this.login(email, password);\n  93 |   }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                        "column": 13,
+                        "line": 90
+                      },
+                      "message": "Error: Registration failed: HTTP 500 — Internal Server Error\n\n   at helpers/api-client.ts:90\n\n  88 |     });\n  89 |     if (!reg.ok()) {\n> 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);\n     |             ^\n  91 |     }\n  92 |     return this.login(email, password);\n  93 |   }\n    at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-update-item.spec.ts:21:11"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.593Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/cart-TC-CART-update-item-T-82808-m-→-200-totals-recalculated/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                    "column": 13,
+                    "line": 90
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "974a4dc36a2fef5b03c0-6a2aacd2ac6652a39cf2",
+          "file": "cart/TC-CART-update-item.spec.ts",
+          "line": 32,
+          "column": 5
+        },
+        {
+          "title": "TC-CART-008 | update to quantity = 1 (boundary minimum) → 200, accepted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.666Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "974a4dc36a2fef5b03c0-687016aaac174dd32311",
+          "file": "cart/TC-CART-update-item.spec.ts",
+          "line": 45,
+          "column": 5
+        },
+        {
+          "title": "TC-CART-009 | new quantity exceeds available stock → 400 (InventoryError)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.666Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "974a4dc36a2fef5b03c0-29b5d03d14e36e1f2105",
+          "file": "cart/TC-CART-update-item.spec.ts",
+          "line": 58,
+          "column": 5
+        },
+        {
+          "title": "TC-CART-010 | product not in cart → 404 (NotFoundError)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.666Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "974a4dc36a2fef5b03c0-f203615eddfffe0b4005",
+          "file": "cart/TC-CART-update-item.spec.ts",
+          "line": 64,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "cart/TC-COUPON-coupon.spec.ts",
+      "file": "cart/TC-COUPON-coupon.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-COUPON-001 | percent coupon (WELCOME10, 10% off) → discount = 10% of subtotal",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "failed",
+                  "duration": 1,
+                  "error": {
+                    "message": "Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.",
+                    "stack": "Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.\n    at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)\n    at ApiClient.clearCart (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:99:16)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-COUPON-coupon.spec.ts:31:16",
+                    "location": {
+                      "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                      "column": 21,
+                      "line": 34
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers/api-client.ts:34\n\n  32 |\n  33 |   post(endpoint: string, body: object = {}, token?: string) {\n> 34 |     return this.req.post(`${BASE}${endpoint}`, {\n     |                     ^\n  35 |       headers: this.headers(token),\n  36 |       data: body,\n  37 |     });"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                        "column": 21,
+                        "line": 34
+                      },
+                      "message": "Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.\n  - Recommended fix: use a separate { request } in the test.\n  - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.\nSee https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.\n\n   at helpers/api-client.ts:34\n\n  32 |\n  33 |   post(endpoint: string, body: object = {}, token?: string) {\n> 34 |     return this.req.post(`${BASE}${endpoint}`, {\n     |                     ^\n  35 |       headers: this.headers(token),\n  36 |       data: body,\n  37 |     });\n    at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)\n    at ApiClient.clearCart (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:99:16)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-COUPON-coupon.spec.ts:31:16"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.590Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/cart-TC-COUPON-coupon-TC-C-721dc-f-→-discount-10-of-subtotal/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                    "column": 21,
+                    "line": 34
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "63b86e58bd1243950264-8df85d212f03843b7441",
+          "file": "cart/TC-COUPON-coupon.spec.ts",
+          "line": 36,
+          "column": 5
+        },
+        {
+          "title": "TC-COUPON-002 | fixed coupon (SHIPFREE, $8 off) → discount = $8.00",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.690Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "63b86e58bd1243950264-a60824366e7e15466f06",
+          "file": "cart/TC-COUPON-coupon.spec.ts",
+          "line": 53,
+          "column": 5
+        },
+        {
+          "title": "TC-COUPON-003 | fixed coupon capped at subtotal (cannot produce negative total)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.690Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "63b86e58bd1243950264-683154ebc886c5924160",
+          "file": "cart/TC-COUPON-coupon.spec.ts",
+          "line": 70,
+          "column": 5
+        },
+        {
+          "title": "TC-COUPON-004 | invalid coupon code → 4xx (not found)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.690Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "63b86e58bd1243950264-1692ccda503c8e9af85c",
+          "file": "cart/TC-COUPON-coupon.spec.ts",
+          "line": 89,
+          "column": 5
+        },
+        {
+          "title": "TC-COUPON-005 | inactive coupon (VIP25 with subtotal below min) → 400",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.690Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "63b86e58bd1243950264-d9f5091f751b9860bc2c",
+          "file": "cart/TC-COUPON-coupon.spec.ts",
+          "line": 97,
+          "column": 5
+        },
+        {
+          "title": "TC-COUPON-006 | minimum subtotal not met (WELCOME10 requires $50, subtotal $19) → 400",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.690Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "63b86e58bd1243950264-7fcfb23915a4d98547f8",
+          "file": "cart/TC-COUPON-coupon.spec.ts",
+          "line": 106,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "cart/TC-SHIP-shipping.spec.ts",
+      "file": "cart/TC-SHIP-shipping.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "TC-SHIP-001 | shipping_method=express → shipping cost = $18.00",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 4,
+                  "status": "failed",
+                  "duration": 0,
+                  "error": {
+                    "message": "Error: Registration failed: HTTP 500 — Internal Server Error",
+                    "stack": "Error: Registration failed: HTTP 500 — Internal Server Error\n    at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-SHIP-shipping.spec.ts:23:11",
+                    "location": {
+                      "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                      "column": 13,
+                      "line": 90
+                    },
+                    "snippet": "\u001b[90m   at \u001b[39mhelpers/api-client.ts:90\n\n  88 |     });\n  89 |     if (!reg.ok()) {\n> 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);\n     |             ^\n  91 |     }\n  92 |     return this.login(email, password);\n  93 |   }"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                        "column": 13,
+                        "line": 90
+                      },
+                      "message": "Error: Registration failed: HTTP 500 — Internal Server Error\n\n   at helpers/api-client.ts:90\n\n  88 |     });\n  89 |     if (!reg.ok()) {\n> 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);\n     |             ^\n  91 |     }\n  92 |     return this.login(email, password);\n  93 |   }\n    at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)\n    at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-SHIP-shipping.spec.ts:23:11"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.589Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/cart-TC-SHIP-shipping-TC-S-ef79e-press-→-shipping-cost-18-00/error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts",
+                    "column": 13,
+                    "line": 90
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "de85e60f6b991b7e283b-0274141b57ba0e13a693",
+          "file": "cart/TC-SHIP-shipping.spec.ts",
+          "line": 31,
+          "column": 5
+        },
+        {
+          "title": "TC-SHIP-002 | shipping_method=pickup → shipping cost = $0.00 (free)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.664Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "de85e60f6b991b7e283b-6ed0feebb83c5228cd2f",
+          "file": "cart/TC-SHIP-shipping.spec.ts",
+          "line": 40,
+          "column": 5
+        },
+        {
+          "title": "TC-SHIP-003 | invalid shipping method → 400 or 422",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.664Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "de85e60f6b991b7e283b-ff927e482737c6be7088",
+          "file": "cart/TC-SHIP-shipping.spec.ts",
+          "line": 55,
+          "column": 5
+        },
+        {
+          "title": "TC-SHIP-004 | empty shipping method string → 400 or 422",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "",
+              "projectName": "",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-04-03T15:36:48.664Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "de85e60f6b991b7e283b-a8fde708e25714b097e5",
+          "file": "cart/TC-SHIP-shipping.spec.ts",
+          "line": 61,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-04-03T15:36:48.275Z",
+    "duration": 420.582,
+    "expected": 0,
+    "skipped": 19,
+    "unexpected": 5,
+    "flaky": 0
+  }
+}

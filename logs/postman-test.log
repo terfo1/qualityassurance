@@ -1,0 +1,43 @@
+
+> novacart-playwright-smoke@1.0.0 test
+> node ./node_modules/@playwright/test/cli.js test
+
+
+Running 10 tests using 6 workers
+
+(node:55067) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55071) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55069) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55066) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55070) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55066) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55071) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55069) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55067) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:55070) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   6 [chromium] › auth.spec.ts:5:7 › Authentication smoke › login page loads (1.3s)
+  ✓   1 [chromium] › cart.spec.ts:5:7 › Cart and checkout smoke › unauthenticated user sees login required on cart page (1.4s)
+  ✓   5 [chromium] › auth.spec.ts:12:7 › Authentication smoke › invalid login shows validation or error message (1.4s)
+  ✓   2 [chromium] › admin.spec.ts:12:7 › Admin smoke › admin user can open admin control room (1.9s)
+  ✓   8 [chromium] › catalog.spec.ts:4:7 › Catalog smoke › home page loads (943ms)
+  ✓   7 [chromium] › cart.spec.ts:11:7 › Cart and checkout smoke › authenticated user can see cart page and pricing engine (1.0s)
+  ✓   9 [chromium] › catalog.spec.ts:11:7 › Catalog smoke › catalog page loads and shows product explorer (971ms)
+  ✓  10 [chromium] › catalog.spec.ts:18:7 › Catalog smoke › product details page opens for seeded product (888ms)
+  ✓   4 [chromium] › admin.spec.ts:5:7 › Admin smoke › non-admin user is blocked from admin page (3.7s)
+  ✓   3 [chromium] › auth.spec.ts:24:7 › Authentication smoke › authenticated user is shown as signed in (8.0s)
+
+  10 passed (12.0s)

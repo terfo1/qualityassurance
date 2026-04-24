@@ -1,0 +1,150 @@
+name: NovaCart CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  automated-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: novacart_ci
+          POSTGRES_USER: novacart
+          POSTGRES_PASSWORD: novacart
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U novacart -d novacart_ci"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 10
+
+    env:
+      DATABASE_URL: postgresql+psycopg://novacart:novacart@127.0.0.1:5432/novacart_ci
+      AUTH_SECRET: ci-secret
+      BASE_URL: http://127.0.0.1:8000
+      PYTHONUNBUFFERED: "1"
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+          cache-dependency-path: |
+            tests/package-lock.json
+            postman/package-lock.json
+
+      - name: Install backend dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run backend unit tests
+        run: python -m unittest discover -s backend_tests -p 'test_*.py' -v
+
+      - name: Run database migrations
+        run: alembic upgrade head
+
+      - name: Start API service
+        run: |
+          nohup uvicorn app.main:app --host 127.0.0.1 --port 8000 > uvicorn.log 2>&1 &
+          echo $! > uvicorn.pid
+
+      - name: Wait for API health
+        run: |
+          for attempt in $(seq 1 30); do
+            if curl -fsS "$BASE_URL/api/health" > /dev/null; then
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "API failed health check"
+          cat uvicorn.log
+          exit 1
+
+      - name: Install API test dependencies
+        working-directory: tests
+        run: npm ci
+
+      - name: Run API automated tests with HTML and JUnit reports
+        working-directory: tests
+        run: >
+          npx playwright test
+          --config=playwright.config.ts
+          --output=artifacts/output
+          --reporter=list,html,junit
+        env:
+          PLAYWRIGHT_HTML_OUTPUT_DIR: artifacts/html-report
+          PLAYWRIGHT_JUNIT_OUTPUT_FILE: artifacts/junit/api-tests.xml
+
+      - name: Install smoke test dependencies
+        working-directory: postman
+        run: |
+          npm ci
+          node ./node_modules/playwright/cli.js install --with-deps chromium
+
+      - name: Run smoke tests with HTML and JUnit reports
+        working-directory: postman
+        run: >
+          node ./node_modules/@playwright/test/cli.js test
+          --reporter=list,html,junit
+        env:
+          PLAYWRIGHT_HTML_OUTPUT_DIR: playwright-report
+          PLAYWRIGHT_JUNIT_OUTPUT_FILE: test-results/junit/smoke-tests.xml
+
+      - name: Upload API reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-artifacts
+          path: |
+            tests/artifacts/html-report
+            tests/artifacts/junit
+            tests/artifacts/output
+
+      - name: Upload smoke reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-test-artifacts
+          path: |
+            postman/playwright-report
+            postman/test-results
+
+      - name: Upload server logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: server-logs
+          path: uvicorn.log
+
+      - name: Alert on pipeline failure
+        if: failure() && secrets.FAILURE_WEBHOOK_URL != ''
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d "{\"text\":\"NovaCart CI failed for ${GITHUB_REPOSITORY} on ${GITHUB_REF_NAME}. Run: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}\"}" \
+            "${{ secrets.FAILURE_WEBHOOK_URL }}"
+
+      - name: Stop API service
+        if: always()
+        run: |
+          if [ -f uvicorn.pid ]; then
+            kill "$(cat uvicorn.pid)" || true
+          fi

@@ -1,0 +1,659 @@
+INFO:     127.0.0.1:55184 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55183 - "GET /auth HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55199 - "GET /api/products HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55193 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55196 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55195 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55195 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55246 - "GET /auth HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55245 - "GET /cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55248 - "GET /auth HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55246 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55245 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55252 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55254 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55253 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55255 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55248 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55253 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55256 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55249 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55247 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55250 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55257 - "GET /admin HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55251 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55258 - "GET /auth HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55257 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55259 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55258 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55261 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55260 - "GET /admin HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55260 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55262 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55251 - "GET /api/products HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55251 - "POST /api/cart/items HTTP/1.1" 201 Created
+INFO:     127.0.0.1:55263 - "GET /cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55263 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55264 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55262 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55260 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55306 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55305 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55303 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55304 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55262 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55260 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55306 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55305 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55306 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55304 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55303 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55262 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55246 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55252 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55246 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55309 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55307 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55308 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55310 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55252 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55309 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55246 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55310 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55307 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55308 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55252 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55304 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55303 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55262 - "GET /api/products?sort=featured HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55303 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55259 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55260 - "GET /api/orders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55257 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55317 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55315 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55316 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55304 - "GET /api/admin/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55318 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55259 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55257 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55317 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55315 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55318 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55316 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55259 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55257 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55248 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55255 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55322 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55320 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55319 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55321 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55248 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55255 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55320 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55322 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55319 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55321 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55248 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55255 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55257 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55318 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55264 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55329 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55263 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55327 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55328 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55330 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55264 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55257 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55329 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55263 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55327 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55330 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55328 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55252 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:55264 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55329 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55264 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55329 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55254 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55245 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55336 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55334 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55333 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55335 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55264 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55254 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55245 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55336 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55333 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55334 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55335 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55254 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55245 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55341 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55261 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55256 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55253 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55258 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55340 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55342 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55344 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55346 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55343 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55339 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55345 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55341 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55256 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55258 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55253 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55261 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55345 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55346 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55344 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55340 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55342 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55339 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55343 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55341 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55256 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55258 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55253 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55258 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55341 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55339 - "GET /api/products?sort=rating HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55253 - "GET /api/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55256 - "GET /api/products/featured HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55341 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55351 - "GET /catalog HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55351 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55352 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55361 - "GET /api/products HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55362 - "GET /product?id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55362 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55363 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55352 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55370 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55351 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55373 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55371 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55372 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55352 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55370 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55351 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55372 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55373 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55371 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55370 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55352 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55352 - "GET /api/products?sort=featured HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55370 - "GET /api/products/categories HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55370 - "GET /rerwerewtrwe HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55370 - "GET /rerwerewtrwe HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55362 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55363 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55387 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55386 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55384 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55388 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55363 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55362 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55384 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55388 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55387 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55386 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55362 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55363 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55362 - "GET /api/products/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56470 - "GET /api/metrics/health HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56471 - "GET /api/metrics/health HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56472 - "GET /api/products HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56489 - "GET /api/metrics/health HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56493 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56494 - "GET /api/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56498 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56499 - "POST /api/auth/login HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56504 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56505 - "POST /api/auth/login HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56507 - "POST /api/auth/login HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56508 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56565 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56566 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56567 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56564 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56567 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56564 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56566 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56566 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56567 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56564 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56564 - "GET /api/admin/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56567 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56566 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56564 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56564 - "GET /api/admin/dashboard HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:56567 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56567 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56564 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56567 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56567 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56564 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56567 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56564 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56564 - "GET /api/admin/dashboard HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:56571 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56564 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56564 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56564 - "POST /api/auth/register HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56572 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56564 - "POST /api/auth/register HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56564 - "POST /api/auth/register HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56573 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56573 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56573 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56573 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56564 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56574 - "POST /api/auth/login HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56578 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56581 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56579 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56580 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56582 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56578 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56578 - "POST /api/cart/clear HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56578 - "POST /api/cart/items HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56856 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56888 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56890 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56891 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56889 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56892 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56893 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56890 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56893 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56891 - "GET /api/admin/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56888 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56888 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56890 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56893 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56890 - "GET /api/admin/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56888 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56893 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56890 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56890 - "GET /api/admin/dashboard HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:56893 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56893 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56890 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56893 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56893 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56890 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56890 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56893 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56890 - "GET /api/admin/dashboard HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:56893 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56893 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56890 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56893 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56893 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56893 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56893 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56893 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56895 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56896 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56897 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56895 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56897 - "GET /api/products HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56897 - "GET /api/admin/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56898 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56899 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56899 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56900 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56900 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56900 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56901 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56900 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56902 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56903 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56900 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56904 - "POST /api/auth/login HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56903 - "GET /api/admin/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56902 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56902 - "POST /api/cart/clear HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56903 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56904 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56903 - "GET /api/admin/dashboard HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:56902 - "POST /api/cart/items HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56904 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56903 - "GET /api/products?category=Footwear HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56903 - "GET /api/products?min_price=30&max_price=70 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56903 - "GET /api/products?q=AeroFit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56903 - "GET /api/products?sort=price_asc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56903 - "GET /api/products?category=ZZZ_NONEXISTENT_CATEGORY_9999 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56903 - "GET /api/products?min_price=500&max_price=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56903 - "GET /api/products?featured=true HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56905 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56903 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56903 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56905 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56903 - "POST /api/admin/products HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56903 - "POST /api/admin/products HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56905 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56903 - "POST /api/cart/items HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56903 - "POST /api/cart/items HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56903 - "GET /api/products/9 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56907 - "POST /api/auth/register HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56907 - "POST /api/auth/register HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56907 - "POST /api/auth/register HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56908 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56908 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56909 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56910 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56912 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56912 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56912 - "GET /api/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56913 - "GET /api/products?q=%27%3B%20DROP%20TABLE%20products%3B-- HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56913 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56913 - "POST /api/admin/products HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56913 - "DELETE /api/admin/products/11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56913 - "POST /api/admin/products HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56913 - "GET /api/products/not-a-number HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56913 - "GET /api/products/-1 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56933 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56935 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56932 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56934 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56935 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56933 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56932 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56933 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56935 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56932 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56935 - "GET /api/admin/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56933 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56935 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56932 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56935 - "GET /api/admin/dashboard HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:56933 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56935 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56933 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56933 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56933 - "GET /api/auth/me HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:56935 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56935 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56933 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56935 - "GET /api/admin/dashboard HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:56933 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56933 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56933 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56933 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56933 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56933 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56933 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56936 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56937 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56938 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56939 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56939 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56939 - "POST /api/auth/register HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56940 - "POST /api/auth/login HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56939 - "POST /api/auth/register HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56939 - "POST /api/auth/register HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56947 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56950 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56946 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56948 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56949 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56947 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56953 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56954 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56952 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56952 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56954 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56953 - "POST /api/auth/register HTTP/1.1" 500 Internal Server Error
+INFO:     127.0.0.1:56954 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56954 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56954 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56954 - "POST /api/cart/clear HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56954 - "POST /api/cart/items HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56954 - "POST /api/orders HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56954 - "POST /api/cart/clear HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56954 - "POST /api/cart/items HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56954 - "POST /api/orders HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56957 - "GET /api/products?category=Footwear HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56959 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56958 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56957 - "GET /api/products?min_price=30&max_price=70 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56957 - "GET /api/products?q=AeroFit HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56957 - "GET /api/products?sort=price_asc HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56957 - "GET /api/products?category=ZZZ_NONEXISTENT_CATEGORY_9999 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56957 - "GET /api/products?min_price=500&max_price=10 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56957 - "GET /api/products?featured=true HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56967 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56964 - "GET /api/products?q=%27%3B%20DROP%20TABLE%20products%3B-- HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56967 - "GET /api/health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56966 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56965 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56965 - "GET /api/admin/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56967 - "GET /api/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56964 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56966 - "POST /api/auth/register HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56964 - "POST /api/admin/products HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56964 - "DELETE /api/admin/products/11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56966 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56966 - "POST /api/admin/products HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56964 - "POST /api/admin/products HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56966 - "POST /api/admin/products HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56964 - "GET /api/products/not-a-number HTTP/1.1" 422 Unprocessable Content
+INFO:     127.0.0.1:56964 - "GET /api/products/-1 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:56966 - "POST /api/cart/items HTTP/1.1" 201 Created
+INFO:     127.0.0.1:56966 - "POST /api/cart/items HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56966 - "GET /api/products/11 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56968 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56968 - "GET /api/products HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56968 - "GET /api/admin/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56969 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56969 - "GET /api/admin/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56969 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56969 - "GET /api/admin/dashboard HTTP/1.1" 403 Forbidden
+INFO:     127.0.0.1:57009 - "GET /cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57010 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57009 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57013 - "GET /auth HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57013 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57014 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57012 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57016 - "GET /admin HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57016 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57017 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57018 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57030 - "GET /auth HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57030 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57031 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57036 - "GET /auth HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57036 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57037 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57029 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57042 - "GET /admin HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57042 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57043 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57014 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57013 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57054 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57055 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57056 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57057 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57014 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57054 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57056 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57013 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57057 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57055 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57014 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57056 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57031 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57030 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57061 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57062 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57060 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57063 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57031 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57030 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57060 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57062 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57061 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57063 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57030 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57031 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57009 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57065 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57010 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57066 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57064 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57067 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57064 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57010 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57065 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57066 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57009 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57067 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57064 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57066 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57056 - "POST /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57016 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57017 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57073 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57074 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57076 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57075 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57072 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57016 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57077 - "GET / HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57074 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57073 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57075 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57017 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57076 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57016 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57077 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57078 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57073 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57072 - "GET /api/products HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57073 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57016 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57076 - "GET /api/products?sort=featured HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57072 - "POST /api/cart/items HTTP/1.1" 201 Created
+INFO:     127.0.0.1:57016 - "GET /api/admin/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57075 - "GET /api/orders HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57073 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57085 - "GET /cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57085 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57086 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57087 - "GET /catalog HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57087 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57092 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57078 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57077 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57101 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57098 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57099 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57100 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57077 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57078 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57101 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57099 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57098 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57100 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57077 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57078 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57100 - "GET /api/products?sort=rating HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57078 - "GET /api/products/featured HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57077 - "GET /api/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57085 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57104 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57107 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57106 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57105 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57086 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57106 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57104 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57085 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57107 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57105 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57086 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57087 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57106 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57092 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57104 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57109 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57108 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57112 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57111 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57087 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57012 - "GET /api/products HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57109 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57108 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57111 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57092 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57112 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57087 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57108 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57113 - "GET /product?id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57104 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57113 - "GET /static/styles.css HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57116 - "GET /static/app.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57087 - "GET /api/products/categories HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57108 - "GET /api/products?sort=featured HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57108 - "GET /img/good.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57087 - "GET /img/bad.jpg HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:57106 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57104 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57116 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57113 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57133 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57136 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57134 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57135 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57133 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57116 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57135 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57136 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57134 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57113 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57116 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57134 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57134 - "GET /api/products/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57043 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57144 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57145 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57143 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57042 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57146 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57146 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57143 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57144 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57145 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57042 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57043 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57146 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57144 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57144 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57146 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57144 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57152 - "GET /static/js/components/Nav.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57153 - "GET /static/js/pages/HomePage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57150 - "GET /static/js/core/api.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57149 - "GET /static/js/core/react.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57151 - "GET /static/js/core/router.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57154 - "GET /static/js/pages/CatalogPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57151 - "GET /static/js/pages/AdminPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57152 - "GET /static/js/pages/ProductPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57153 - "GET /static/js/components/ProductCard.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57154 - "GET /static/js/pages/CartPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57150 - "GET /static/js/pages/AuthPage.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57149 - "GET /static/js/core/utils.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57153 - "GET /static/js/components/SectionHeader.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57151 - "GET /static/js/components/MessageBanner.js HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57151 - "GET /api/auth/me HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57153 - "GET /api/cart HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57151 - "GET /api/cart HTTP/1.1" 200 OK

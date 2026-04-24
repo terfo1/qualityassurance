@@ -1,0 +1,638 @@
+
+> novacart-api-tests@1.0.0 test
+> npx playwright test --config=playwright.config.ts
+
+
+Running 111 tests using 6 workers
+
+[31mConfiguration Error: HTML reporter output folder clashes with the tests output folder:[39m
+
+    html reporter folder: [1m/Users/marioscordia/Desktop/qualityassurance/tests/test-results/html[22m
+    test results folder: [1m/Users/marioscordia/Desktop/qualityassurance/tests/test-results[22m
+
+HTML reporter will clear its output directory prior to being generated, which will lead to the artifact loss.
+
+(node:54481) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54483) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54480) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54484) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54482) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54485) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54485) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54480) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54482) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54481) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54484) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54483) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓    3 auth/TC-AUTH-login.spec.ts:16:7 › Login — POST /api/auth/login › TC-LOGIN-001 | valid credentials → 200 with token string (61ms)
+  ✘    4 auth/TC-AUTH-registration.spec.ts:16:7 › Registration — POST /api/auth/register › TC-AUTH-001 | valid payload → 201 with user object (no password exposed) (61ms)
+  ✘    5 cart/TC-CART-add-item.spec.ts:35:5 › TC-CART-001 | add valid in-stock product → 200, item appears in cart with correct line_total (0ms)
+  -    8 cart/TC-CART-add-item.spec.ts:51:5 › TC-CART-002 | adding same product twice increments quantity (upsert — no duplicates)
+  -    9 cart/TC-CART-add-item.spec.ts:67:5 › TC-CART-003 | quantity exceeds stock → 400 (InventoryError)
+  -   10 cart/TC-CART-add-item.spec.ts:74:5 › TC-CART-004 | non-existent product_id → 404 (NotFoundError)
+  -   11 cart/TC-CART-add-item.spec.ts:79:5 › TC-CART-005 | quantity = 0 → 422 (DTO validation, ge=1)
+  -   12 cart/TC-CART-add-item.spec.ts:84:5 › TC-CART-006 | quantity = 21 → 422 (DTO validation, le=20)
+  ✓    2 auth/TC-AUTHZ-authorization.spec.ts:17:7 › Authorization Middleware — get_current_user / get_admin_user › TC-AUTHZ-001 | valid customer token → 200 on customer-protected route (78ms)
+  ✓    6 auth/TC-TOKEN-security.spec.ts:19:7 › Token Security — create_token / decode_token › TC-TOKEN-001 | valid token resolves to correct user via /api/auth/me (75ms)
+  ✘    1 admin/TC-DASH-dashboard.spec.ts:18:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-001 | dashboard returns required metric fields with correct types (88ms)
+  ✓    7 auth/TC-AUTH-login.spec.ts:30:7 › Login — POST /api/auth/login › TC-LOGIN-002 | token encodes user identity (GET /api/auth/me returns correct user) (29ms)
+  ✓   13 auth/TC-AUTHZ-authorization.spec.ts:27:7 › Authorization Middleware — get_current_user / get_admin_user › TC-AUTHZ-002 | valid admin token → 200 on admin dashboard (37ms)
+  ✓   14 auth/TC-TOKEN-security.spec.ts:30:7 › Token Security — create_token / decode_token › TC-TOKEN-002 | two logins for same user produce different tokens (nonce uniqueness) (41ms)
+  ✘   15 auth/TC-AUTH-login.spec.ts:45:7 › Login — POST /api/auth/login › TC-LOGIN-003 | wrong password → 401 (no token in response) (26ms)
+  ✓   16 auth/TC-AUTHZ-authorization.spec.ts:42:7 › Authorization Middleware — get_current_user / get_admin_user › TC-AUTHZ-003 | missing Authorization header → 401 on protected route (9ms)
+(node:54493) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   18 auth/TC-AUTHZ-authorization.spec.ts:50:7 › Authorization Middleware — get_current_user / get_admin_user › TC-AUTHZ-004 | customer token on admin route → 403 (role check) (12ms)
+(node:54492) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   17 auth/TC-TOKEN-security.spec.ts:41:7 › Token Security — create_token / decode_token › TC-TOKEN-003 | tampered signature → 401 on protected endpoint (25ms)
+  ✓   19 auth/TC-AUTHZ-authorization.spec.ts:59:7 › Authorization Middleware — get_current_user / get_admin_user › TC-AUTHZ-005 | invalid/corrupted token → 401 on protected route (4ms)
+  ✓   20 auth/TC-TOKEN-security.spec.ts:52:7 › Token Security — create_token / decode_token › TC-TOKEN-004 | fully fabricated token → 401 (must not raise 500) (9ms)
+(node:54494) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   22 auth/TC-TOKEN-security.spec.ts:60:7 › Token Security — create_token / decode_token › TC-TOKEN-005 | token with wrong segment count → 401 (4ms)
+(node:54495) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   21 auth/TC-AUTHZ-authorization.spec.ts:66:7 › Authorization Middleware — get_current_user / get_admin_user › TC-AUTHZ-006 | newly registered customer cannot access admin routes (49ms)
+  ✘   24 cart/TC-CART-update-item.spec.ts:32:5 › TC-CART-007 | update quantity of existing item → 200, totals recalculated (0ms)
+  -   25 cart/TC-CART-update-item.spec.ts:45:5 › TC-CART-008 | update to quantity = 1 (boundary minimum) → 200, accepted
+  -   26 cart/TC-CART-update-item.spec.ts:58:5 › TC-CART-009 | new quantity exceeds available stock → 400 (InventoryError)
+  -   27 cart/TC-CART-update-item.spec.ts:64:5 › TC-CART-010 | product not in cart → 404 (NotFoundError)
+  ✓   23 auth/TC-TOKEN-security.spec.ts:73:7 › Password Hashing — hash_password / verify_password (via API) › TC-PWD-001 | same password registered twice produces different stored hashes (salt uniqueness) (78ms)
+  ✓   28 auth/TC-TOKEN-security.spec.ts:96:7 › Password Hashing — hash_password / verify_password (via API) › TC-PWD-002 | correct password verifies successfully (register → login round-trip) (41ms)
+(node:54497) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54492) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54493) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54494) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   29 auth/TC-TOKEN-security.spec.ts:112:7 › Password Hashing — hash_password / verify_password (via API) › TC-PWD-003 | wrong password fails verification → 401 (44ms)
+(node:54495) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   30 auth/TC-AUTH-registration.spec.ts:32:7 › Registration — POST /api/auth/register › TC-AUTH-002 | newly registered user defaults: role=customer, is_active=true (49ms)
+(node:54498) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   31 cart/TC-CART-remove-clear.spec.ts:31:5 › TC-CART-011 | remove existing item → 200, item absent from cart, totals updated (1ms)
+  -   34 cart/TC-CART-remove-clear.spec.ts:52:5 › TC-CART-012 | clear cart → 200, empty items list, all totals zero (except possible shipping base)
+  -   35 cart/TC-CART-remove-clear.spec.ts:68:5 › TC-CART-013 | remove product not in cart → 404 (NotFoundError)
+  -   36 cart/TC-CART-remove-clear.spec.ts:74:5 › TC-CART-014 | clear already-empty cart → 200 (idempotent, no error)
+  ✘   32 admin/TC-DASH-dashboard.spec.ts:38:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-002 | low_stock count = products where stock ≤ 5 (66ms)
+  ✘   33 auth/TC-AUTH-login.spec.ts:58:7 › Login — POST /api/auth/login › TC-LOGIN-004 | non-existent email → 401 (must not reveal whether email exists) (34ms)
+(node:54502) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54497) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54506) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54507) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   37 cart/TC-COUPON-coupon.spec.ts:36:5 › TC-COUPON-001 | percent coupon (WELCOME10, 10% off) → discount = 10% of subtotal (1ms)
+  -   38 cart/TC-COUPON-coupon.spec.ts:53:5 › TC-COUPON-002 | fixed coupon (SHIPFREE, $8 off) → discount = $8.00
+  -   39 cart/TC-COUPON-coupon.spec.ts:70:5 › TC-COUPON-003 | fixed coupon capped at subtotal (cannot produce negative total)
+  -   40 cart/TC-COUPON-coupon.spec.ts:89:5 › TC-COUPON-004 | invalid coupon code → 4xx (not found)
+  -   41 cart/TC-COUPON-coupon.spec.ts:97:5 › TC-COUPON-005 | inactive coupon (VIP25 with subtotal below min) → 400
+  -   42 cart/TC-COUPON-coupon.spec.ts:106:5 › TC-COUPON-006 | minimum subtotal not met (WELCOME10 requires $50, subtotal $19) → 400
+(node:54498) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54502) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   43 auth/TC-TOKEN-security.spec.ts:125:7 › Password Hashing — hash_password / verify_password (via API) › TC-PWD-004 | malformed/corrupted credential does not raise 500 (34ms)
+(node:54504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54509) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54506) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54507) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   45 auth/TC-AUTH-registration.spec.ts:48:7 › Registration — POST /api/auth/register › TC-AUTH-003 | duplicate email → 4xx (email already registered) (50ms)
+  -   48 auth/TC-AUTH-login.spec.ts:70:7 › Login — POST /api/auth/login › TC-LOGIN-005 | inactive user → 401
+  ✘   44 orders/TC-ORD-management.spec.ts:52:5 › TC-ORD-001 | GET /api/orders — user sees only their own orders (0ms)
+  -   50 orders/TC-ORD-management.spec.ts:64:5 › TC-ORD-002 | admin updates order status to fulfilled → 200, status persisted
+  -   51 orders/TC-ORD-management.spec.ts:75:5 › TC-ORD-003 | customer cannot update order status → 403
+  -   52 orders/TC-ORD-management.spec.ts:84:5 › TC-ORD-004 | invalid status value → 400 or 422
+  -   53 orders/TC-ORD-management.spec.ts:94:5 › TC-ORD-005 | User B cannot access User A's order → 403 or 404
+  -   54 orders/TC-ORD-management.spec.ts:100:5 › TC-ORD-006 | GET non-existent order → 404
+  ✓   49 auth/TC-AUTH-login.spec.ts:79:7 › Login — POST /api/auth/login › TC-LOGIN-006 | empty credentials → 422 (DTO validation) (13ms)
+  ✓   47 admin/TC-DASH-dashboard.spec.ts:54:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-003 | revenue ≥ 0 and is a finite number (not NaN) (58ms)
+  ✓   55 admin/TC-DASH-dashboard.spec.ts:65:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-004 | customer token → 403 (admin-only endpoint) (32ms)
+(node:54515) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   57 products/TC-CAT-catalog-filtering.spec.ts:19:7 › Catalog Filtering — GET /api/products › TC-CAT-001 | filter by category=Footwear → only Footwear products returned (14ms)
+  ✘   46 cart/TC-SHIP-shipping.spec.ts:31:5 › TC-SHIP-001 | shipping_method=express → shipping cost = $18.00 (1ms)
+  -   59 cart/TC-SHIP-shipping.spec.ts:40:5 › TC-SHIP-002 | shipping_method=pickup → shipping cost = $0.00 (free)
+  -   60 cart/TC-SHIP-shipping.spec.ts:55:5 › TC-SHIP-003 | invalid shipping method → 400 or 422
+  -   61 cart/TC-SHIP-shipping.spec.ts:61:5 › TC-SHIP-004 | empty shipping method string → 400 or 422
+  ✘   56 pricing/TC-PRICE-calculation.spec.ts:38:5 › TC-PRICE-001 | subtotal = sum of all line_totals (1ms)
+  -   62 pricing/TC-PRICE-calculation.spec.ts:53:5 › TC-PRICE-002 | tax = 8% of (subtotal − discount), applied AFTER coupon deduction
+  -   63 pricing/TC-PRICE-calculation.spec.ts:72:5 › TC-PRICE-003 | pickup shipping → shipping = $0, total unaffected by freight
+  -   64 pricing/TC-PRICE-calculation.spec.ts:88:5 › TC-PRICE-004 | all monetary values rounded to exactly 2 decimal places
+  -   65 pricing/TC-PRICE-calculation.spec.ts:104:5 › TC-PRICE-005 | fixed coupon > subtotal: discount capped at subtotal, total ≥ 0
+  -   66 pricing/TC-PRICE-calculation.spec.ts:119:5 › TC-PRICE-006 | empty cart → subtotal=0, discount=0, tax=0, total=shipping only
+(node:54518) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   58 products/TC-CAT-catalog-filtering.spec.ts:34:7 › Catalog Filtering — GET /api/products › TC-CAT-002 | price range filter is inclusive on both bounds (15ms)
+(node:54509) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   67 products/TC-CAT-catalog-filtering.spec.ts:52:7 › Catalog Filtering — GET /api/products › TC-CAT-003 | search by product name → matching product returned (11ms)
+  ✓   68 products/TC-CAT-catalog-filtering.spec.ts:62:7 › Catalog Filtering — GET /api/products › TC-CAT-004 | sort=price_asc → products ordered lowest to highest price (10ms)
+  ✓   69 products/TC-CAT-catalog-filtering.spec.ts:74:7 › Catalog Filtering — GET /api/products › TC-CAT-005 | unknown category → 200 with empty list (no server error) (8ms)
+  ✓   70 products/TC-CAT-catalog-filtering.spec.ts:83:7 › Catalog Filtering — GET /api/products › TC-CAT-006 | min_price > max_price → empty list or 422 (no crash) (9ms)
+(node:54519) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54522) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   72 products/TC-CAT-catalog-filtering.spec.ts:95:7 › Catalog Filtering — GET /api/products › TC-CAT-007 | featured=true → only featured products returned (10ms)
+(node:54515) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   71 orders/TC-INV-inventory.spec.ts:51:5 › TC-INV-001 | stock decremented by ordered quantity after successful checkout (1ms)
+  -   74 orders/TC-INV-inventory.spec.ts:66:5 › TC-INV-002 | multiple products: all stocks decremented atomically
+  -   75 orders/TC-INV-inventory.spec.ts:88:5 › TC-INV-003 | out-of-stock product (stock=0) blocks checkout → 400
+  -   76 orders/TC-INV-inventory.spec.ts:109:5 › TC-INV-004 | ordered quantity > stock → checkout rejected, stock does not go negative
+(node:54518) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   73 system/TC-DB-transactions.spec.ts:23:5 › TC-DB-001 | failed checkout rolls back — no stock decremented, no order created (111ms)
+  -   78 system/TC-DB-transactions.spec.ts:69:5 › TC-DB-002 | successful checkout commits atomically — stock, order, and cart all updated
+  -   79 system/TC-DB-transactions.spec.ts:103:5 › TC-DB-003 | session closed after each request — no connection pool exhaustion
+  -   80 system/TC-DB-transactions.spec.ts:117:5 › TC-DB-004 | duplicate email registration → 4xx (DB unique constraint, not 500)
+  ✓   77 auth/TC-AUTH-registration.spec.ts:62:7 › Registration — POST /api/auth/register › TC-AUTH-004 | password shorter than 8 chars → 422 (33ms)
+  ✓   82 auth/TC-AUTH-registration.spec.ts:71:7 › Registration — POST /api/auth/register › TC-AUTH-005 | email shorter than 5 chars → 422 (7ms)
+(node:54524) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓   83 auth/TC-AUTH-registration.spec.ts:80:7 › Registration — POST /api/auth/register › TC-AUTH-006 | full_name shorter than 2 chars → 422 (8ms)
+(node:54519) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54522) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54528) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘   81 orders/TC-ORDER-checkout.spec.ts:33:5 › TC-ORDER-001 | full checkout — order created with correct totals, stock decremented, cart cleared (1ms)
+  -   86 orders/TC-ORDER-checkout.spec.ts:68:5 › TC-ORDER-002 | order total snapshot is immutable (not affected by post-order cart changes)
+  -   87 orders/TC-ORDER-checkout.spec.ts:86:5 › TC-ORDER-003 | cart is empty after successful checkout
+  -   88 orders/TC-ORDER-checkout.spec.ts:98:5 › TC-ORDER-004 | checkout with empty cart → 400
+  -   89 orders/TC-ORDER-checkout.spec.ts:104:5 › TC-ORDER-005 | checkout when stock drops below cart quantity → 400, stock NOT decremented
+  -   90 orders/TC-ORDER-checkout.spec.ts:132:5 › TC-ORDER-006 | address shorter than 10 chars → 422 (DTO validation)
+  -   91 orders/TC-ORDER-checkout.spec.ts:139:5 › TC-ORDER-007 | missing required field (customer_name) → 422
+  -   92 orders/TC-ORDER-checkout.spec.ts:147:5 › TC-ORDER-008 | unauthenticated checkout → 401
+  ✘   84 products/TC-PROD-admin-crud.spec.ts:37:5 › TC-PROD-001 | create product with valid payload → 201, all fields persisted correctly (1ms)
+  -   93 products/TC-PROD-admin-crud.spec.ts:53:5 › TC-PROD-002 | created product appears in GET /api/products catalog
+  -   94 products/TC-PROD-admin-crud.spec.ts:69:5 › TC-PROD-005 | partial update (price only) → 200, other fields unchanged
+  -   95 products/TC-PROD-admin-crud.spec.ts:91:5 › TC-PROD-007 | delete product → removed from catalog
+  -   96 products/TC-PROD-admin-crud.spec.ts:109:5 › TC-PROD-003 | price = 0 → 422 (DTO: gt=0)
+  -   97 products/TC-PROD-admin-crud.spec.ts:114:5 › TC-PROD-004 | negative stock → 422 (DTO: ge=0)
+  -   98 products/TC-PROD-admin-crud.spec.ts:119:5 › TC-PROD-006 | update non-existent product → 404
+  -   99 products/TC-PROD-admin-crud.spec.ts:124:5 › TC-PROD-008 | delete non-existent product → 404
+  ✘   85 products/TC-REV-reviews.spec.ts:45:5 › TC-REV-001 | new review updates product average rating correctly (1ms)
+  -  100 products/TC-REV-reviews.spec.ts:70:5 › TC-REV-002 | first review on product sets rating exactly to that rating
+  -  101 products/TC-REV-reviews.spec.ts:87:5 › TC-REV-003 | rating = 6 (above max) → 422 (DTO: le=5)
+  -  102 products/TC-REV-reviews.spec.ts:98:5 › TC-REV-004 | comment shorter than 8 chars → 422 (DTO: min_length=8)
+  -  103 products/TC-REV-reviews.spec.ts:109:5 › TC-REV-005 | review on non-existent product → 404
+(node:54524) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:54528) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  104 system/TC-HEALTH-health-check.spec.ts:15:7 › Health Check — GET /api/metrics/health › TC-HEALTH-001 | health endpoint returns {status: ok, service: novacart} without auth (25ms)
+  ✓  106 system/TC-HEALTH-health-check.spec.ts:26:7 › Health Check — GET /api/metrics/health › TC-HEALTH-002 | health endpoint accessible without Authorization header (public route) (5ms)
+  ✓  107 system/TC-HEALTH-health-check.spec.ts:38:7 › System Metrics — GET /api/metrics › TC-METRICS-001 | metrics endpoint returns product, category, and order counts (12ms)
+  ✓  105 system/TC-VAL-input-validation.spec.ts:18:7 › Input Validation — cross-cutting security checks › TC-VAL-001 | SQL injection in search query → safe response (no DB error, no data leak) (28ms)
+  ✓  108 system/TC-VAL-input-validation.spec.ts:31:7 › Input Validation — cross-cutting security checks › TC-VAL-002 | XSS payload in product name → stored as literal string, not executed (37ms)
+  ✓  109 system/TC-VAL-input-validation.spec.ts:58:7 › Input Validation — cross-cutting security checks › TC-VAL-003 | name field exceeding max_length=80 → 422 (DTO enforcement) (6ms)
+  ✓  110 system/TC-VAL-input-validation.spec.ts:75:7 › Input Validation — cross-cutting security checks › TC-VAL-004 | non-integer product_id in path → 422 (FastAPI type coercion) (3ms)
+  ✓  111 system/TC-VAL-input-validation.spec.ts:83:7 › Input Validation — cross-cutting security checks › TC-VAL-005 | negative product_id in path → 404 (no product with negative ID) (8ms)
+
+
+  1) admin/TC-DASH-dashboard.spec.ts:18:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-001 | dashboard returns required metric fields with correct types 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"number"[39m
+    Received: [31m"object"[39m
+
+      28 |     expect(typeof body.orders).toBe("number");
+      29 |     expect(typeof body.revenue).toBe("number");
+    > 30 |     expect(typeof body.low_stock).toBe("number");
+         |                                   ^
+      31 |     // Non-negative sanity checks
+      32 |     expect(body.products).toBeGreaterThanOrEqual(0);
+      33 |     expect(body.orders).toBeGreaterThanOrEqual(0);
+        at /Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts:30:35
+
+    Error Context: test-results/admin-TC-DASH-dashboard-Ad-d5984-c-fields-with-correct-types/error-context.md
+
+  2) admin/TC-DASH-dashboard.spec.ts:38:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-002 | low_stock count = products where stock ≤ 5 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m0[39m
+    Received: [31m[][39m
+
+      49 |
+      50 |     // Dashboard low_stock must match our computed count
+    > 51 |     expect(dash.low_stock).toBe(expectedLowStock);
+         |                            ^
+      52 |   });
+      53 |
+      54 |   test("TC-DASH-003 | revenue ≥ 0 and is a finite number (not NaN)", async ({ request }) => {
+        at /Users/marioscordia/Desktop/qualityassurance/tests/admin/TC-DASH-dashboard.spec.ts:51:28
+
+    Error Context: test-results/admin-TC-DASH-dashboard-Ad-a23d5-nt-products-where-stock-≤-5/error-context.md
+
+  3) auth/TC-AUTH-login.spec.ts:45:7 › Login — POST /api/auth/login › TC-LOGIN-003 | wrong password → 401 (no token in response) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m401[39m
+    Received: [31m400[39m
+
+      51 |     });
+      52 |
+    > 53 |     expect(res.status()).toBe(401);
+         |                          ^
+      54 |     const body = await res.json();
+      55 |     expect(body.token).toBeUndefined();
+      56 |   });
+        at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts:53:26
+
+    Error Context: test-results/auth-TC-AUTH-login-Login-—-f62d7-→-401-no-token-in-response-/error-context.md
+
+  4) auth/TC-AUTH-login.spec.ts:58:7 › Login — POST /api/auth/login › TC-LOGIN-004 | non-existent email → 401 (must not reveal whether email exists) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m401[39m
+    Received: [31m400[39m
+
+      65 |
+      66 |     // 401, not 404 — prevents user enumeration
+    > 67 |     expect(res.status()).toBe(401);
+         |                          ^
+      68 |   });
+      69 |
+      70 |   test("TC-LOGIN-005 | inactive user → 401", async ({ request }) => {
+        at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts:67:26
+
+    Error Context: test-results/auth-TC-AUTH-login-Login-—-52a76-eveal-whether-email-exists-/error-context.md
+
+  5) auth/TC-AUTH-registration.spec.ts:16:7 › Registration — POST /api/auth/register › TC-AUTH-001 | valid payload → 201 with user object (no password exposed) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m"qa_17752305709971@test.novacart.local"[39m
+    Received: [31mundefined[39m
+
+      22 |     expect(res.status()).toBe(201);
+      23 |     const body = await res.json();
+    > 24 |     expect(body.email).toBe(payload.email);
+         |                        ^
+      25 |     expect(body.full_name).toBe(payload.full_name);
+      26 |     expect(body.id).toBeDefined();
+      27 |     // Sensitive fields must never be returned
+        at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-registration.spec.ts:24:24
+
+    Error Context: test-results/auth-TC-AUTH-registration--104b4-object-no-password-exposed-/error-context.md
+
+  6) auth/TC-AUTH-registration.spec.ts:32:7 › Registration — POST /api/auth/register › TC-AUTH-002 | newly registered user defaults: role=customer, is_active=true 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m201[39m
+    Received: [31m500[39m
+
+      35 |
+      36 |     const res = await client.post("/api/auth/register", payload);
+    > 37 |     expect(res.status()).toBe(201);
+         |                          ^
+      38 |     const body = await res.json();
+      39 |
+      40 |     // Default role must be 'customer', not admin
+        at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-registration.spec.ts:37:26
+
+    Error Context: test-results/auth-TC-AUTH-registration--ba7ca-ole-customer-is-active-true/error-context.md
+
+  7) auth/TC-AUTH-registration.spec.ts:48:7 › Registration — POST /api/auth/register › TC-AUTH-003 | duplicate email → 4xx (email already registered) 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      52 |     // First registration must succeed
+      53 |     const first = await client.post("/api/auth/register", payload);
+    > 54 |     expect(first.ok()).toBe(true);
+         |                        ^
+      55 |
+      56 |     // Second registration with same email must be rejected
+      57 |     const second = await client.post("/api/auth/register", payload);
+        at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-registration.spec.ts:54:24
+
+    Error Context: test-results/auth-TC-AUTH-registration--1d163-x-email-already-registered-/error-context.md
+
+  8) auth/TC-TOKEN-security.spec.ts:112:7 › Password Hashing — hash_password / verify_password (via API) › TC-PWD-003 | wrong password fails verification → 401 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m401[39m
+    Received: [31m400[39m
+
+      120 |     });
+      121 |
+    > 122 |     expect(res.status()).toBe(401);
+          |                          ^
+      123 |   });
+      124 |
+      125 |   test("TC-PWD-004 | malformed/corrupted credential does not raise 500", async ({ request }) => {
+        at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-TOKEN-security.spec.ts:122:26
+
+    Error Context: test-results/auth-TC-TOKEN-security-Pas-38a5d-rd-fails-verification-→-401/error-context.md
+
+  9) cart/TC-CART-add-item.spec.ts:35:5 › TC-CART-001 | add valid in-stock product → 200, item appears in cart with correct line_total 
+
+    Error: Registration failed: HTTP 500 — Internal Server Error
+
+       at helpers/api-client.ts:90
+
+      88 |     });
+      89 |     if (!reg.ok()) {
+    > 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);
+         |             ^
+      91 |     }
+      92 |     return this.login(email, password);
+      93 |   }
+        at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-add-item.spec.ts:24:11
+
+    Error Context: test-results/cart-TC-CART-add-item-TC-C-03fbc-art-with-correct-line-total/error-context.md
+
+  10) cart/TC-CART-remove-clear.spec.ts:31:5 › TC-CART-011 | remove existing item → 200, item absent from cart, totals updated 
+
+    Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.
+      - Recommended fix: use a separate { request } in the test.
+      - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.
+    See https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.
+
+       at helpers/api-client.ts:34
+
+      32 |
+      33 |   post(endpoint: string, body: object = {}, token?: string) {
+    > 34 |     return this.req.post(`${BASE}${endpoint}`, {
+         |                     ^
+      35 |       headers: this.headers(token),
+      36 |       data: body,
+      37 |     });
+        at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)
+        at ApiClient.clearCart (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:99:16)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-remove-clear.spec.ts:26:16
+
+    Error Context: test-results/cart-TC-CART-remove-clear--55591-nt-from-cart-totals-updated/error-context.md
+
+  11) cart/TC-CART-update-item.spec.ts:32:5 › TC-CART-007 | update quantity of existing item → 200, totals recalculated 
+
+    Error: Registration failed: HTTP 500 — Internal Server Error
+
+       at helpers/api-client.ts:90
+
+      88 |     });
+      89 |     if (!reg.ok()) {
+    > 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);
+         |             ^
+      91 |     }
+      92 |     return this.login(email, password);
+      93 |   }
+        at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-CART-update-item.spec.ts:21:11
+
+    Error Context: test-results/cart-TC-CART-update-item-T-82808-m-→-200-totals-recalculated/error-context.md
+
+  12) cart/TC-COUPON-coupon.spec.ts:36:5 › TC-COUPON-001 | percent coupon (WELCOME10, 10% off) → discount = 10% of subtotal 
+
+    Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.
+      - Recommended fix: use a separate { request } in the test.
+      - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.
+    See https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.
+
+       at helpers/api-client.ts:34
+
+      32 |
+      33 |   post(endpoint: string, body: object = {}, token?: string) {
+    > 34 |     return this.req.post(`${BASE}${endpoint}`, {
+         |                     ^
+      35 |       headers: this.headers(token),
+      36 |       data: body,
+      37 |     });
+        at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)
+        at ApiClient.clearCart (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:99:16)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-COUPON-coupon.spec.ts:31:16
+
+    Error Context: test-results/cart-TC-COUPON-coupon-TC-C-721dc-f-→-discount-10-of-subtotal/error-context.md
+
+  13) cart/TC-SHIP-shipping.spec.ts:31:5 › TC-SHIP-001 | shipping_method=express → shipping cost = $18.00 
+
+    Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.
+      - Recommended fix: use a separate { request } in the test.
+      - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.
+    See https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.
+
+       at helpers/api-client.ts:34
+
+      32 |
+      33 |   post(endpoint: string, body: object = {}, token?: string) {
+    > 34 |     return this.req.post(`${BASE}${endpoint}`, {
+         |                     ^
+      35 |       headers: this.headers(token),
+      36 |       data: body,
+      37 |     });
+        at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/cart/TC-SHIP-shipping.spec.ts:32:29
+
+    Error Context: test-results/cart-TC-SHIP-shipping-TC-S-ef79e-press-→-shipping-cost-18-00/error-context.md
+
+  14) orders/TC-INV-inventory.spec.ts:51:5 › TC-INV-001 | stock decremented by ordered quantity after successful checkout 
+
+    Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.
+      - Recommended fix: use a separate { request } in the test.
+      - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.
+    See https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.
+
+       at helpers/api-client.ts:34
+
+      32 |
+      33 |   post(endpoint: string, body: object = {}, token?: string) {
+    > 34 |     return this.req.post(`${BASE}${endpoint}`, {
+         |                     ^
+      35 |       headers: this.headers(token),
+      36 |       data: body,
+      37 |     });
+        at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)
+        at ApiClient.clearCart (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:99:16)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/orders/TC-INV-inventory.spec.ts:30:16
+
+    Error Context: test-results/orders-TC-INV-inventory-TC-4edba-y-after-successful-checkout/error-context.md
+
+  15) orders/TC-ORD-management.spec.ts:52:5 › TC-ORD-001 | GET /api/orders — user sees only their own orders 
+
+    Error: Registration failed: HTTP 500 — Internal Server Error
+
+       at helpers/api-client.ts:90
+
+      88 |     });
+      89 |     if (!reg.ok()) {
+    > 90 |       throw new Error(`Registration failed: HTTP ${reg.status()} — ${await reg.text()}`);
+         |             ^
+      91 |     }
+      92 |     return this.login(email, password);
+      93 |   }
+        at ApiClient.registerAndLogin (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:90:13)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/orders/TC-ORD-management.spec.ts:34:14
+
+    Error Context: test-results/orders-TC-ORD-management-T-d619e--sees-only-their-own-orders/error-context.md
+
+  16) orders/TC-ORDER-checkout.spec.ts:33:5 › TC-ORDER-001 | full checkout — order created with correct totals, stock decremented, cart cleared 
+
+    Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.
+      - Recommended fix: use a separate { request } in the test.
+      - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.
+    See https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.
+
+       at helpers/api-client.ts:34
+
+      32 |
+      33 |   post(endpoint: string, body: object = {}, token?: string) {
+    > 34 |     return this.req.post(`${BASE}${endpoint}`, {
+         |                     ^
+      35 |       headers: this.headers(token),
+      36 |       data: body,
+      37 |     });
+        at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)
+        at ApiClient.clearCart (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:99:16)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/orders/TC-ORDER-checkout.spec.ts:28:16
+
+    Error Context: test-results/orders-TC-ORDER-checkout-T-dce4b-ck-decremented-cart-cleared/error-context.md
+
+  17) pricing/TC-PRICE-calculation.spec.ts:38:5 › TC-PRICE-001 | subtotal = sum of all line_totals ─
+
+    Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.
+      - Recommended fix: use a separate { request } in the test.
+      - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.
+    See https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.
+
+       at helpers/api-client.ts:34
+
+      32 |
+      33 |   post(endpoint: string, body: object = {}, token?: string) {
+    > 34 |     return this.req.post(`${BASE}${endpoint}`, {
+         |                     ^
+      35 |       headers: this.headers(token),
+      36 |       data: body,
+      37 |     });
+        at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)
+        at ApiClient.clearCart (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:99:16)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/pricing/TC-PRICE-calculation.spec.ts:33:16
+
+    Error Context: test-results/pricing-TC-PRICE-calculati-8aad6-otal-sum-of-all-line-totals/error-context.md
+
+  18) products/TC-PROD-admin-crud.spec.ts:37:5 › TC-PROD-001 | create product with valid payload → 201, all fields persisted correctly 
+
+    Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.
+      - Recommended fix: use a separate { request } in the test.
+      - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.
+    See https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.
+
+       at helpers/api-client.ts:34
+
+      32 |
+      33 |   post(endpoint: string, body: object = {}, token?: string) {
+    > 34 |     return this.req.post(`${BASE}${endpoint}`, {
+         |                     ^
+      35 |       headers: this.headers(token),
+      36 |       data: body,
+      37 |     });
+        at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/products/TC-PROD-admin-crud.spec.ts:40:29
+
+    Error Context: test-results/products-TC-PROD-admin-cru-be7ee--fields-persisted-correctly/error-context.md
+
+    Error Context: test-results/products-TC-PROD-admin-cru-be7ee--fields-persisted-correctly/error-context.md
+
+  19) products/TC-REV-reviews.spec.ts:45:5 › TC-REV-001 | new review updates product average rating correctly 
+
+    Error: apiRequestContext.post: Fixture { request } from beforeAll cannot be reused in a test.
+      - Recommended fix: use a separate { request } in the test.
+      - Alternatively, manually create APIRequestContext in beforeAll and dispose it in afterAll.
+    See https://playwright.dev/docs/api-testing#sending-api-requests-from-ui-tests for more details.
+
+       at helpers/api-client.ts:34
+
+      32 |
+      33 |   post(endpoint: string, body: object = {}, token?: string) {
+    > 34 |     return this.req.post(`${BASE}${endpoint}`, {
+         |                     ^
+      35 |       headers: this.headers(token),
+      36 |       data: body,
+      37 |     });
+        at ApiClient.post (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:34:21)
+        at ApiClient.createProduct (/Users/marioscordia/Desktop/qualityassurance/tests/helpers/api-client.ts:119:28)
+        at freshProduct (/Users/marioscordia/Desktop/qualityassurance/tests/products/TC-REV-reviews.spec.ts:38:29)
+        at /Users/marioscordia/Desktop/qualityassurance/tests/products/TC-REV-reviews.spec.ts:46:22
+
+    Error Context: test-results/products-TC-REV-reviews-TC-43597-ct-average-rating-correctly/error-context.md
+
+    Error Context: test-results/products-TC-REV-reviews-TC-43597-ct-average-rating-correctly/error-context.md
+
+  20) system/TC-DB-transactions.spec.ts:23:5 › TC-DB-001 | failed checkout rolls back — no stock decremented, no order created 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32m5[39m
+    Received: [31mundefined[39m
+
+      58 |     expect(addBad.status()).toBe(400);
+      59 |     const goodCheck = await client.get(`/api/products/${goodProd.id}`);
+    > 60 |     expect((await goodCheck.json()).stock).toBe(5);
+         |                                            ^
+      61 |   }
+      62 |
+      63 |   await client.deleteProduct(goodProd.id, adminTok);
+        at /Users/marioscordia/Desktop/qualityassurance/tests/system/TC-DB-transactions.spec.ts:60:44
+
+    Error Context: test-results/system-TC-DB-transactions--d2f61-ecremented-no-order-created/error-context.md
+
+  20 failed
+    admin/TC-DASH-dashboard.spec.ts:18:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-001 | dashboard returns required metric fields with correct types 
+    admin/TC-DASH-dashboard.spec.ts:38:7 › Admin Dashboard — GET /api/admin/dashboard › TC-DASH-002 | low_stock count = products where stock ≤ 5 
+    auth/TC-AUTH-login.spec.ts:45:7 › Login — POST /api/auth/login › TC-LOGIN-003 | wrong password → 401 (no token in response) 
+    auth/TC-AUTH-login.spec.ts:58:7 › Login — POST /api/auth/login › TC-LOGIN-004 | non-existent email → 401 (must not reveal whether email exists) 
+    auth/TC-AUTH-registration.spec.ts:16:7 › Registration — POST /api/auth/register › TC-AUTH-001 | valid payload → 201 with user object (no password exposed) 
+    auth/TC-AUTH-registration.spec.ts:32:7 › Registration — POST /api/auth/register › TC-AUTH-002 | newly registered user defaults: role=customer, is_active=true 
+    auth/TC-AUTH-registration.spec.ts:48:7 › Registration — POST /api/auth/register › TC-AUTH-003 | duplicate email → 4xx (email already registered) 
+    auth/TC-TOKEN-security.spec.ts:112:7 › Password Hashing — hash_password / verify_password (via API) › TC-PWD-003 | wrong password fails verification → 401 
+    cart/TC-CART-add-item.spec.ts:35:5 › TC-CART-001 | add valid in-stock product → 200, item appears in cart with correct line_total 
+    cart/TC-CART-remove-clear.spec.ts:31:5 › TC-CART-011 | remove existing item → 200, item absent from cart, totals updated 
+    cart/TC-CART-update-item.spec.ts:32:5 › TC-CART-007 | update quantity of existing item → 200, totals recalculated 
+    cart/TC-COUPON-coupon.spec.ts:36:5 › TC-COUPON-001 | percent coupon (WELCOME10, 10% off) → discount = 10% of subtotal 
+    cart/TC-SHIP-shipping.spec.ts:31:5 › TC-SHIP-001 | shipping_method=express → shipping cost = $18.00 
+    orders/TC-INV-inventory.spec.ts:51:5 › TC-INV-001 | stock decremented by ordered quantity after successful checkout 
+    orders/TC-ORD-management.spec.ts:52:5 › TC-ORD-001 | GET /api/orders — user sees only their own orders 
+    orders/TC-ORDER-checkout.spec.ts:33:5 › TC-ORDER-001 | full checkout — order created with correct totals, stock decremented, cart cleared 
+    pricing/TC-PRICE-calculation.spec.ts:38:5 › TC-PRICE-001 | subtotal = sum of all line_totals ───
+    products/TC-PROD-admin-crud.spec.ts:37:5 › TC-PROD-001 | create product with valid payload → 201, all fields persisted correctly 
+    products/TC-REV-reviews.spec.ts:45:5 › TC-REV-001 | new review updates product average rating correctly 
+    system/TC-DB-transactions.spec.ts:23:5 › TC-DB-001 | failed checkout rolls back — no stock decremented, no order created 
+  1 skipped
+  53 did not run
+  37 passed (2.0s)

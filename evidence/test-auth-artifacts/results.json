@@ -1,0 +1,1242 @@
+{
+  "config": {
+    "configFile": "/Users/marioscordia/Desktop/qualityassurance/tests/playwright.config.ts",
+    "rootDir": "/Users/marioscordia/Desktop/qualityassurance/tests",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "",
+        "name": "",
+        "testDir": "/Users/marioscordia/Desktop/qualityassurance/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "test-results/html"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "auth/TC-AUTH-login.spec.ts",
+      "file": "auth/TC-AUTH-login.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Login — POST /api/auth/login",
+          "file": "auth/TC-AUTH-login.spec.ts",
+          "line": 13,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-LOGIN-001 | valid credentials → 200 with token string",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 57,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.501Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e4d8a606126c2bfab364-35b1af5e454966a5a973",
+              "file": "auth/TC-AUTH-login.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "TC-LOGIN-002 | token encodes user identity (GET /api/auth/me returns correct user)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 27,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.567Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e4d8a606126c2bfab364-eb4b9834ddb214e8515e",
+              "file": "auth/TC-AUTH-login.spec.ts",
+              "line": 30,
+              "column": 7
+            },
+            {
+              "title": "TC-LOGIN-003 | wrong password → 401 (no token in response)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 22,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m400\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m400\u001b[39m\n    at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts:53:26",
+                        "location": {
+                          "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts",
+                          "column": 26,
+                          "line": 53
+                        },
+                        "snippet": "  51 |     });\n  52 |\n> 53 |     expect(res.status()).toBe(401);\n     |                          ^\n  54 |     const body = await res.json();\n  55 |     expect(body.token).toBeUndefined();\n  56 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts",
+                            "column": 26,
+                            "line": 53
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m400\u001b[39m\n\n  51 |     });\n  52 |\n> 53 |     expect(res.status()).toBe(401);\n     |                          ^\n  54 |     const body = await res.json();\n  55 |     expect(body.token).toBeUndefined();\n  56 |   });\n    at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts:53:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.598Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/auth-TC-AUTH-login-Login-—-f62d7-→-401-no-token-in-response-/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts",
+                        "column": 26,
+                        "line": 53
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e4d8a606126c2bfab364-0e7eb3d1a631efa13f2d",
+              "file": "auth/TC-AUTH-login.spec.ts",
+              "line": 45,
+              "column": 7
+            },
+            {
+              "title": "TC-LOGIN-004 | non-existent email → 401 (must not reveal whether email exists)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 28,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m400\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m400\u001b[39m\n    at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts:67:26",
+                        "location": {
+                          "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts",
+                          "column": 26,
+                          "line": 67
+                        },
+                        "snippet": "  65 |\n  66 |     // 401, not 404 — prevents user enumeration\n> 67 |     expect(res.status()).toBe(401);\n     |                          ^\n  68 |   });\n  69 |\n  70 |   test(\"TC-LOGIN-005 | inactive user → 401\", async ({ request }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts",
+                            "column": 26,
+                            "line": 67
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m400\u001b[39m\n\n  65 |\n  66 |     // 401, not 404 — prevents user enumeration\n> 67 |     expect(res.status()).toBe(401);\n     |                          ^\n  68 |   });\n  69 |\n  70 |   test(\"TC-LOGIN-005 | inactive user → 401\", async ({ request }) => {\n    at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts:67:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.886Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/auth-TC-AUTH-login-Login-—-52a76-eveal-whether-email-exists-/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts",
+                        "column": 26,
+                        "line": 67
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "e4d8a606126c2bfab364-fb18b3d45f305ca1d2b0",
+              "file": "auth/TC-AUTH-login.spec.ts",
+              "line": 58,
+              "column": 7
+            },
+            {
+              "title": "TC-LOGIN-005 | inactive user → 401",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Requires DB-level deactivation; cover in integration test layer.",
+                      "location": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts",
+                        "line": 76,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 16,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:47.185Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Requires DB-level deactivation; cover in integration test layer.",
+                          "location": {
+                            "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-login.spec.ts",
+                            "line": 76,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "e4d8a606126c2bfab364-48a40993f2618c9d83e9",
+              "file": "auth/TC-AUTH-login.spec.ts",
+              "line": 70,
+              "column": 7
+            },
+            {
+              "title": "TC-LOGIN-006 | empty credentials → 422 (DTO validation)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:47.210Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "e4d8a606126c2bfab364-d29090baa53a8afca53a",
+              "file": "auth/TC-AUTH-login.spec.ts",
+              "line": 79,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "auth/TC-AUTH-registration.spec.ts",
+      "file": "auth/TC-AUTH-registration.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Registration — POST /api/auth/register",
+          "file": "auth/TC-AUTH-registration.spec.ts",
+          "line": 13,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-AUTH-001 | valid payload → 201 with user object (no password exposed)",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 59,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"qa_17752306065271@test.novacart.local\"\u001b[39m\nReceived: \u001b[31mundefined\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"qa_17752306065271@test.novacart.local\"\u001b[39m\nReceived: \u001b[31mundefined\u001b[39m\n    at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-registration.spec.ts:24:24",
+                        "location": {
+                          "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-registration.spec.ts",
+                          "column": 24,
+                          "line": 24
+                        },
+                        "snippet": "  22 |     expect(res.status()).toBe(201);\n  23 |     const body = await res.json();\n> 24 |     expect(body.email).toBe(payload.email);\n     |                        ^\n  25 |     expect(body.full_name).toBe(payload.full_name);\n  26 |     expect(body.id).toBeDefined();\n  27 |     // Sensitive fields must never be returned"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-registration.spec.ts",
+                            "column": 24,
+                            "line": 24
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"qa_17752306065271@test.novacart.local\"\u001b[39m\nReceived: \u001b[31mundefined\u001b[39m\n\n  22 |     expect(res.status()).toBe(201);\n  23 |     const body = await res.json();\n> 24 |     expect(body.email).toBe(payload.email);\n     |                        ^\n  25 |     expect(body.full_name).toBe(payload.full_name);\n  26 |     expect(body.id).toBeDefined();\n  27 |     // Sensitive fields must never be returned\n    at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-registration.spec.ts:24:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.501Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/auth-TC-AUTH-registration--104b4-object-no-password-exposed-/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-registration.spec.ts",
+                        "column": 24,
+                        "line": 24
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2667b1716797b5ac073e-549fe9cd4c9e33439bf3",
+              "file": "auth/TC-AUTH-registration.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "TC-AUTH-002 | newly registered user defaults: role=customer, is_active=true",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 45,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"customer\"\u001b[39m\nReceived: \u001b[31mundefined\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"customer\"\u001b[39m\nReceived: \u001b[31mundefined\u001b[39m\n    at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-registration.spec.ts:41:23",
+                        "location": {
+                          "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-registration.spec.ts",
+                          "column": 23,
+                          "line": 41
+                        },
+                        "snippet": "  39 |\n  40 |     // Default role must be 'customer', not admin\n> 41 |     expect(body.role).toBe(\"customer\");\n     |                       ^\n  42 |     // Account must be immediately usable — no manual activation required\n  43 |     expect(body.is_active).toBe(true);\n  44 |   });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-registration.spec.ts",
+                            "column": 23,
+                            "line": 41
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m\"customer\"\u001b[39m\nReceived: \u001b[31mundefined\u001b[39m\n\n  39 |\n  40 |     // Default role must be 'customer', not admin\n> 41 |     expect(body.role).toBe(\"customer\");\n     |                       ^\n  42 |     // Account must be immediately usable — no manual activation required\n  43 |     expect(body.is_active).toBe(true);\n  44 |   });\n    at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-registration.spec.ts:41:23"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.837Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/auth-TC-AUTH-registration--ba7ca-ole-customer-is-active-true/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-AUTH-registration.spec.ts",
+                        "column": 23,
+                        "line": 41
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "2667b1716797b5ac073e-cf7ecdb74bcf830375cb",
+              "file": "auth/TC-AUTH-registration.spec.ts",
+              "line": 32,
+              "column": 7
+            },
+            {
+              "title": "TC-AUTH-003 | duplicate email → 4xx (email already registered)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 48,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:47.153Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2667b1716797b5ac073e-c4a5986eac4433a7422a",
+              "file": "auth/TC-AUTH-registration.spec.ts",
+              "line": 48,
+              "column": 7
+            },
+            {
+              "title": "TC-AUTH-004 | password shorter than 8 chars → 422",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:47.211Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2667b1716797b5ac073e-4f2a87169e1fdc703d08",
+              "file": "auth/TC-AUTH-registration.spec.ts",
+              "line": 62,
+              "column": 7
+            },
+            {
+              "title": "TC-AUTH-005 | email shorter than 5 chars → 422",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:47.221Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2667b1716797b5ac073e-c755ab744dcd37c949ca",
+              "file": "auth/TC-AUTH-registration.spec.ts",
+              "line": 71,
+              "column": 7
+            },
+            {
+              "title": "TC-AUTH-006 | full_name shorter than 2 chars → 422",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:47.231Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2667b1716797b5ac073e-2037e7e7080bdfa68e33",
+              "file": "auth/TC-AUTH-registration.spec.ts",
+              "line": 80,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "auth/TC-AUTHZ-authorization.spec.ts",
+      "file": "auth/TC-AUTHZ-authorization.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Authorization Middleware — get_current_user / get_admin_user",
+          "file": "auth/TC-AUTHZ-authorization.spec.ts",
+          "line": 14,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-AUTHZ-001 | valid customer token → 200 on customer-protected route",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 57,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.504Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "655a7db132f2be8753cb-a5128c170b4d8eeeb834",
+              "file": "auth/TC-AUTHZ-authorization.spec.ts",
+              "line": 17,
+              "column": 7
+            },
+            {
+              "title": "TC-AUTHZ-002 | valid admin token → 200 on admin dashboard",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 34,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.570Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "655a7db132f2be8753cb-3270f90ba8db7795a83b",
+              "file": "auth/TC-AUTHZ-authorization.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "TC-AUTHZ-003 | missing Authorization header → 401 on protected route",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.610Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "655a7db132f2be8753cb-68cafd43b7d8816a0902",
+              "file": "auth/TC-AUTHZ-authorization.spec.ts",
+              "line": 42,
+              "column": 7
+            },
+            {
+              "title": "TC-AUTHZ-004 | customer token on admin route → 403 (role check)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 10,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.620Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "655a7db132f2be8753cb-ac9e48966c2f230c810b",
+              "file": "auth/TC-AUTHZ-authorization.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "TC-AUTHZ-005 | invalid/corrupted token → 401 on protected route",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.634Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "655a7db132f2be8753cb-9b9dfec7311892438fe4",
+              "file": "auth/TC-AUTHZ-authorization.spec.ts",
+              "line": 59,
+              "column": 7
+            },
+            {
+              "title": "TC-AUTHZ-006 | newly registered customer cannot access admin routes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 43,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.642Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "655a7db132f2be8753cb-eba7e72f54ef0442e0f4",
+              "file": "auth/TC-AUTHZ-authorization.spec.ts",
+              "line": 66,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "auth/TC-TOKEN-security.spec.ts",
+      "file": "auth/TC-TOKEN-security.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Token Security — create_token / decode_token",
+          "file": "auth/TC-TOKEN-security.spec.ts",
+          "line": 16,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-TOKEN-001 | valid token resolves to correct user via /api/auth/me",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 56,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.505Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8bc53980efa543ad9c2d-956e310387bfcb16c1e8",
+              "file": "auth/TC-TOKEN-security.spec.ts",
+              "line": 19,
+              "column": 7
+            },
+            {
+              "title": "TC-TOKEN-002 | two logins for same user produce different tokens (nonce uniqueness)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 39,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.571Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8bc53980efa543ad9c2d-47e571a80a0781211d4c",
+              "file": "auth/TC-TOKEN-security.spec.ts",
+              "line": 30,
+              "column": 7
+            },
+            {
+              "title": "TC-TOKEN-003 | tampered signature → 401 on protected endpoint",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 22,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.616Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8bc53980efa543ad9c2d-c609af24ee7016f1b443",
+              "file": "auth/TC-TOKEN-security.spec.ts",
+              "line": 41,
+              "column": 7
+            },
+            {
+              "title": "TC-TOKEN-004 | fully fabricated token → 401 (must not raise 500)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 8,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.643Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8bc53980efa543ad9c2d-e9b0d7da8bb45867c213",
+              "file": "auth/TC-TOKEN-security.spec.ts",
+              "line": 52,
+              "column": 7
+            },
+            {
+              "title": "TC-TOKEN-005 | token with wrong segment count → 401",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.655Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8bc53980efa543ad9c2d-4700b153cb2ad3e18b7a",
+              "file": "auth/TC-TOKEN-security.spec.ts",
+              "line": 60,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "Password Hashing — hash_password / verify_password (via API)",
+          "file": "auth/TC-TOKEN-security.spec.ts",
+          "line": 69,
+          "column": 6,
+          "specs": [
+            {
+              "title": "TC-PWD-001 | same password registered twice produces different stored hashes (salt uniqueness)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 73,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.663Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8bc53980efa543ad9c2d-c1331b7f89488d92bab2",
+              "file": "auth/TC-TOKEN-security.spec.ts",
+              "line": 73,
+              "column": 7
+            },
+            {
+              "title": "TC-PWD-002 | correct password verifies successfully (register → login round-trip)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 37,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.741Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8bc53980efa543ad9c2d-97254cc3564e9a2ffd80",
+              "file": "auth/TC-TOKEN-security.spec.ts",
+              "line": 96,
+              "column": 7
+            },
+            {
+              "title": "TC-PWD-003 | wrong password fails verification → 401",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "failed",
+                      "duration": 40,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m400\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m400\u001b[39m\n    at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-TOKEN-security.spec.ts:122:26",
+                        "location": {
+                          "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-TOKEN-security.spec.ts",
+                          "column": 26,
+                          "line": 122
+                        },
+                        "snippet": "  120 |     });\n  121 |\n> 122 |     expect(res.status()).toBe(401);\n      |                          ^\n  123 |   });\n  124 |\n  125 |   test(\"TC-PWD-004 | malformed/corrupted credential does not raise 500\", async ({ request }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-TOKEN-security.spec.ts",
+                            "column": 26,
+                            "line": 122
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m401\u001b[39m\nReceived: \u001b[31m400\u001b[39m\n\n  120 |     });\n  121 |\n> 122 |     expect(res.status()).toBe(401);\n      |                          ^\n  123 |   });\n  124 |\n  125 |   test(\"TC-PWD-004 | malformed/corrupted credential does not raise 500\", async ({ request }) => {\n    at /Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-TOKEN-security.spec.ts:122:26"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:46.783Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/marioscordia/Desktop/qualityassurance/tests/test-results/auth-TC-TOKEN-security-Pas-38a5d-rd-fails-verification-→-401/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/marioscordia/Desktop/qualityassurance/tests/auth/TC-TOKEN-security.spec.ts",
+                        "column": 26,
+                        "line": 122
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "8bc53980efa543ad9c2d-8d9ebcf68befe86efae5",
+              "file": "auth/TC-TOKEN-security.spec.ts",
+              "line": 112,
+              "column": 7
+            },
+            {
+              "title": "TC-PWD-004 | malformed/corrupted credential does not raise 500",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 32,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-04-03T15:36:47.082Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "8bc53980efa543ad9c2d-c021bf47468817b0e284",
+              "file": "auth/TC-TOKEN-security.spec.ts",
+              "line": 125,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-04-03T15:36:46.211Z",
+    "duration": 1035.6699999999998,
+    "expected": 21,
+    "skipped": 1,
+    "unexpected": 5,
+    "flaky": 0
+  }
+}
