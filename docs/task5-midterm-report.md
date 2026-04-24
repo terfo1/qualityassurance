@@ -1,5 +1,11 @@
 # Midterm Project: QA Implementation and Analysis
 
+**Group Name:** CSE-2506M  
+**Team Members:**  
+- Medet Akhmetov  
+- Sultangali Kozhanov  
+- Alisher Temirkhan
+
 ## 1. System Description
 
 NovaCart is a demo commerce platform built with a layered FastAPI backend, PostgreSQL persistence, Alembic migrations, and a React frontend served by the same application. The backend is organized into domain, application, infrastructure, and presentation layers, while the frontend supports integrated browser-based validation of the user journey.

@@ -4,6 +4,11 @@
 
 **Project:** NovaCart  
 **Document Type:** QA Test Strategy  
+**Group Name:** CSE-2506M  
+**Team Members:**  
+- Medet Akhmetov  
+- Sultangali Kozhanov  
+- Alisher Temirkhan  
 **Repository:** `/Users/marioscordia/Desktop/qualityassurance`  
 **Prepared From:** Existing strategy sections, saved evidence, logs, and generated metrics artifacts  
 **Date:** 2026-04-03
